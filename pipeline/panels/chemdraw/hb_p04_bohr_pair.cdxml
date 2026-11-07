@@ -43,10 +43,10 @@
 <graphic id="121" BoundingBox="133.66 97.45 140.16 103.95" GraphicType="Symbol" SymbolType="CirclePlus"/>
 <graphic id="122" BoundingBox="163.62 97.45 170.12 103.95" GraphicType="Symbol" SymbolType="CircleMinus"/>
 <graphic id="123" BoundingBox="141.91 102.20 151.87 102.20" GraphicType="Line" LineType="Dashed"/>
-<t id="124" p="40.00 137.00"><s font="3" size="9" face="0">His HC3 (146</s><s font="5" size="9" face="0">b</s><s font="3" size="9" face="0">)</s></t>
+<t id="124" p="40.00 137.00"><s font="5" size="9" face="0">b</s><s font="3" size="9" face="0">1 His</s><s font="3" size="9" face="64">146</s><s font="3" size="9" face="0"> (HC3)</s></t>
 <t id="125" p="40.00 148.00"><s font="3" size="8" face="0">imidazolium;</s></t>
 <t id="126" p="40.00 158.00"><s font="3" size="8" face="0">pKa raised in T</s></t>
-<t id="127" p="177.87 137.00"><s font="3" size="9" face="0">Asp FG1 (94</s><s font="5" size="9" face="0">b</s><s font="3" size="9" face="0">)</s></t>
+<t id="127" p="177.87 137.00"><s font="5" size="9" face="0">b</s><s font="3" size="9" face="0">1 Asp</s><s font="3" size="9" face="64">94</s><s font="3" size="9" face="0"> (FG1)</s></t>
 <t id="128" p="177.87 148.00"><s font="3" size="8" face="0">carboxylate</s></t>
 <t id="129" p="90.00 55.00"><s font="3" size="8" face="0">ion pair: intact in T, broken in R</s></t>
 <t id="130" p="50.00 209.00"><s font="3" size="11" face="0">HHb</s><s font="3" size="11" face="64">+</s><s font="3" size="11" face="0">  +  O</s><s font="3" size="11" face="32">2</s></t>
@@ -57,6 +57,6 @@
 <t id="135" p="45.00 237.00"><s font="3" size="8" face="0">high CO</s><s font="3" size="8" face="32">2</s></t>
 <t id="136" p="200.00 227.00"><s font="3" size="8" face="0">lungs: pH 7.4,</s></t>
 <t id="137" p="200.00 237.00"><s font="3" size="8" face="0">high pO</s><s font="3" size="8" face="32">2</s></t>
-<t id="138" p="50.00 257.00"><s font="3" size="8" face="0">Protonating His146 stabilizes the T-state ion pair and releases O</s><s font="3" size="8" face="32">2</s><s font="3" size="8" face="0"> (Bohr effect)</s></t>
+<t id="138" p="50.00 257.00"><s font="3" size="8" face="0">Protonating His</s><s font="3" size="8" face="64">146</s><s font="3" size="8" face="0"> stabilizes the T-state ion pair and releases O</s><s font="3" size="8" face="32">2</s><s font="3" size="8" face="0"> (Bohr effect)</s></t>
 </page>
 </CDXML>

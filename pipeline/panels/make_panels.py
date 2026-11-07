@@ -1,7 +1,18 @@
 """Builds the hemoglobin ChemDraw panels as CDXML."""
-import math, sys, os
+import math, sys, os, re
 from rdkit import Chem
 from cdxml import Doc, mol2d, preview, BL, text_width, SUB, SUP
+
+
+AA3 = "Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val"
+def res_runs(text, face=0):
+    """Split text into ChemDraw runs with residue numbers (His146, Glu6) as superscripts, Lehninger style."""
+    out, pos = [], 0
+    for mt in re.finditer(r"(?<=(?:%s))(\d+)" % AA3, text):
+        if mt.start() > pos: out.append((text[pos:mt.start()], face))
+        out.append((mt.group(1), face | SUP)); pos = mt.end()
+    if pos < len(text): out.append((text[pos:], face))
+    return out
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "."
 
@@ -129,8 +140,8 @@ def residue(d, kind, ox, oy):
 def panel3():
     d = Doc()
     def row(y, kind, title, note):
-        d.text(30, y - 44, [(title, 1)], size=10)
-        d.text(30, y - 32, note, size=8)
+        d.text(30, y - 44, res_runs(title, 1), size=10)
+        d.text(30, y - 32, res_runs(note), size=8)
         xr = 30 + text_width("Val–His–Leu–Thr–Pro", 10) + BL + 4   # label hangs to the left of its node
         x0, x1 = residue(d, kind, xr, y)
         d.text(xr + 2, y + (84 if kind == "Glu" else 52), "position 6", size=8)
@@ -166,8 +177,8 @@ def panel4():
     B += [(o2, cg, "1"), (cg, o1, "2"), (cg, cb2, "1")]
     d.add_fragment_raw(A, B)
     d.line(nx + 22, ny, ox - 20, oy, dashed=True)
-    d.text(cx - 70, cy + 42, "His HC3 (146β)", size=9); d.text(cx - 70, cy + 53, "imidazolium;", size=8); d.text(cx - 70, cy + 63, "pKa raised in T", size=8)
-    d.text(ox + 6, cy + 42, "Asp FG1 (94β)", size=9); d.text(ox + 6, cy + 53, "carboxylate", size=8)
+    d.text(cx - 70, cy + 42, res_runs("β1 His146 (HC3)"), size=9); d.text(cx - 70, cy + 53, "imidazolium;", size=8); d.text(cx - 70, cy + 63, "pKa raised in T", size=8)
+    d.text(ox + 6, cy + 42, res_runs("β1 Asp94 (FG1)"), size=9); d.text(ox + 6, cy + 53, "carboxylate", size=8)
     d.text(cx - 20, cy - 40, "ion pair: intact in T, broken in R", size=8)
     # Bohr equilibrium (Lehninger)
     y = 205
@@ -176,7 +187,7 @@ def panel4():
     d.text(200, y + 4, [("HbO", 0), ("2", SUB), ("  +  H", 0), ("+", SUP)], size=11)
     d.text(45, y + 22, "tissues: low pH,", size=8); d.text(45, y + 32, [("high CO", 0), ("2", SUB)], size=8)
     d.text(200, y + 22, "lungs: pH 7.4,", size=8); d.text(200, y + 32, [("high pO", 0), ("2", SUB)], size=8)
-    d.text(50, y + 52, [("Protonating His146 stabilizes the T-state ion pair and releases O", 0), ("2", SUB), (" (Bohr effect)", 0)], size=8)
+    d.text(50, y + 52, [("Protonating His", 0), ("146", SUP), (" stabilizes the T-state ion pair and releases O", 0), ("2", SUB), (" (Bohr effect)", 0)], size=8)
     d.write(os.path.join(OUT, "hb_p04_bohr_pair.cdxml"), 420, 280)
 
 if __name__ == "__main__":

@@ -19,7 +19,7 @@
 <font id="5" charset="Symbol" name="Symbol"/>
 </fonttable>
 <page id="149" BoundingBox="0 0 420 330" HeaderPosition="36" FooterPosition="36" PageOverlap="0" PrintTrimMarks="yes" HeightPages="1" WidthPages="1">
-<t id="101" p="30.00 46.00"><s font="3" size="10" face="1">Hb A (normal): Glu6</s></t>
+<t id="101" p="30.00 46.00"><s font="3" size="10" face="1">Hb A (normal): Glu</s><s font="3" size="10" face="65">6</s></t>
 <t id="102" p="30.00 58.00"><s font="3" size="8" face="0">glutamate: carboxylate, charged, keeps the surface hydrophilic</s></t>
 <fragment id="124">
 <n id="103" p="131.64 90.00" NodeType="Unspecified" IgnoreWarnings="yes"><t p="131.64 90.00"><s font="3" size="10" face="96">Pro–Thr–Leu–His–Val</s></t></n>
@@ -46,8 +46,8 @@
 </fragment>
 <graphic id="125" BoundingBox="150.26 135.65 156.76 142.15" GraphicType="Symbol" SymbolType="CircleMinus"/>
 <t id="126" p="148.04 174.00"><s font="3" size="8" face="0">position 6</s></t>
-<t id="127" p="30.00 192.00"><s font="3" size="10" face="1">Hb S (sickle): Val6</s></t>
-<t id="128" p="30.00 204.00"><s font="3" size="8" face="0">valine: isopropyl, hydrophobic; docks into the Phe85/Leu88 pocket of a neighbouring tetramer</s></t>
+<t id="127" p="30.00 192.00"><s font="3" size="10" face="1">Hb S (sickle): Val</s><s font="3" size="10" face="65">6</s></t>
+<t id="128" p="30.00 204.00"><s font="3" size="8" face="0">valine: isopropyl, hydrophobic; docks into the Phe</s><s font="3" size="8" face="64">85</s><s font="3" size="8" face="0">/Leu</s><s font="3" size="8" face="64">88</s><s font="3" size="8" face="0"> pocket of a neighbouring tetramer</s></t>
 <fragment id="146">
 <n id="129" p="131.64 236.00" NodeType="Unspecified" IgnoreWarnings="yes"><t p="131.64 236.00"><s font="3" size="10" face="96">Pro–Thr–Leu–His–Val</s></t></n>
 <n id="130" p="146.04 236.00" Element="7" NumHydrogens="1"/>

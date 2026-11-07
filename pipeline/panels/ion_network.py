@@ -1,7 +1,7 @@
 """Lehninger Fig. 5-9 ion pairs as a schematic, with T and R distances read from hemoglobin.json.
 Solid line = drawn in the 3D scene (breaks T -> R). Dashed grey = named in Lehninger, not drawn (does not break).
 Usage: python3 ion_network.py hemoglobin.json out.svg"""
-import json, sys
+import json, sys, re
 from html import escape
 
 FONT = "Arial, Helvetica, 'Liberation Sans', sans-serif"
@@ -17,6 +17,11 @@ ROWS = [  # (json name, left node, right node, right side of interface?)
     ("Arg141α carboxylate–Val1α′ amine",
      ("alpha1", "α1 Arg141 (HC3)", "C-terminal carboxylate"), ("alpha2", "α2 Val1 (NA1)", "N-terminal amino group"), True),
 ]
+
+AA3 = "Ala|Arg|Asn|Asp|Cys|Gln|Glu|Gly|His|Ile|Leu|Lys|Met|Phe|Pro|Ser|Thr|Trp|Tyr|Val"
+def sup(text):
+    """Escape text and set residue numbers (His146) as superscripts, Lehninger style."""
+    return re.sub(r"(?<=(?:%s))(\d+)" % AA3, r'<tspan baseline-shift="super" font-size="68%">\1</tspan>', escape(text))
 
 def main(jpath, out):
     d = json.load(open(jpath))
@@ -44,7 +49,7 @@ def main(jpath, out):
         tcol = "#777" if grey else "#111"
         a(f'<rect x="{x0}" y="{y0}" width="{x1 - x0}" height="{h}" rx="6" fill="#fff" stroke="{stroke}" stroke-width="1.2"/>')
         a(f'<rect x="{x0}" y="{y0}" width="9" height="{h}" rx="3" fill="{CHAIN[chain]}" opacity="{0.55 if grey else 1}"/>')
-        a(f'<text x="{x0 + 18}" y="{yc - 4}" font-size="15" fill="{tcol}">{escape(title)}</text>')
+        a(f'<text x="{x0 + 18}" y="{yc - 4}" font-size="15" fill="{tcol}">{sup(title)}</text>')
         a(f'<text x="{x0 + 18}" y="{yc + 16}" font-size="12" fill="{"#888" if grey else "#555"}">{escape(sub)}</text>')
 
     y = 118

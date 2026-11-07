@@ -38,19 +38,20 @@ from Bio.PDB import PDBParser  # noqa: E402
 # --------------------------------------------------------------------------
 
 NAMED_RESIDUES = [
-    # role, resnum, resname, tag, label
-    ("alpha", 87, "HIS", "proximal_his", "His F8 (α87)"),
-    ("beta", 92, "HIS", "proximal_his", "His F8 (β92)"),
-    ("alpha", 58, "HIS", "distal_his", "His E7 (α58)"),
-    ("beta", 63, "HIS", "distal_his", "His E7 (β63)"),
-    ("beta", 146, "HIS", "ionpair", "His HC3 (β146)"),
-    ("beta", 94, "ASP", "ionpair", "Asp FG1 (β94)"),
-    ("alpha", 40, "LYS", "ionpair", "Lys C5 (α40)"),
-    ("alpha", 141, "ARG", "ionpair", "Arg HC3 (α141)"),
-    ("alpha", 126, "ASP", "ionpair", "Asp H9 (α126)"),
-    ("alpha", 1, "VAL", "ionpair", "Val NA1 (α1)"),
-    ("alpha", 127, "LYS", "ionpair", "Lys H10 (α127)"),
+    # role, resnum, resname, tag, helix position; the label is built as "α1 His⁸⁷ (F8)" (Lehninger superscripts)
+    ("alpha", 87, "HIS", "proximal_his", "F8"),
+    ("beta", 92, "HIS", "proximal_his", "F8"),
+    ("alpha", 58, "HIS", "distal_his", "E7"),
+    ("beta", 63, "HIS", "distal_his", "E7"),
+    ("beta", 146, "HIS", "ionpair", "HC3"),
+    ("beta", 94, "ASP", "ionpair", "FG1"),
+    ("alpha", 40, "LYS", "ionpair", "C5"),
+    ("alpha", 141, "ARG", "ionpair", "HC3"),
+    ("alpha", 126, "ASP", "ionpair", "H9"),
+    ("alpha", 1, "VAL", "ionpair", "NA1"),
+    ("alpha", 127, "LYS", "ionpair", "H10"),
 ]
+SUPERSCRIPT = str.maketrans("0123456789", "⁰¹²³⁴⁵⁶⁷⁸⁹")
 
 # Lehninger Fig. 5-9 ion pairs, written by subunit role. Each entry is tried
 # at the primary interface and at its symmetric mate (swap 1<->2).
@@ -445,7 +446,7 @@ def main():
                 notes.append(f"{role} {resname}{resnum}: atoms {missing} missing in R, dropped")
             key = f"{role}:{resnum}"
             res_index[key] = (rt, rr)
-            lab = label.replace("(α", f"({CHAIN_LABEL[role]}").replace("(β", f"({CHAIN_LABEL[role]}")
+            lab = f"{CHAIN_LABEL[role]} {resname.title()}{str(resnum).translate(SUPERSCRIPT)} ({label})"
             residues_out.append({
                 "key": key, "chain": ct_id, "role": role, "resname": rt["resname"], "resnum": resnum,
                 "label": lab, "tag": tag,

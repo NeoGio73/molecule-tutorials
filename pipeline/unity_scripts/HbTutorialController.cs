@@ -71,7 +71,7 @@ namespace HbTutorial
                 new Checkpoint { track = Track.A_BCH3023, afterShot = "6", time = 160f,
                     question = "In working muscle, extra protons will:",
                     options = new[] { "Favor T and release O2", "Favor R and bind O2" }, correct = 0,
-                    wrongFeedback = "Protonated His146 re-forms its ion pair with Asp94, which stabilizes T." },
+                    wrongFeedback = "Protonated His\u00b9\u2074\u2076 re-forms its ion pair with Asp\u2079\u2074, which stabilizes T." },
                 new Checkpoint { track = Track.B_CHEM301, afterShot = "1", time = 20f,
                     question = "How many oxygen molecules can one hemoglobin carry at once?",
                     options = new[] { "1", "2", "4", "8" }, correct = 2,
@@ -234,7 +234,7 @@ namespace HbTutorial
                 if (sg != null)
                 {
                     if (sg.key == _active.clickKey) Correct();
-                    else { _feedback.text = "You clicked " + sg.name + "."; Wrong(); }
+                    else { var nm = sg.name; int cut = nm.IndexOf(" ["); if (cut > 0) nm = nm.Substring(0, cut); _feedback.text = "You clicked " + nm + "."; Wrong(); }
                 }
             }
         }
