@@ -1,0 +1,27 @@
+hb_prep report
+==============
+T chains by role: {'alpha1': 'A', 'beta1': 'B', 'alpha2': 'C', 'beta2': 'D'}
+R chains by role: {'alpha1': 'A', 'beta1': 'B', 'alpha2': 'C', 'beta2': 'D'}
+RMSD of alpha1beta1 CA after superposition: 0.94 Å
+Rotation of alpha2beta2 relative to alpha1beta1, T->R: 13.0° (Lehninger: ~15°)
+alpha1 heme: Fe out of plane T +0.45 Å, R +0.12 Å (toward His F8 = +); Fe–NE2(His F8) T 2.15 Å, R 1.94 Å
+beta1 heme: Fe out of plane T +0.33 Å, R -0.11 Å (toward His F8 = +); Fe–NE2(His F8) T 2.15 Å, R 2.07 Å
+alpha2 heme: Fe out of plane T +0.34 Å, R +0.12 Å (toward His F8 = +); Fe–NE2(His F8) T 2.17 Å, R 1.94 Å
+beta2 heme: Fe out of plane T +0.38 Å, R -0.11 Å (toward His F8 = +); Fe–NE2(His F8) T 2.03 Å, R 2.07 Å
+ion pair His146β–Asp94β (intrachain)            primary   NE2…OD1  T 2.84 Å  R 12.53 Å
+ion pair His146β–Asp94β (intrachain)            symmetric NE2…OD1  T 2.71 Å  R 12.53 Å
+ion pair His146β carboxylate–Lys40α             primary   OXT…NZ  T 2.54 Å  R 13.20 Å
+ion pair His146β carboxylate–Lys40α             symmetric OXT…NZ  T 2.52 Å  R 13.20 Å
+ion pair Arg141α guanidinium–Asp126α′           primary   NH1…OD2  T 2.73 Å  R 9.11 Å
+ion pair Arg141α guanidinium–Asp126α′           symmetric NH1…OD2  T 2.64 Å  R 9.11 Å
+ion pair Arg141α carboxylate–Val1α′ amine       primary   O…N  T 4.78 Å  R 4.15 Å   <-- longer than a salt bridge; check this residue
+ion pair Arg141α carboxylate–Val1α′ amine       symmetric O…N  T 5.10 Å  R 4.15 Å   <-- longer than a salt bridge; check this residue
+ion pair Arg141α carboxylate–Lys127α′           primary   OXT…NZ  T 2.76 Å  R 4.47 Å
+ion pair Arg141α carboxylate–Lys127α′           symmetric OXT…NZ  T 2.56 Å  R 4.47 Å
+Sickle tetramers: [{'alpha1': 'A', 'beta1': 'B', 'alpha2': 'C', 'beta2': 'D'}, {'alpha1': 'E', 'beta1': 'F', 'alpha2': 'G', 'beta2': 'H'}]
+sickle contact: Val6 of H (tet 1) -> PHE85 of B (tet 0), 3.95 Å
+sickle contact: Val6 of H (tet 1) -> LEU88 of B (tet 0), 4.18 Å
+
+Notes
+-----
+R structure assembled from REMARK 350 (2 transforms)
