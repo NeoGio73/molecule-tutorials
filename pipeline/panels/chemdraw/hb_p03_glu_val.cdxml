@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE CDXML SYSTEM "http://www.cambridgesoft.com/xml/cdxml.dtd" >
+<CDXML CreationProgram="hb_pipeline cdxml.py" BondLength="14.40" BondSpacing="18" LineWidth="0.60" BoldWidth="2" HashSpacing="2.50" MarginWidth="1.60"
+ LabelFont="3" LabelSize="10" LabelFace="96" CaptionFont="3" CaptionSize="10" CaptionFace="0"
+ CaptionJustification="Left" FixInplaceExtent="6 0" AminoAcidTermini="HOH" ShowSequenceTermini="yes" ShowSequenceBonds="yes" ShowSequenceUnlinkedBranches="no" HideImplicitHydrogens="no">
+<colortable>
+<color r="1" g="1" b="1"/>
+<color r="0" g="0" b="0"/>
+<color r="1" g="0" b="0"/>
+<color r="1" g="1" b="0"/>
+<color r="0" g="1" b="0"/>
+<color r="0" g="1" b="1"/>
+<color r="0" g="0" b="1"/>
+<color r="1" g="0" b="1"/>
+</colortable>
+<fonttable>
+<font id="3" charset="iso-8859-1" name="Arial"/>
+<font id="4" charset="iso-8859-1" name="Times New Roman"/>
+<font id="5" charset="Symbol" name="Symbol"/>
+</fonttable>
+<page id="149" BoundingBox="0 0 420 330" HeaderPosition="36" FooterPosition="36" PageOverlap="0" PrintTrimMarks="yes" HeightPages="1" WidthPages="1">
+<t id="101" p="30.00 46.00"><s font="3" size="10" face="1">Hb A (normal): Glu6</s></t>
+<t id="102" p="30.00 58.00"><s font="3" size="8" face="0">glutamate: carboxylate, charged, keeps the surface hydrophilic</s></t>
+<fragment id="124">
+<n id="103" p="131.64 90.00" NodeType="Unspecified" IgnoreWarnings="yes"><t p="131.64 90.00"><s font="3" size="10" face="96">Pro–Thr–Leu–His–Val</s></t></n>
+<n id="104" p="146.04 90.00" Element="7" NumHydrogens="1"/>
+<n id="105" p="158.51 97.20"/>
+<n id="106" p="170.98 90.00"/>
+<n id="107" p="170.98 75.60" Element="8" NumHydrogens="0"/>
+<n id="108" p="183.45 97.20" NodeType="Unspecified" IgnoreWarnings="yes"><t p="183.45 97.20"><s font="3" size="10" face="96">Glu–Lys</s></t></n>
+<n id="109" p="158.51 111.60"/>
+<n id="110" p="170.98 118.80"/>
+<n id="111" p="170.98 133.20"/>
+<n id="112" p="183.45 140.40" Element="8" NumHydrogens="0"/>
+<n id="113" p="158.51 140.40" Element="8" NumHydrogens="0" IgnoreWarnings="yes"/>
+<b id="114" B="103" E="104" Order="1"/>
+<b id="115" B="104" E="105" Order="1"/>
+<b id="116" B="105" E="106" Order="1"/>
+<b id="117" B="106" E="107" Order="2"/>
+<b id="118" B="106" E="108" Order="1"/>
+<b id="119" B="105" E="109" Order="1"/>
+<b id="120" B="109" E="110" Order="1"/>
+<b id="121" B="110" E="111" Order="1"/>
+<b id="122" B="111" E="112" Order="2"/>
+<b id="123" B="111" E="113" Order="1"/>
+</fragment>
+<graphic id="125" BoundingBox="150.26 135.65 156.76 142.15" GraphicType="Symbol" SymbolType="CircleMinus"/>
+<t id="126" p="148.04 174.00"><s font="3" size="8" face="0">position 6</s></t>
+<t id="127" p="30.00 192.00"><s font="3" size="10" face="1">Hb S (sickle): Val6</s></t>
+<t id="128" p="30.00 204.00"><s font="3" size="8" face="0">valine: isopropyl, hydrophobic; docks into the Phe85/Leu88 pocket of a neighbouring tetramer</s></t>
+<fragment id="146">
+<n id="129" p="131.64 236.00" NodeType="Unspecified" IgnoreWarnings="yes"><t p="131.64 236.00"><s font="3" size="10" face="96">Pro–Thr–Leu–His–Val</s></t></n>
+<n id="130" p="146.04 236.00" Element="7" NumHydrogens="1"/>
+<n id="131" p="158.51 243.20"/>
+<n id="132" p="170.98 236.00"/>
+<n id="133" p="170.98 221.60" Element="8" NumHydrogens="0"/>
+<n id="134" p="183.45 243.20" NodeType="Unspecified" IgnoreWarnings="yes"><t p="183.45 243.20"><s font="3" size="10" face="96">Glu–Lys</s></t></n>
+<n id="135" p="158.51 257.60"/>
+<n id="136" p="146.04 264.80"/>
+<n id="137" p="170.98 264.80"/>
+<b id="138" B="129" E="130" Order="1"/>
+<b id="139" B="130" E="131" Order="1"/>
+<b id="140" B="131" E="132" Order="1"/>
+<b id="141" B="132" E="133" Order="2"/>
+<b id="142" B="132" E="134" Order="1"/>
+<b id="143" B="131" E="135" Order="1"/>
+<b id="144" B="135" E="136" Order="1"/>
+<b id="145" B="135" E="137" Order="1"/>
+</fragment>
+<t id="147" p="148.04 288.00"><s font="3" size="8" face="0">position 6</s></t>
+<t id="148" p="30.00 312.00"><s font="5" size="8" face="0">b</s><s font="3" size="8" face="0">-chain N-terminal sequence; only residue 6 is drawn</s></t>
+</page>
+</CDXML>

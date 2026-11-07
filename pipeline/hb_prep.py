@@ -63,6 +63,12 @@ ION_PAIRS = [
     ("Arg141α carboxylate–Lys127α′", "alpha1", 141, ["O", "OXT"], "alpha2", 127, ["NZ"]),
 ]
 
+# Measured and reported, but not drawn in the scene (decided Nov 7, 2026):
+#  - Val1α′: named in the narration as in Lehninger Fig. 5-9, but in 2HHB/1HHO the contact does not break
+#    (4.8 Å T -> 4.2 Å R), so a "breaking" line would contradict the narration.
+#  - Lys127α′: breaks in the structures (2.8 -> 4.5 Å) but is not in Lehninger's figure; documented in the paper only.
+HIDDEN_PAIRS = {"Arg141α carboxylate–Val1α′ amine", "Arg141α carboxylate–Lys127α′"}
+
 CHAIN_LABEL = {"alpha1": "α1", "beta1": "β1", "alpha2": "α2", "beta2": "β2"}
 HEME_PLANE_N = ["NA", "NB", "NC", "ND"]
 BOND_CUTOFF = 1.95  # Å, covalent heavy-atom bond
@@ -479,9 +485,10 @@ def main():
             ion_out.append({
                 "name": name, "side": interface,
                 "fromKey": ka, "fromAtom": an, "toKey": kb, "toAtom": bn,
-                "distT": round(dT, 2), "distR": round(dR, 2),
+                "distT": round(dT, 2), "distR": round(dR, 2), "hidden": name in HIDDEN_PAIRS,
             })
             flag = "" if dT < 4.0 else "   <-- longer than a salt bridge; check this residue"
+            if name in HIDDEN_PAIRS: flag += "   [not drawn]"
             rep.append(f"ion pair {name:38s} {interface:9s} {an}…{bn}  T {dT:.2f} Å  R {dR:.2f} Å{flag}")
 
     # ---- sickle ------------------------------------------------------------

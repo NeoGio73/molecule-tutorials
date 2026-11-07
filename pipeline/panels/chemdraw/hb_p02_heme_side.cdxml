@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE CDXML SYSTEM "http://www.cambridgesoft.com/xml/cdxml.dtd" >
+<CDXML CreationProgram="hb_pipeline cdxml.py" BondLength="14.40" BondSpacing="18" LineWidth="0.60" BoldWidth="2" HashSpacing="2.50" MarginWidth="1.60"
+ LabelFont="3" LabelSize="10" LabelFace="96" CaptionFont="3" CaptionSize="10" CaptionFace="0"
+ CaptionJustification="Left" FixInplaceExtent="6 0" AminoAcidTermini="HOH" ShowSequenceTermini="yes" ShowSequenceBonds="yes" ShowSequenceUnlinkedBranches="no" HideImplicitHydrogens="no">
+<colortable>
+<color r="1" g="1" b="1"/>
+<color r="0" g="0" b="0"/>
+<color r="1" g="0" b="0"/>
+<color r="1" g="1" b="0"/>
+<color r="0" g="1" b="0"/>
+<color r="0" g="1" b="1"/>
+<color r="0" g="0" b="1"/>
+<color r="1" g="0" b="1"/>
+</colortable>
+<fonttable>
+<font id="3" charset="iso-8859-1" name="Arial"/>
+<font id="4" charset="iso-8859-1" name="Times New Roman"/>
+<font id="5" charset="Symbol" name="Symbol"/>
+</fonttable>
+<page id="165" BoundingBox="0 0 580 300" HeaderPosition="36" FooterPosition="36" PageOverlap="0" PrintTrimMarks="yes" HeightPages="1" WidthPages="1">
+<graphic id="101" BoundingBox="98.00 170.00 202.00 170.00" GraphicType="Line" LineType="Bold"/>
+<fragment id="120">
+<n id="102" p="98.00 170.00" Element="7" NumHydrogens="0"/>
+<n id="103" p="202.00 170.00" Element="7" NumHydrogens="0"/>
+<n id="104" p="150.00 148.00" Element="26" NumHydrogens="0"/>
+<n id="105" p="150.00 175.36" Element="7" NumHydrogens="0"/>
+<n id="106" p="161.65 183.82"/>
+<n id="107" p="157.20 197.52" Element="7" NumHydrogens="1"/>
+<n id="108" p="142.80 197.52"/>
+<n id="109" p="138.35 183.82"/>
+<n id="110" p="134.34 209.17"/>
+<b id="111" B="102" E="104" Order="1"/>
+<b id="112" B="103" E="104" Order="1"/>
+<b id="113" B="105" E="106" Order="2"/>
+<b id="114" B="106" E="107" Order="1"/>
+<b id="115" B="107" E="108" Order="1"/>
+<b id="116" B="108" E="109" Order="2"/>
+<b id="117" B="109" E="105" Order="1"/>
+<b id="118" B="104" E="105" Order="dative"/>
+<b id="119" B="108" E="110" Order="1"/>
+</fragment>
+<t id="121" p="210.00 173.00"><s font="3" size="8" face="0">porphyrin</s></t>
+<t id="122" p="210.00 182.00"><s font="3" size="8" face="0">plane</s></t>
+<t id="123" p="90.34 213.17"><s font="3" size="9" face="0">His F8</s></t>
+<t id="124" p="90.34 223.17"><s font="3" size="8" face="0">(proximal)</s></t>
+<graphic id="125" BoundingBox="82.00 148.00 90.00 148.00" GraphicType="Line" LineType="Solid"/>
+<graphic id="126" BoundingBox="82.00 170.00 90.00 170.00" GraphicType="Line" LineType="Solid"/>
+<graphic id="127" BoundingBox="86.00 148.00 86.00 170.00" GraphicType="Line" LineType="Dashed"/>
+<t id="128" p="52.00 146.00"><s font="3" size="8" face="0">0.4 Å</s></t>
+<t id="129" p="80.00 70.00"><s font="3" size="10" face="1">T state (deoxy)</s></t>
+<t id="130" p="80.00 84.00"><s font="3" size="8" face="0">5-coordinate Fe, out of the plane</s></t>
+<t id="131" p="80.00 95.00"><s font="3" size="8" face="0">toward His F8 (exaggerated here)</s></t>
+<graphic id="132" BoundingBox="378.00 170.00 418.00 170.00" GraphicType="Line" LineType="Bold"/>
+<graphic id="133" BoundingBox="442.00 170.00 482.00 170.00" GraphicType="Line" LineType="Bold"/>
+<fragment id="156">
+<n id="134" p="378.00 170.00" Element="7" NumHydrogens="0"/>
+<n id="135" p="482.00 170.00" Element="7" NumHydrogens="0"/>
+<n id="136" p="430.00 170.00" Element="26" NumHydrogens="0"/>
+<n id="137" p="430.00 197.36" Element="7" NumHydrogens="0"/>
+<n id="138" p="441.65 205.82"/>
+<n id="139" p="437.20 219.52" Element="7" NumHydrogens="1"/>
+<n id="140" p="422.80 219.52"/>
+<n id="141" p="418.35 205.82"/>
+<n id="142" p="414.34 231.17"/>
+<n id="143" p="430.00 142.64" Element="8" NumHydrogens="0"/>
+<n id="144" p="442.47 135.44" Element="8" NumHydrogens="0"/>
+<b id="145" B="134" E="136" Order="1"/>
+<b id="146" B="135" E="136" Order="1"/>
+<b id="147" B="137" E="138" Order="2"/>
+<b id="148" B="138" E="139" Order="1"/>
+<b id="149" B="139" E="140" Order="1"/>
+<b id="150" B="140" E="141" Order="2"/>
+<b id="151" B="141" E="137" Order="1"/>
+<b id="152" B="136" E="137" Order="dative"/>
+<b id="153" B="140" E="142" Order="1"/>
+<b id="154" B="136" E="143" Order="1"/>
+<b id="155" B="143" E="144" Order="2"/>
+</fragment>
+<t id="157" p="490.00 173.00"><s font="3" size="8" face="0">porphyrin</s></t>
+<t id="158" p="490.00 182.00"><s font="3" size="8" face="0">plane</s></t>
+<t id="159" p="370.34 235.17"><s font="3" size="9" face="0">His F8</s></t>
+<t id="160" p="370.34 245.17"><s font="3" size="8" face="0">(proximal)</s></t>
+<t id="161" p="360.00 70.00"><s font="3" size="10" face="1">R state (oxy)</s></t>
+<t id="162" p="360.00 84.00"><s font="3" size="8" face="0">6-coordinate Fe, in the plane;</s></t>
+<t id="163" p="360.00 95.00"><s font="3" size="8" face="0">O</s><s font="3" size="8" face="32">2</s><s font="3" size="8" face="0"> bound on the distal side</s></t>
+<graphic id="164" BoundingBox="292.00 60.00 292.00 285.00" GraphicType="Line" LineType="Dashed"/>
+</page>
+</CDXML>

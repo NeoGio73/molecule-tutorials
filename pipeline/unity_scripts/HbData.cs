@@ -43,6 +43,7 @@ namespace HbTutorial
     [Serializable] public class HbIonPair
     {
         public string name, side, fromKey, fromAtom, toKey, toAtom; public float distT, distR;
+        public bool hidden;   // measured and reported, but not drawn (see hb_prep.py HIDDEN_PAIRS)
     }
 
     [Serializable] public class HbMetrics { public float rmsdAlpha1Beta1, rotationAlpha2Beta2Deg; }

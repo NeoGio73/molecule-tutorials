@@ -26,8 +26,24 @@ Lehninger Fig. 5-9 ion pairs, and the sickle double strand). `hemoglobin_report.
 (α2β2 rotation 13°, Fe 0.33–0.45 Å out of the heme plane in T, ion-pair distances in T and R).
 
 `pipeline/unity_scripts/` holds the Unity C# that turns the JSON into the scene: tube morphing, ball-and-stick,
-ion-pair lines, the shot sequence, the orbit camera and the checkpoint UI. The Unity project files are not in this
+ion-pair lines, the shot sequence, the 2D panel overlay, the orbit camera and the checkpoint UI. The Unity project files are not in this
 repository; they are available from the author on request.
+
+## 2D panels
+
+The flat figures that slide in beside the 3D scene live in `pipeline/panels/`:
+
+- `make_panels.py` (with `cdxml.py` and `heme_template.py`) writes the ChemDraw drawings as CDXML: heme b, the heme
+  side view in T and R, Glu6 vs Val6, and the His146β–Asp94β pair with the Bohr equilibrium. They are opened, checked
+  and exported to SVG in ChemDraw; the masters are in `chemdraw/`.
+- `binding_curve.py` computes the O₂ binding curves on Lehninger's axes from the Hill equation (Hb P₅₀ 3.5 kPa,
+  n_H = 3; Mb P₅₀ 0.26 kPa).
+- `ion_network.py` draws the Fig. 5-9 ion pairs with their T and R distances read from `hemoglobin.json`.
+- `web_svg.py` makes web-safe copies (Greek letters as Unicode, Arial with fallbacks); those are in `svg/`.
+
+One finding is kept visible rather than smoothed over: in 2HHB/1HHO the Arg141α carboxylate–Val1α′ contact named in
+Lehninger Fig. 5-9 does not break (4.8 Å in T, 4.2 Å in R), while Arg141α carboxylate–Lys127α′ does (2.8 → 4.5 Å).
+The narration follows Lehninger; the 3D scene draws only the pairs that break, and the report lists all of them.
 
 ## Credits
 

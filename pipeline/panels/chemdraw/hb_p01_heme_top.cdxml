@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE CDXML SYSTEM "http://www.cambridgesoft.com/xml/cdxml.dtd" >
+<CDXML CreationProgram="hb_pipeline cdxml.py" BondLength="14.40" BondSpacing="18" LineWidth="0.60" BoldWidth="2" HashSpacing="2.50" MarginWidth="1.60"
+ LabelFont="3" LabelSize="10" LabelFace="96" CaptionFont="3" CaptionSize="10" CaptionFace="0"
+ CaptionJustification="Left" FixInplaceExtent="6 0" AminoAcidTermini="HOH" ShowSequenceTermini="yes" ShowSequenceBonds="yes" ShowSequenceUnlinkedBranches="no" HideImplicitHydrogens="no">
+<colortable>
+<color r="1" g="1" b="1"/>
+<color r="0" g="0" b="0"/>
+<color r="1" g="0" b="0"/>
+<color r="1" g="1" b="0"/>
+<color r="0" g="1" b="0"/>
+<color r="0" g="1" b="1"/>
+<color r="0" g="0" b="1"/>
+<color r="1" g="0" b="1"/>
+</colortable>
+<fonttable>
+<font id="3" charset="iso-8859-1" name="Arial"/>
+<font id="4" charset="iso-8859-1" name="Times New Roman"/>
+<font id="5" charset="Symbol" name="Symbol"/>
+</fonttable>
+<page id="199" BoundingBox="0 0 400 375" HeaderPosition="36" FooterPosition="36" PageOverlap="0" PrintTrimMarks="yes" HeightPages="1" WidthPages="1">
+<fragment id="194">
+<n id="101" p="213.74 158.37" Element="7" NumHydrogens="0" IgnoreWarnings="yes"/>
+<n id="102" p="211.92 144.19"/>
+<n id="103" p="227.93 160.19"/>
+<n id="104" p="225.02 137.21"/>
+<n id="105" p="234.91 147.10"/>
+<n id="106" p="184.65 158.37" Element="7" NumHydrogens="0" IgnoreWarnings="yes"/>
+<n id="107" p="170.47 160.19"/>
+<n id="108" p="186.47 144.19"/>
+<n id="109" p="163.49 147.10"/>
+<n id="110" p="173.38 137.21"/>
+<n id="111" p="184.65 187.46" Element="7" NumHydrogens="0" IgnoreWarnings="yes"/>
+<n id="112" p="186.47 201.64"/>
+<n id="113" p="170.47 185.64"/>
+<n id="114" p="173.38 208.63"/>
+<n id="115" p="163.49 198.74"/>
+<n id="116" p="213.74 187.46" Element="7" NumHydrogens="0" IgnoreWarnings="yes"/>
+<n id="117" p="227.93 185.64"/>
+<n id="118" p="211.92 201.64"/>
+<n id="119" p="234.91 198.74"/>
+<n id="120" p="225.02 208.63"/>
+<n id="121" p="199.20 138.01"/>
+<n id="122" p="164.29 172.92"/>
+<n id="123" p="199.20 207.83"/>
+<n id="124" p="234.11 172.92"/>
+<n id="125" p="150.98 138.06"/>
+<n id="126" p="164.34 124.70"/>
+<n id="127" p="170.65 110.62"/>
+<n id="128" p="234.06 124.70"/>
+<n id="129" p="247.41 138.06"/>
+<n id="130" p="261.49 144.36"/>
+<n id="131" p="247.41 207.78"/>
+<n id="132" p="234.06 221.13"/>
+<n id="133" p="227.75 235.21"/>
+<n id="134" p="236.79 247.71"/>
+<n id="135" p="230.48 261.79" Element="8" NumHydrogens="0"/>
+<n id="136" p="252.14 246.14" Element="8" NumHydrogens="0" IgnoreWarnings="yes"/>
+<n id="137" p="164.34 221.13"/>
+<n id="138" p="170.65 235.21"/>
+<n id="139" p="161.61 247.71"/>
+<n id="140" p="167.91 261.79" Element="8" NumHydrogens="0"/>
+<n id="141" p="146.26 246.14" Element="8" NumHydrogens="0" IgnoreWarnings="yes"/>
+<n id="142" p="150.98 207.78"/>
+<n id="143" p="199.20 172.92" Element="26" NumHydrogens="0" IgnoreWarnings="yes"/>
+<b id="144" B="101" E="102" Order="1"/>
+<b id="145" B="101" E="103" Order="2"/>
+<b id="146" B="102" E="104" Order="1"/>
+<b id="147" B="103" E="105" Order="1"/>
+<b id="148" B="104" E="105" Order="2"/>
+<b id="149" B="106" E="107" Order="1"/>
+<b id="150" B="106" E="108" Order="1"/>
+<b id="151" B="107" E="109" Order="2"/>
+<b id="152" B="108" E="110" Order="2"/>
+<b id="153" B="109" E="110" Order="1"/>
+<b id="154" B="111" E="112" Order="2"/>
+<b id="155" B="111" E="113" Order="1"/>
+<b id="156" B="112" E="114" Order="1"/>
+<b id="157" B="113" E="115" Order="1"/>
+<b id="158" B="114" E="115" Order="2"/>
+<b id="159" B="116" E="117" Order="1"/>
+<b id="160" B="116" E="118" Order="1"/>
+<b id="161" B="117" E="119" Order="1"/>
+<b id="162" B="118" E="120" Order="1"/>
+<b id="163" B="119" E="120" Order="2"/>
+<b id="164" B="102" E="121" Order="2"/>
+<b id="165" B="108" E="121" Order="1"/>
+<b id="166" B="107" E="122" Order="1"/>
+<b id="167" B="113" E="122" Order="2"/>
+<b id="168" B="112" E="123" Order="1"/>
+<b id="169" B="118" E="123" Order="2"/>
+<b id="170" B="117" E="124" Order="2"/>
+<b id="171" B="103" E="124" Order="1"/>
+<b id="172" B="109" E="125" Order="1"/>
+<b id="173" B="110" E="126" Order="1"/>
+<b id="174" B="126" E="127" Order="2"/>
+<b id="175" B="104" E="128" Order="1"/>
+<b id="176" B="105" E="129" Order="1"/>
+<b id="177" B="129" E="130" Order="2"/>
+<b id="178" B="119" E="131" Order="1"/>
+<b id="179" B="120" E="132" Order="1"/>
+<b id="180" B="132" E="133" Order="1"/>
+<b id="181" B="133" E="134" Order="1"/>
+<b id="182" B="134" E="135" Order="2"/>
+<b id="183" B="134" E="136" Order="1"/>
+<b id="184" B="114" E="137" Order="1"/>
+<b id="185" B="137" E="138" Order="1"/>
+<b id="186" B="138" E="139" Order="1"/>
+<b id="187" B="139" E="140" Order="2"/>
+<b id="188" B="139" E="141" Order="1"/>
+<b id="189" B="115" E="142" Order="1"/>
+<b id="190" B="101" E="143" Order="1"/>
+<b id="191" B="106" E="143" Order="1"/>
+<b id="192" B="111" E="143" Order="1"/>
+<b id="193" B="116" E="143" Order="1"/>
+</fragment>
+<graphic id="195" BoundingBox="257.89 241.39 264.39 247.89" GraphicType="Symbol" SymbolType="CircleMinus"/>
+<graphic id="196" BoundingBox="138.01 241.39 144.51 247.89" GraphicType="Symbol" SymbolType="CircleMinus"/>
+<t id="197" p="110.00 345.00"><s font="3" size="11" face="0">Heme b (Fe-protoporphyrin IX)</s></t>
+<t id="198" p="110.00 358.00"><s font="3" size="9" face="0">Fe(II) bound by the four pyrrole nitrogens; propionates ionized at pH 7</s></t>
+</page>
+</CDXML>

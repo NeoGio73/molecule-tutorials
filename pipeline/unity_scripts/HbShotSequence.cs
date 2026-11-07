@@ -29,6 +29,7 @@ namespace HbTutorial
         public HbMorphController morph;
         public Camera cam;
         public AudioSource audioSource;
+        public HbPanelOverlay panels;              // optional 2D panels that follow the sequence clock
         public List<Key> keys = new List<Key>();
         public bool playOnStart = true;
         public bool active = true;                 // false while the student is in free-look
@@ -67,7 +68,7 @@ namespace HbTutorial
 
         void LateUpdate()
         {
-            if (!active || keys.Count == 0) return;
+            if (!active || keys.Count == 0) { if (panels != null) panels.UpdateAt(-1f); return; }
             if (Application.isPlaying && playing)
             {
                 time += Time.deltaTime;
@@ -95,16 +96,27 @@ namespace HbTutorial
             if (b != a && !b.cut && b.time > a.time) u = Mathf.Clamp01((tm - a.time) / (b.time - a.time));
             float s = u * u * (3f - 2f * u);
 
+            if (panels != null) panels.UpdateAt(tm);   // first, so the camera can make room for the card
             if (cam != null)
             {
                 Vector3 p = Vector3.Lerp(a.camPos, b.camPos, s);
                 Vector3 l = Vector3.Lerp(a.lookAt, b.lookAt, s);
-                cam.transform.position = p;
                 Vector3 ua = a.up.sqrMagnitude > 1e-6f ? a.up.normalized : Vector3.up;
                 Vector3 ub = b.up.sqrMagnitude > 1e-6f ? b.up.normalized : Vector3.up;
                 Vector3 up = Vector3.Slerp(ua, ub, s);
+                float fov = Mathf.Lerp(a.fov, b.fov, s);
+                // while a card is up, slide camera and target sideways so the subject sits in the free part of the frame
+                float shift = panels != null ? panels.Shift * panels.reframe : 0f;
+                if (Mathf.Abs(shift) > 1e-4f && (l - p).sqrMagnitude > 1e-6f)
+                {
+                    Vector3 fwd = (l - p).normalized, right = Vector3.Cross(up, fwd).normalized;
+                    float halfW = (l - p).magnitude * Mathf.Tan(fov * 0.5f * Mathf.Deg2Rad) * cam.aspect;
+                    Vector3 d = right * halfW * shift;
+                    p += d; l += d;
+                }
+                cam.transform.position = p;
                 if ((l - p).sqrMagnitude > 1e-6f) cam.transform.LookAt(l, up);
-                cam.fieldOfView = Mathf.Lerp(a.fov, b.fov, s);
+                cam.fieldOfView = fov;
             }
             morph.t = Mathf.Lerp(a.t, b.t, s);
             morph.feExaggeration = Mathf.Lerp(a.feExaggeration, b.feExaggeration, s);

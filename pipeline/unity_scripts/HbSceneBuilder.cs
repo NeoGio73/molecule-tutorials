@@ -85,6 +85,7 @@ namespace HbTutorial
             var pairs = Child(root, "IonPairs");
             foreach (var p in data.ionPairs)
             {
+                if (p.hidden) continue;
                 if (!_residueGroups.TryGetValue(p.fromKey, out var ga) || !_residueGroups.TryGetValue(p.toKey, out var gb)) continue;
                 var a = ga.AtomTransform(p.fromAtom); var b = gb.AtomTransform(p.toAtom);
                 if (a == null || b == null) continue;
