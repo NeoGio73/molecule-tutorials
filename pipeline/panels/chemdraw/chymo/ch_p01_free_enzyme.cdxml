@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE CDXML SYSTEM "http://www.cambridgesoft.com/xml/cdxml.dtd" >
+<CDXML CreationProgram="hb_pipeline cdxml.py" BondLength="14.40" BondSpacing="18" LineWidth="0.60" BoldWidth="2" HashSpacing="2.50" MarginWidth="1.60"
+ LabelFont="3" LabelSize="10" LabelFace="96" CaptionFont="3" CaptionSize="10" CaptionFace="0"
+ CaptionJustification="Left" FixInplaceExtent="6 0" AminoAcidTermini="HOH" ShowSequenceTermini="yes" ShowSequenceBonds="yes" ShowSequenceUnlinkedBranches="no" HideImplicitHydrogens="no">
+<colortable>
+<color r="1" g="1" b="1"/>
+<color r="0" g="0" b="0"/>
+<color r="1" g="0" b="0"/>
+<color r="1" g="1" b="0"/>
+<color r="0" g="1" b="0"/>
+<color r="0" g="1" b="1"/>
+<color r="0" g="0" b="1"/>
+<color r="1" g="0" b="1"/>
+<color r="0.85" g="0.1" b="0.1"/>
+<color r="0.78" g="0.1" b="0.5"/>
+<color r="0.1" g="0.55" b="0.85"/>
+<color r="0.55" g="0.55" b="0.55"/>
+</colortable>
+<fonttable>
+<font id="3" charset="iso-8859-1" name="Arial"/>
+<font id="4" charset="iso-8859-1" name="Times New Roman"/>
+<font id="5" charset="Symbol" name="Symbol"/>
+</fonttable>
+<page id="154" BoundingBox="0 0 330 300" HeaderPosition="36" FooterPosition="36" PageOverlap="0" PrintTrimMarks="yes" HeightPages="1" WidthPages="1">
+<graphic id="101" BoundingBox="182.75 219.00 182.75 247.40" GraphicType="Line" LineType="Solid"/>
+<graphic id="102" BoundingBox="182.75 247.40 221.69 247.40" GraphicType="Line" LineType="Solid"/>
+<graphic id="103" BoundingBox="221.69 247.40 221.69 219.00" GraphicType="Line" LineType="Solid"/>
+<t id="104" p="226.69 231.20"><s font="3" size="8" face="0">hydrophobic</s></t>
+<t id="105" p="226.69 240.70"><s font="3" size="8" face="0">pocket</s></t>
+<fragment id="146">
+<n id="106" p="150.00 168.00" Element="8" NumHydrogens="0"/>
+<n id="107" p="168.22 168.00" NodeType="Unspecified" IgnoreWarnings="yes"><t p="168.22 168.00"><s font="3" size="10" face="0">Ser</s><s font="3" size="10" face="64">195</s></t></n>
+<n id="108" p="131.50 168.00" Element="1" NumHydrogens="0"/>
+<n id="109" p="118.56 142.00" Element="7" NumHydrogens="0"/>
+<n id="110" p="106.91 133.54"/>
+<n id="111" p="111.36 119.84" Element="7" NumHydrogens="0"/>
+<n id="112" p="125.76 119.84"/>
+<n id="113" p="130.21 133.54"/>
+<n id="114" p="134.22 108.19" NodeType="Unspecified" IgnoreWarnings="yes"><t p="134.22 108.19"><s font="3" size="10" face="0">His</s><s font="3" size="10" face="64">57</s></t></n>
+<n id="115" p="101.20 105.86" Element="1" NumHydrogens="0"/>
+<n id="116" p="89.35 89.55" Element="8" NumHydrogens="0" IgnoreWarnings="yes"/>
+<n id="117" p="76.88 82.35"/>
+<n id="118" p="64.41 89.55" Element="8" NumHydrogens="0"/>
+<n id="119" p="76.88 67.95" NodeType="Unspecified" IgnoreWarnings="yes"><t p="76.88 67.95"><s font="3" size="10" face="0">Asp</s><s font="3" size="10" face="64">102</s></t></n>
+<n id="120" p="129.00 249.00" Element="7" NumHydrogens="0"/>
+<n id="121" p="129.00 231.72" Element="1" NumHydrogens="0"/>
+<n id="122" p="141.47 256.20"/>
+<n id="123" p="116.53 256.20"/>
+<n id="124" p="171.00 249.00" Element="7" NumHydrogens="0"/>
+<n id="125" p="171.00 231.72" Element="1" NumHydrogens="0"/>
+<n id="126" p="183.47 256.20"/>
+<n id="127" p="158.53 256.20"/>
+<b id="128" B="106" E="107" Order="1"/>
+<b id="129" B="106" E="108" Order="1"/>
+<b id="130" B="109" E="110" Order="2"/>
+<b id="131" B="110" E="111" Order="1"/>
+<b id="132" B="111" E="112" Order="1"/>
+<b id="133" B="112" E="113" Order="2"/>
+<b id="134" B="113" E="109" Order="1"/>
+<b id="135" B="112" E="114" Order="1"/>
+<b id="136" B="111" E="115" Order="1"/>
+<b id="137" B="116" E="117" Order="1"/>
+<b id="138" B="117" E="118" Order="2"/>
+<b id="139" B="117" E="119" Order="1"/>
+<b id="140" B="120" E="121" Order="1"/>
+<b id="141" B="120" E="122" Order="1"/>
+<b id="142" B="120" E="123" Order="1"/>
+<b id="143" B="124" E="125" Order="1"/>
+<b id="144" B="124" E="126" Order="1"/>
+<b id="145" B="124" E="127" Order="1"/>
+</fragment>
+<graphic id="147" BoundingBox="96.35 83.55 102.85 90.05" GraphicType="Symbol" SymbolType="CircleMinus"/>
+<t id="148" p="129.00 269.00" Justification="Center"><s font="3" size="9" face="0">Gly</s><s font="3" size="9" face="64">193</s></t>
+<t id="149" p="171.00 269.00" Justification="Center"><s font="3" size="9" face="0">Ser</s><s font="3" size="9" face="64">195</s></t>
+<t id="150" p="150.00 281.00" Justification="Center"><s font="3" size="8" face="0">oxyanion hole</s></t>
+<graphic id="151" BoundingBox="98.55 102.22 92.58 94.00" GraphicType="Line" LineType="Dashed"/>
+<graphic id="152" BoundingBox="129.49 163.97 121.01 146.92" GraphicType="Line" LineType="Dashed"/>
+<t id="153" p="46.77 42.00"><s font="3" size="11" face="1">Free enzyme</s></t>
+</page>
+</CDXML>

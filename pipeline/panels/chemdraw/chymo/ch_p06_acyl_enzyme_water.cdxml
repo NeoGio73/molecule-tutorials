@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE CDXML SYSTEM "http://www.cambridgesoft.com/xml/cdxml.dtd" >
+<CDXML CreationProgram="hb_pipeline cdxml.py" BondLength="14.40" BondSpacing="18" LineWidth="0.60" BoldWidth="2" HashSpacing="2.50" MarginWidth="1.60"
+ LabelFont="3" LabelSize="10" LabelFace="96" CaptionFont="3" CaptionSize="10" CaptionFace="0"
+ CaptionJustification="Left" FixInplaceExtent="6 0" AminoAcidTermini="HOH" ShowSequenceTermini="yes" ShowSequenceBonds="yes" ShowSequenceUnlinkedBranches="no" HideImplicitHydrogens="no">
+<colortable>
+<color r="1" g="1" b="1"/>
+<color r="0" g="0" b="0"/>
+<color r="1" g="0" b="0"/>
+<color r="1" g="1" b="0"/>
+<color r="0" g="1" b="0"/>
+<color r="0" g="1" b="1"/>
+<color r="0" g="0" b="1"/>
+<color r="1" g="0" b="1"/>
+<color r="0.85" g="0.1" b="0.1"/>
+<color r="0.78" g="0.1" b="0.5"/>
+<color r="0.1" g="0.55" b="0.85"/>
+<color r="0.55" g="0.55" b="0.55"/>
+</colortable>
+<fonttable>
+<font id="3" charset="iso-8859-1" name="Arial"/>
+<font id="4" charset="iso-8859-1" name="Times New Roman"/>
+<font id="5" charset="Symbol" name="Symbol"/>
+</fonttable>
+<page id="190" BoundingBox="0 0 330 300" HeaderPosition="36" FooterPosition="36" PageOverlap="0" PrintTrimMarks="yes" HeightPages="1" WidthPages="1">
+<t id="101" p="146.39 195.75"><s font="3" size="10" face="0">C</s></t>
+<t id="102" p="164.61 195.75"><s font="3" size="10" face="0">CH</s></t>
+<t id="103" p="190.05 195.75"><s font="3" size="10" face="0">NH</s></t>
+<t id="104" p="215.50 195.75"><s font="3" size="10" face="0">AA</s><s font="3" size="10" face="32">n</s></t>
+<graphic id="105" BoundingBox="155.61 192.00 162.61 192.00" GraphicType="Line" LineType="Solid"/>
+<graphic id="106" BoundingBox="181.05 192.00 188.05 192.00" GraphicType="Line" LineType="Solid"/>
+<graphic id="107" BoundingBox="206.50 192.00 213.50 192.00" GraphicType="Line" LineType="Solid"/>
+<t id="108" p="146.11 214.75"><s font="3" size="10" face="0">O</s></t>
+<graphic id="109" BoundingBox="148.70 197.40 148.70 205.60" GraphicType="Line" LineType="Solid"/>
+<graphic id="110" BoundingBox="151.30 197.40 151.30 205.60" GraphicType="Line" LineType="Solid"/>
+<graphic id="111" BoundingBox="170.50 197.40 176.22 211.00" GraphicType="Line" LineType="Solid"/>
+<graphic id="112" BoundingBox="182.75 219.00 182.75 247.40" GraphicType="Line" LineType="Solid"/>
+<graphic id="113" BoundingBox="182.75 247.40 221.69 247.40" GraphicType="Line" LineType="Solid"/>
+<graphic id="114" BoundingBox="221.69 247.40 221.69 219.00" GraphicType="Line" LineType="Solid"/>
+<t id="115" p="226.69 231.20"><s font="3" size="8" face="0">hydrophobic</s></t>
+<t id="116" p="226.69 240.70"><s font="3" size="8" face="0">pocket</s></t>
+<graphic id="117" BoundingBox="150.00 186.60 150.00 173.40" GraphicType="Line" LineType="Solid"/>
+<fragment id="175">
+<n id="118" p="176.22 211.00"/>
+<n id="119" p="189.75 218.80"/>
+<n id="120" p="202.22 211.60"/>
+<n id="121" p="214.69 218.80"/>
+<n id="122" p="214.69 233.20"/>
+<n id="123" p="202.22 240.40"/>
+<n id="124" p="189.75 233.20"/>
+<n id="125" p="126.56 192.00" Element="8" NumHydrogens="0"/>
+<n id="126" p="123.55 173.24" Element="1" NumHydrogens="0" color="11"/>
+<n id="127" p="110.83 200.75" Element="1" NumHydrogens="0"/>
+<n id="128" p="150.00 168.00" Element="8" NumHydrogens="0" IgnoreWarnings="yes"/>
+<n id="129" p="168.22 168.00" NodeType="Unspecified" IgnoreWarnings="yes"><t p="168.22 168.00"><s font="3" size="10" face="0">Ser</s><s font="3" size="10" face="64">195</s></t></n>
+<n id="130" p="118.56 142.00" Element="7" NumHydrogens="0"/>
+<n id="131" p="106.91 133.54"/>
+<n id="132" p="111.36 119.84" Element="7" NumHydrogens="0"/>
+<n id="133" p="125.76 119.84"/>
+<n id="134" p="130.21 133.54"/>
+<n id="135" p="134.22 108.19" NodeType="Unspecified" IgnoreWarnings="yes"><t p="134.22 108.19"><s font="3" size="10" face="0">His</s><s font="3" size="10" face="64">57</s></t></n>
+<n id="136" p="101.20 105.86" Element="1" NumHydrogens="0"/>
+<n id="137" p="89.35 89.55" Element="8" NumHydrogens="0" IgnoreWarnings="yes"/>
+<n id="138" p="76.88 82.35"/>
+<n id="139" p="64.41 89.55" Element="8" NumHydrogens="0"/>
+<n id="140" p="76.88 67.95" NodeType="Unspecified" IgnoreWarnings="yes"><t p="76.88 67.95"><s font="3" size="10" face="0">Asp</s><s font="3" size="10" face="64">102</s></t></n>
+<n id="141" p="129.00 249.00" Element="7" NumHydrogens="0"/>
+<n id="142" p="129.00 231.72" Element="1" NumHydrogens="0"/>
+<n id="143" p="141.47 256.20"/>
+<n id="144" p="116.53 256.20"/>
+<n id="145" p="171.00 249.00" Element="7" NumHydrogens="0"/>
+<n id="146" p="171.00 231.72" Element="1" NumHydrogens="0"/>
+<n id="147" p="183.47 256.20"/>
+<n id="148" p="158.53 256.20"/>
+<b id="149" B="119" E="120" Order="1"/>
+<b id="150" B="120" E="121" Order="2"/>
+<b id="151" B="121" E="122" Order="1"/>
+<b id="152" B="122" E="123" Order="2"/>
+<b id="153" B="123" E="124" Order="1"/>
+<b id="154" B="124" E="119" Order="2"/>
+<b id="155" B="118" E="119" Order="1"/>
+<b id="156" B="125" E="126" Order="1"/>
+<b id="157" B="125" E="127" Order="1"/>
+<b id="158" B="128" E="129" Order="1"/>
+<b id="159" B="130" E="131" Order="2"/>
+<b id="160" B="131" E="132" Order="1"/>
+<b id="161" B="132" E="133" Order="1"/>
+<b id="162" B="133" E="134" Order="2"/>
+<b id="163" B="134" E="130" Order="1"/>
+<b id="164" B="133" E="135" Order="1"/>
+<b id="165" B="132" E="136" Order="1"/>
+<b id="166" B="137" E="138" Order="1"/>
+<b id="167" B="138" E="139" Order="2"/>
+<b id="168" B="138" E="140" Order="1"/>
+<b id="169" B="141" E="142" Order="1"/>
+<b id="170" B="141" E="143" Order="1"/>
+<b id="171" B="141" E="144" Order="1"/>
+<b id="172" B="145" E="146" Order="1"/>
+<b id="173" B="145" E="147" Order="1"/>
+<b id="174" B="145" E="148" Order="1"/>
+</fragment>
+<graphic id="176" BoundingBox="96.35 83.55 102.85 90.05" GraphicType="Symbol" SymbolType="CircleMinus"/>
+<t id="177" p="129.00 269.00" Justification="Center"><s font="3" size="9" face="0">Gly</s><s font="3" size="9" face="64">193</s></t>
+<t id="178" p="171.00 269.00" Justification="Center"><s font="3" size="9" face="0">Ser</s><s font="3" size="9" face="64">195</s></t>
+<t id="179" p="150.00 281.00" Justification="Center"><s font="3" size="8" face="0">oxyanion hole</s></t>
+<graphic id="180" BoundingBox="98.55 102.22 92.58 94.00" GraphicType="Line" LineType="Dashed"/>
+<graphic id="181" BoundingBox="167.80 228.56 153.92 214.86" GraphicType="Line" LineType="Dashed"/>
+<graphic id="182" BoundingBox="117.71 148.72 118.61 148.72" GraphicType="Oval" OvalType="Filled" Center3D="117.71 148.72 0" MajorAxisEnd3D="118.61 148.72 0" MinorAxisEnd3D="117.71 149.62 0"/>
+<graphic id="183" BoundingBox="121.46 148.12 122.36 148.12" GraphicType="Oval" OvalType="Filled" Center3D="121.46 148.12 0" MajorAxisEnd3D="122.36 148.12 0" MinorAxisEnd3D="121.46 149.02 0"/>
+<arrow id="184" FillType="None" ArrowheadHead="Full" ArrowheadType="Solid" HeadSize="1000" ArrowheadCenterSize="875" ArrowheadWidth="250" AngularSize="100.0" color="12" Head3D="125.81 168.32 0" Tail3D="122.53 150.99 0" Center3D="131.44 158.28 0" MajorAxisEnd3D="122.53 150.99 0" MinorAxisEnd3D="124.15 167.19 0"/>
+<graphic id="185" BoundingBox="133.24 193.06 134.14 193.06" GraphicType="Oval" OvalType="Filled" Center3D="133.24 193.06 0" MajorAxisEnd3D="134.14 193.06 0" MinorAxisEnd3D="133.24 193.96 0"/>
+<graphic id="186" BoundingBox="132.76 189.29 133.66 189.29" GraphicType="Oval" OvalType="Filled" Center3D="132.76 189.29 0" MajorAxisEnd3D="133.66 189.29 0" MinorAxisEnd3D="132.76 190.19 0"/>
+<arrow id="187" FillType="None" ArrowheadHead="Full" ArrowheadType="Solid" HeadSize="1000" ArrowheadCenterSize="875" ArrowheadWidth="250" AngularSize="-110.0" color="12" Head3D="145.00 187.00 0" Tail3D="134.00 188.17 0" Center3D="139.91 191.44 0" MajorAxisEnd3D="134.00 188.17 0" MinorAxisEnd3D="143.18 185.53 0"/>
+<arrow id="188" FillType="None" ArrowheadHead="Full" ArrowheadType="Solid" HeadSize="1000" ArrowheadCenterSize="875" ArrowheadWidth="250" AngularSize="-160.0" color="12" Head3D="156.50 209.00 0" Tail3D="153.00 200.50 0" Center3D="154.00 205.06 0" MajorAxisEnd3D="153.00 200.50 0" MinorAxisEnd3D="158.56 204.06 0"/>
+<t id="189" p="46.77 42.00"><s font="3" size="11" face="1">Acyl-enzyme intermediate</s></t>
+</page>
+</CDXML>

@@ -47,6 +47,19 @@ The narration follows Lehninger; the 3D scene draws only the pairs that break, a
 
 Residue numbers are written as superscripts throughout (His¹⁴⁶, Asp⁹⁴), as Lehninger does.
 
+### Chymotrypsin
+
+- `make_chymo.py` writes the seven mechanism frames of Lehninger Fig. 6-27 as CDXML: free enzyme, ES complex, the
+  short-lived intermediate of acylation, the acyl-enzyme (with product 1 leaving, then with water), the short-lived
+  intermediate of deacylation, and the enzyme–product 2 complex. They follow the book's layout and colors (leaving half
+  blue, acyl half black, the proton that moves magenta, arrows blue). Two additions to the book's figure: a third arrow
+  in the ES complex (His⁵⁷ takes the Ser¹⁹⁵ proton) and Asp¹⁰², which the narration's low-barrier hydrogen bond needs.
+  Masters in `chemdraw/chymo/`, web copies in `svg/chymo/`.
+- The substrate backbone (AAₙ–C–CH–NH–C–CH–NH–AAₙ) is written as text with plain bond lines. As ChemDraw labels, a CH
+  or NH bonded on both sides gets its H stacked on top, and ChemDraw's SVG export then misplaces the C or N.
+- `common_frame.py` gives the exported frames one shared viewBox, so they line up when one replaces the next.
+- `burst_curve.py` draws the pre-steady-state burst on the axes of Lehninger Fig. 6-25.
+
 ## Credits
 
 Structures from the RCSB Protein Data Bank (2HHB Fermi & Perutz 1984; 1HHO Shaanan 1983; 2HBS Harrington et al.

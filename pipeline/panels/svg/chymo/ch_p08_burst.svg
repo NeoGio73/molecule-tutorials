@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="331.2pt" height="237.6pt" viewBox="0 0 331.2 237.6" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-07T12:05:35.579818</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 237.6 
+L 331.2 237.6 
+L 331.2 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 45.425 197.030469 
+L 317.618437 197.030469 
+L 317.618437 14.440137 
+L 45.425 14.440137 
+z
+" style="fill: #ffffff"/>
+   </g>
+   <g id="matplotlib.axis_1">
+    <g id="xtick_1">
+     <g id="line2d_1">
+      <defs>
+       <path id="m73f78f6dcf" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m73f78f6dcf" x="45.425" y="197.030469" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_1">
+      <text style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif; text-anchor: middle" x="45.425" y="211.310742" transform="rotate(-0 45.425 211.310742)">0</text>
+     </g>
+    </g>
+    <g id="xtick_2">
+     <g id="line2d_2">
+      <g>
+       <use xlink:href="#m73f78f6dcf" x="136.156146" y="197.030469" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_2">
+      <text style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif; text-anchor: middle" x="136.156146" y="211.310742" transform="rotate(-0 136.156146 211.310742)">1</text>
+     </g>
+    </g>
+    <g id="xtick_3">
+     <g id="line2d_3">
+      <g>
+       <use xlink:href="#m73f78f6dcf" x="226.887292" y="197.030469" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_3">
+      <text style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif; text-anchor: middle" x="226.887292" y="211.310742" transform="rotate(-0 226.887292 211.310742)">2</text>
+     </g>
+    </g>
+    <g id="xtick_4">
+     <g id="line2d_4">
+      <g>
+       <use xlink:href="#m73f78f6dcf" x="317.618437" y="197.030469" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_4">
+      <text style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif; text-anchor: middle" x="317.618437" y="211.310742" transform="rotate(-0 317.618437 211.310742)">3</text>
+     </g>
+    </g>
+    <g id="text_5">
+     <text style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif; text-anchor: middle" x="181.521719" y="224.695508" transform="rotate(-0 181.521719 224.695508)">Time (min)</text>
+    </g>
+   </g>
+   <g id="matplotlib.axis_2">
+    <g id="ytick_1">
+     <g id="line2d_5">
+      <defs>
+       <path id="m14fbcccb6b" d="M 0 0 
+L -3.5 0 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#m14fbcccb6b" x="45.425" y="197.030469" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_6">
+      <text style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif; text-anchor: end" x="38.425" y="200.670605" transform="rotate(-0 38.425 200.670605)">0.0</text>
+     </g>
+    </g>
+    <g id="ytick_2">
+     <g id="line2d_6">
+      <g>
+       <use xlink:href="#m14fbcccb6b" x="45.425" y="136.167025" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_7">
+      <text style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif; text-anchor: end" x="38.425" y="139.807161" transform="rotate(-0 38.425 139.807161)">1.0</text>
+     </g>
+    </g>
+    <g id="ytick_3">
+     <g id="line2d_7">
+      <g>
+       <use xlink:href="#m14fbcccb6b" x="45.425" y="75.303581" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_8">
+      <text style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif; text-anchor: end" x="38.425" y="78.943717" transform="rotate(-0 38.425 78.943717)">2.0</text>
+     </g>
+    </g>
+    <g id="ytick_4">
+     <g id="line2d_8">
+      <g>
+       <use xlink:href="#m14fbcccb6b" x="45.425" y="14.440137" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="text_9">
+      <text style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif; text-anchor: end" x="38.425" y="18.080273" transform="rotate(-0 38.425 18.080273)">3.0</text>
+     </g>
+    </g>
+    <g id="text_10">
+     <!-- $\it{p}$-Nitrophenol (mol/mol of enzyme) -->
+     <g transform="translate(18.420508 182.435303) rotate(-90)">
+      <text>
+       <tspan x="0" y="-0.75" style="font-style: italic; font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">p</tspan>
+       <tspan x="5.561523" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">-</tspan>
+       <tspan x="8.891602" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">N</tspan>
+       <tspan x="16.113281" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">i</tspan>
+       <tspan x="18.334961" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">t</tspan>
+       <tspan x="21.113281" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">r</tspan>
+       <tspan x="24.443359" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">o</tspan>
+       <tspan x="30.004883" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">p</tspan>
+       <tspan x="35.566406" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">h</tspan>
+       <tspan x="41.12793" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">e</tspan>
+       <tspan x="46.689453" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">n</tspan>
+       <tspan x="52.250977" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">o</tspan>
+       <tspan x="57.8125" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">l</tspan>
+       <tspan x="60.03418" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif"> </tspan>
+       <tspan x="62.8125" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">(</tspan>
+       <tspan x="66.142578" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">m</tspan>
+       <tspan x="74.472656" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">o</tspan>
+       <tspan x="80.03418" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">l</tspan>
+       <tspan x="82.255859" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">/</tspan>
+       <tspan x="85.03418" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">m</tspan>
+       <tspan x="93.364258" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">o</tspan>
+       <tspan x="98.925781" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">l</tspan>
+       <tspan x="101.147461" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif"> </tspan>
+       <tspan x="103.925781" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">o</tspan>
+       <tspan x="109.487305" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">f</tspan>
+       <tspan x="112.265625" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif"> </tspan>
+       <tspan x="115.043945" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">e</tspan>
+       <tspan x="120.605469" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">n</tspan>
+       <tspan x="126.166992" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">z</tspan>
+       <tspan x="131.166992" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">y</tspan>
+       <tspan x="136.166992" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">m</tspan>
+       <tspan x="144.49707" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">e</tspan>
+       <tspan x="150.058594" y="-0.75" style="font-size: 10px; font-family: Arial, Helvetica, Liberation Sans, sans-serif">)</tspan>
+      </text>
+     </g>
+    </g>
+   </g>
+   <g id="line2d_9">
+    <path d="M 45.425 197.030469 
+L 46.788239 188.466677 
+L 48.151479 181.195049 
+L 49.514718 175.002403 
+L 50.877957 169.710727 
+L 52.241196 165.17138 
+L 53.604436 161.260241 
+L 54.967675 157.873667 
+L 56.785327 154.026751 
+L 58.602979 150.793432 
+L 60.420632 148.042593 
+L 62.238284 145.671134 
+L 64.51035 143.118516 
+L 66.782415 140.911964 
+L 69.508893 138.596154 
+L 72.689785 136.21475 
+L 76.32509 133.771696 
+L 81.323634 130.70361 
+L 88.13983 126.801209 
+L 99.95457 120.328777 
+L 135.398791 101.272983 
+L 317.618437 3.484717 
+L 317.618437 3.484717 
+" clip-path="url(#p15fd169009)" style="fill: none; stroke: #000000; stroke-width: 1.8; stroke-linecap: square"/>
+   </g>
+   <g id="line2d_10">
+    <path d="M 45.425 149.556982 
+L 99.863687 120.342529 
+" clip-path="url(#p15fd169009)" style="fill: none; stroke-dasharray: 3.6,1.8; stroke-dashoffset: 0; stroke: #000000; stroke-width: 0.9"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 45.425 197.030469 
+L 45.425 14.440137 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 45.425 197.030469 
+L 317.618437 197.030469 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 51.77618 194.02203 
+Q 51.77618 173.293134 51.77618 152.564238 
+" style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
+    <path d="M 53.77618 190.02203 
+L 51.77618 194.02203 
+L 49.77618 190.02203 
+" style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
+    <path d="M 49.77618 156.564238 
+L 51.77618 152.564238 
+L 53.77618 156.564238 
+" style="fill: none; stroke: #595959; stroke-width: 0.9; stroke-linecap: round"/>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 8.5px; font-family: Arial, Helvetica, Liberation Sans, sans-serif" transform="translate(58.12736 171.719922)">burst ≈ 1 mol per</text>
+    <text style="font-size: 8.5px; font-family: Arial, Helvetica, Liberation Sans, sans-serif" transform="translate(58.12736 180.971143)">mol of enzyme</text>
+    <text style="font-size: 8.5px; font-family: Arial, Helvetica, Liberation Sans, sans-serif" transform="translate(58.12736 190.222363)">(fast acylation)</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 8.5px; font-family: Arial, Helvetica, Liberation Sans, sans-serif" transform="translate(222.350734 79.085726)">steady state</text>
+    <text style="font-size: 8.5px; font-family: Arial, Helvetica, Liberation Sans, sans-serif" transform="translate(222.350734 88.336947)">(slow deacylation)</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="p15fd169009">
+   <rect x="45.425" y="14.440137" width="272.193437" height="182.590332"/>
+  </clipPath>
+ </defs>
+</svg>
