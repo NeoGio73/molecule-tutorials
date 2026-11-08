@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE CDXML SYSTEM "http://www.cambridgesoft.com/xml/cdxml.dtd" >
+<CDXML CreationProgram="hb_pipeline cdxml.py" BondLength="14.40" BondSpacing="18" LineWidth="0.60" BoldWidth="2" HashSpacing="2.50" MarginWidth="1.60"
+ LabelFont="3" LabelSize="10" LabelFace="96" CaptionFont="3" CaptionSize="10" CaptionFace="0"
+ CaptionJustification="Left" FixInplaceExtent="6 0" AminoAcidTermini="HOH" ShowSequenceTermini="yes" ShowSequenceBonds="yes" ShowSequenceUnlinkedBranches="no" HideImplicitHydrogens="no">
+<colortable>
+<color r="1" g="1" b="1"/>
+<color r="0" g="0" b="0"/>
+<color r="1" g="0" b="0"/>
+<color r="1" g="1" b="0"/>
+<color r="0" g="1" b="0"/>
+<color r="0" g="1" b="1"/>
+<color r="0" g="0" b="1"/>
+<color r="1" g="0" b="1"/>
+<color r="0.85" g="0.1" b="0.1"/>
+<color r="0.78" g="0.1" b="0.5"/>
+<color r="0.1" g="0.55" b="0.85"/>
+<color r="0.55" g="0.55" b="0.55"/>
+</colortable>
+<fonttable>
+<font id="3" charset="iso-8859-1" name="Arial"/>
+<font id="4" charset="iso-8859-1" name="Times New Roman"/>
+<font id="5" charset="Symbol" name="Symbol"/>
+</fonttable>
+<page id="161" BoundingBox="0 0 440 400" HeaderPosition="36" FooterPosition="36" PageOverlap="0" PrintTrimMarks="yes" HeightPages="1" WidthPages="1">
+<t id="101" p="34.00 34.00"><s font="3" size="11" face="1">Activation of chymotrypsinogen</s></t>
+<t id="102" p="228.00 64.00" Justification="Center"><s font="3" size="10" face="0">Chymotrypsinogen (inactive)</s></t>
+<graphic id="103" BoundingBox="52.00 78.00 404.00 78.00" GraphicType="Line" LineType="Bold"/>
+<t id="104" p="47.00 81.20" Justification="Right"><s font="3" size="8" face="0">1</s></t>
+<t id="105" p="409.00 81.20"><s font="3" size="8" face="0">245</s></t>
+<graphic id="106" BoundingBox="72.92 71.00 72.92 85.00" GraphicType="Line" LineType="Solid" color="12"/>
+<t id="107" p="69.92 68.00"><s font="3" size="8" face="0">Arg</s><s font="3" size="8" face="64">15</s><s font="3" size="8" face="0">–Ile</s><s font="3" size="8" face="64">16</s></t>
+<t id="108" p="75.92 92.00"><s font="3" size="8" face="0" color="12">scissile bond</s></t>
+<t id="109" p="330.43 92.00" Justification="Center"><s font="3" size="8" face="0">Asp</s><s font="3" size="8" face="64">194</s></t>
+<graphic id="110" BoundingBox="52.00 82.00 52.00 104.00" GraphicType="Line" LineType="Solid"/>
+<graphic id="111" BoundingBox="52.00 104.00 226.56 104.00" GraphicType="Line" LineType="Solid"/>
+<graphic id="112" BoundingBox="226.56 104.00 226.56 82.00" GraphicType="Line" LineType="Solid"/>
+<t id="113" p="139.28 114.00" Justification="Center"><s font="3" size="8" face="0">S–S (Cys</s><s font="3" size="8" face="64">1</s><s font="3" size="8" face="0">–Cys</s><s font="3" size="8" face="64">122</s><s font="3" size="8" face="0">)</s></t>
+<arrow id="114" FillType="None" ArrowheadHead="Full" ArrowheadTail="Unspecified" ArrowheadType="Solid" HeadSize="1000" ArrowheadCenterSize="875" ArrowheadWidth="250" Head3D="228.00 146.00 0" Tail3D="228.00 122.00 0"/>
+<t id="115" p="236.00 137.00"><s font="3" size="9" face="0">trypsin cuts the Arg</s><s font="3" size="9" face="64">15</s><s font="3" size="9" face="0">–Ile</s><s font="3" size="9" face="64">16</s><s font="3" size="9" face="0"> scissile bond</s></t>
+<t id="116" p="228.00 164.00" Justification="Center"><s font="5" size="10" face="0">p</s><s font="3" size="10" face="0">-Chymotrypsin (active)</s></t>
+<graphic id="117" BoundingBox="52.00 202.00 70.20 202.00" GraphicType="Line" LineType="Bold"/>
+<graphic id="118" BoundingBox="75.64 202.00 404.00 202.00" GraphicType="Line" LineType="Bold"/>
+<t id="119" p="47.00 205.20" Justification="Right"><s font="3" size="8" face="0">1</s></t>
+<t id="120" p="409.00 205.20"><s font="3" size="8" face="0">245</s></t>
+<graphic id="121" BoundingBox="52.00 206.00 52.00 228.00" GraphicType="Line" LineType="Solid"/>
+<graphic id="122" BoundingBox="52.00 228.00 226.56 228.00" GraphicType="Line" LineType="Solid"/>
+<graphic id="123" BoundingBox="226.56 228.00 226.56 206.00" GraphicType="Line" LineType="Solid"/>
+<t id="124" p="139.28 238.00" Justification="Center"><s font="3" size="8" face="0">S–S (Cys</s><s font="3" size="8" face="64">1</s><s font="3" size="8" face="0">–Cys</s><s font="3" size="8" face="64">122</s><s font="3" size="8" face="0">)</s></t>
+<graphic id="125" BoundingBox="73.64 199.00 73.64 188.00" GraphicType="Line" LineType="Dashed"/>
+<graphic id="126" BoundingBox="73.64 188.00 330.43 188.00" GraphicType="Line" LineType="Dashed"/>
+<graphic id="127" BoundingBox="330.43 188.00 330.43 199.00" GraphicType="Line" LineType="Dashed"/>
+<t id="128" p="202.03 184.00" Justification="Center"><s font="3" size="8" face="0">ion pair</s></t>
+<t id="129" p="69.64 184.00"><s font="3" size="9" face="0">NH</s><s font="3" size="9" face="32">3</s></t>
+<graphic id="130" BoundingBox="92.19 180.60 98.69 187.10" GraphicType="Symbol" SymbolType="CirclePlus"/>
+<t id="131" p="318.43 184.00"><s font="3" size="9" face="0">COO</s></t>
+<graphic id="132" BoundingBox="344.73 180.60 351.23 187.10" GraphicType="Symbol" SymbolType="CircleMinus"/>
+<t id="133" p="71.64 216.00"><s font="3" size="8" face="0">Ile</s><s font="3" size="8" face="64">16</s><s font="3" size="8" face="0"> (new N-terminus)</s></t>
+<t id="134" p="330.43 216.00" Justification="Center"><s font="3" size="8" face="0">Asp</s><s font="3" size="8" face="64">194</s></t>
+<arrow id="135" FillType="None" ArrowheadHead="Full" ArrowheadTail="Unspecified" ArrowheadType="Solid" HeadSize="1000" ArrowheadCenterSize="875" ArrowheadWidth="250" Head3D="228.00 270.00 0" Tail3D="228.00 246.00 0"/>
+<t id="136" p="236.00 255.50"><s font="3" size="9" face="0">chymotrypsin cuts out</s></t>
+<t id="137" p="236.00 266.50"><s font="3" size="9" face="0">Ser</s><s font="3" size="9" face="64">14</s><s font="3" size="9" face="0">–Arg</s><s font="3" size="9" face="64">15</s><s font="3" size="9" face="0"> and Thr</s><s font="3" size="9" face="64">147</s><s font="3" size="9" face="0">–Asn</s><s font="3" size="9" face="64">148</s></t>
+<t id="138" p="228.00 288.00" Justification="Center"><s font="5" size="10" face="0">a</s><s font="3" size="10" face="0">-Chymotrypsin (active)</s></t>
+<graphic id="139" BoundingBox="52.00 318.00 69.31 318.00" GraphicType="Line" LineType="Bold"/>
+<graphic id="140" BoundingBox="73.64 318.00 261.18 318.00" GraphicType="Line" LineType="Bold"/>
+<graphic id="141" BoundingBox="265.51 318.00 404.00 318.00" GraphicType="Line" LineType="Bold"/>
+<t id="142" p="47.00 321.20" Justification="Right"><s font="3" size="8" face="0">1</s></t>
+<t id="143" p="409.00 321.20"><s font="3" size="8" face="0">245</s></t>
+<t id="144" p="60.66 303.00" Justification="Center"><s font="3" size="8" face="1">A</s></t>
+<t id="145" p="167.41 303.00" Justification="Center"><s font="3" size="8" face="1">B</s></t>
+<t id="146" p="334.75 303.00" Justification="Center"><s font="3" size="8" face="1">C</s></t>
+<t id="147" p="68.31 314.00" Justification="Right"><s font="3" size="7" face="0">13</s></t>
+<t id="148" p="74.64 314.00"><s font="3" size="7" face="0">16</s></t>
+<t id="149" p="260.18 314.00" Justification="Right"><s font="3" size="7" face="0">146</s></t>
+<t id="150" p="266.51 314.00"><s font="3" size="7" face="0">149</s></t>
+<graphic id="151" BoundingBox="52.00 322.00 52.00 344.00" GraphicType="Line" LineType="Solid"/>
+<graphic id="152" BoundingBox="52.00 344.00 226.56 344.00" GraphicType="Line" LineType="Solid"/>
+<graphic id="153" BoundingBox="226.56 344.00 226.56 322.00" GraphicType="Line" LineType="Solid"/>
+<t id="154" p="139.28 354.00" Justification="Center"><s font="3" size="8" face="0">S–S (Cys</s><s font="3" size="8" face="64">1</s><s font="3" size="8" face="0">–Cys</s><s font="3" size="8" face="64">122</s><s font="3" size="8" face="0">)</s></t>
+<graphic id="155" BoundingBox="246.75 322.00 246.75 344.00" GraphicType="Line" LineType="Solid"/>
+<graphic id="156" BoundingBox="246.75 344.00 340.52 344.00" GraphicType="Line" LineType="Solid"/>
+<graphic id="157" BoundingBox="340.52 344.00 340.52 322.00" GraphicType="Line" LineType="Solid"/>
+<t id="158" p="293.64 354.00" Justification="Center"><s font="3" size="8" face="0">S–S (Cys</s><s font="3" size="8" face="64">136</s><s font="3" size="8" face="0">–Cys</s><s font="3" size="8" face="64">201</s><s font="3" size="8" face="0">)</s></t>
+<t id="159" p="34.00 380.00"><s font="3" size="9" face="0">The new ion pair changes the shape of the protein: the hydrophobic pocket forms</s></t>
+<t id="160" p="34.00 392.00"><s font="3" size="9" face="0">and the oxyanion hole is stabilized.</s></t>
+</page>
+</CDXML>

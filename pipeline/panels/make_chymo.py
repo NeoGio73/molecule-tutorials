@@ -8,6 +8,7 @@ House conventions: formal charges circled; lone pairs only where an arrow starts
 Usage: python3 make_chymo.py outdir [state ...]"""
 import math, os, sys
 from cdxml import Doc, preview, BL, SUB, SUP, text_width
+C30 = math.cos(math.radians(30))
 from make_panels import res_runs
 
 B, M = "blue", "magenta"
@@ -275,12 +276,156 @@ def frame(d, st):
     d.text(X["L0"] - 12, 42, [(title, 1)], size=11)
 
 
+def pocket_panel(d):
+    """ch_p02 for shot 3: the same hydrophobic pocket five times. Phe, Tyr and Trp fill it; Lys puts a charge in it and
+    Gly leaves it empty. Backbone and side chains drawn the way the mechanism frames draw the substrate."""
+    f = Frag()
+    Y = 80.0                                           # backbone line
+    TOPP, BOTP, HALF = Y + 27, Y + 90, 32              # pocket rim, floor, half-width (same pocket in every column)
+    cols = [("Phe", 70, 0.0, None), ("Tyr", 145, 0.0, None), ("Trp", 222, 9.5, None),
+            ("Lys", 318, -3.5, "charged"), ("Gly", 392, 0.0, "too small")]
+    for name, pc, off, note in cols:
+        cx = pc - off                                  # x of the backbone CH; the pocket is centred on the side chain
+        # backbone: -CH- with a dash either side, as in the frames
+        d.text(cx - w("C") / 2, Y + 3.75, [("CH", 0)])
+        d.line(cx - w("C") / 2 - 2 - 9, Y, cx - w("C") / 2 - 2, Y)
+        d.line(cx + w("CH") - w("C") / 2 + 2, Y, cx + w("CH") - w("C") / 2 + 2 + 9, Y)
+        # pocket
+        d.line(pc - HALF, TOPP, pc - HALF, BOTP); d.line(pc - HALF, BOTP, pc + HALF, BOTP); d.line(pc + HALF, BOTP, pc + HALF, TOPP)
+        d.text(pc, BOTP + 15, name, size=10, align="Center")
+        if note:
+            d.text(pc, BOTP + 26, note, size=8, align="Center")
+        if name == "Gly":                              # the side chain is a single H
+            d.line(cx, Y + 5.4, cx, Y + 19 - 5.4)
+            d.text(cx - w("H") / 2, Y + 19 + 3.75, "H")
+            continue
+        cb = (cx, Y + 19)
+        d.line(cx, Y + 5.4, *cb)
+        CB = f.add("C", *cb)
+        if name in ("Phe", "Tyr"):
+            rc = (cx, cb[1] + 2 * BL)
+            ring = [f.add("C", *polar(*rc, -90 + 60 * k)) for k in range(6)]
+            for k in range(6):
+                f.bond(ring[k], ring[(k + 1) % 6], "2" if k % 2 else "1")
+            f.bond(CB, ring[0])
+            if name == "Tyr":                          # OH at the para position, written as text like the frames
+                bx, by = f.xy(ring[3])
+                d.line(bx, by, bx, by + BL - 5.4)
+                d.text(bx - w("O") / 2, by + BL + 3.75, "OH")
+        elif name == "Trp":                            # indole hung from C3
+            c3 = f.add("C", cx, cb[1] + BL); f.bond(CB, c3)
+            pc5 = (cx, cb[1] + BL + RR)
+            v = {a: polar(*pc5, a, RR) for a in (-90, -18, 54, 126, 198)}
+            C3a = f.add("C", *v[-18]); C7a = f.add("C", *v[54]); N1 = f.add("N", *v[126]); C2 = f.add("C", *v[198])
+            f.bond(c3, C3a); f.bond(C3a, C7a, "2"); f.bond(C7a, N1); f.bond(N1, C2); f.bond(C2, c3, "2")
+            H1 = f.add("H", *polar(*v[126], 126, 1.15 * BL)); f.bond(N1, H1)
+            m = ((v[-18][0] + v[54][0]) / 2, (v[-18][1] + v[54][1]) / 2)
+            ux, uy = unit(*pc5, *m); hc = (m[0] + BL * C30 * ux, m[1] + BL * C30 * uy)
+            a0 = ang(*hc, *v[-18])
+            hex_ = [C3a] + [f.add("C", *polar(*hc, a0 + 60 * k)) for k in (1, 2, 3, 4)] + [C7a]
+            # Kekule pattern of indole: C3a=C7a (already), C4=C5, C6=C7
+            for k in range(5):
+                f.bond(hex_[k], hex_[k + 1], "2" if k in (1, 3) else "1")
+        elif name == "Lys":                            # four CH2 then NH3+, the last bond arriving from the upper left
+            pts = [cb]
+            for k in range(3):
+                pts.append(polar(*pts[-1], 120 if k % 2 == 0 else 60))
+            ids = [CB] + [f.add("C", *p) for p in pts[1:]]
+            for a_, b_ in zip(ids, ids[1:]):
+                f.bond(a_, b_)
+            nz = polar(*pts[-1], 60)
+            ux, uy = unit(*pts[-1], *nz)
+            d.line(*pts[-1], nz[0] - 5.4 * ux, nz[1] - 5.4 * uy)
+            d.text(nz[0] - w("N") / 2, nz[1] + 3.75, [("NH", 0), ("3", SUB)])
+            d.charge_symbol(nz[0] - w("N") / 2 - 5.0, nz[1] - 0.5, +1)            # snug on the left of the N (John's placement, Nov 7)
+    d.add_fragment_raw(f.A, f.B)
+    d.text((70 + 222) / 2, Y - 26, "Large aromatic side chains fit", size=9, align="Center")
+    d.text((318 + 392) / 2, Y - 26, "Charged or small ones do not", size=9, align="Center")
+    d.line(270, Y - 34, 270, BOTP + 28, dashed=True)
+    d.text(34, 34, [("The hydrophobic pocket", 1)], size=11)
+
+
+def activation_panel(d):
+    """ch_p09 for the coda, after Lehninger Fig. 6-42: chymotrypsinogen as a bar of residues 1-245; trypsin's cut at the
+    Arg15-Ile16 scissile bond gives pi-chymotrypsin, already active, whose new N-terminus (Ile16) pairs with Asp194;
+    chymotrypsin then removes Ser14-Arg15 and Thr147-Asn148, giving alpha-chymotrypsin (chains A, B, C held by the
+    Cys1-Cys122 and Cys136-Cys201 disulfides; 1YPH has exactly these chains). Wording from Lehninger: the shape change
+    forms the hydrophobic pocket and stabilizes the oxyanion hole."""
+    X0, X1 = 52.0, 404.0
+    xr = lambda n: X0 + (n - 1) * (X1 - X0) / 244.0
+    XM = (X0 + X1) / 2
+    cut = (xr(15) + xr(16)) / 2
+    def bar(y, a, b, gap=0.0): d.line(xr(a) + (gap if a > 1 else 0), y, xr(b) - (gap if b < 245 else 0), y, bold=True)
+    def ends(y):
+        d.text(X0 - 5, y + 3.2, "1", size=8, align="Right"); d.text(X1 + 5, y + 3.2, "245", size=8)
+    def ss(y, a, b):                                 # a disulfide as a bracket under the bar
+        yb = y + 26
+        d.line(xr(a), y + 4, xr(a), yb); d.line(xr(a), yb, xr(b), yb); d.line(xr(b), yb, xr(b), y + 4)
+        d.text((xr(a) + xr(b)) / 2, yb + 10, [("S–S (Cys", 0), (str(a), SUP), ("–Cys", 0), (str(b), SUP), (")", 0)], size=8, align="Center")
+    def width(runs, size): return sum(w(r[0]) * (SUBW if (r[1] & (SUB | SUP)) else 1) for r in runs) * size / 10
+    def charged(x, y, runs, size, sign):
+        """Text, then its formal charge circled right after it (house style)."""
+        d.text(x, y, runs, size=size)
+        d.charge_symbol(x + width(runs, size) + 5.8, y - 3.4, sign)
+    def step(ya, yb, lines):                         # a reaction arrow with one or two lines of text beside it
+        d.arrow(XM, ya, XM, yb)
+        y = (ya + yb) / 2 + 3 - 5.5 * (len(lines) - 1)
+        for runs in lines:
+            d.text(XM + 8, y, runs, size=9); y += 11
+
+    d.text(X0 - 18, 34, [("Activation of chymotrypsinogen", 1)], size=11)
+    # ---- the zymogen
+    y1 = 78
+    d.text(XM, y1 - 14, "Chymotrypsinogen (inactive)", size=10, align="Center")
+    bar(y1, 1, 245); ends(y1)
+    d.line(cut, y1 - 7, cut, y1 + 7, color=B)
+    d.text(cut - 3, y1 - 10, [("Arg", 0), ("15", SUP), ("–Ile", 0), ("16", SUP)], size=8)
+    d.text(cut + 3, y1 + 14, "scissile bond", size=8, color=B)
+    d.text(xr(194), y1 + 14, [("Asp", 0), ("194", SUP)], size=8, align="Center")
+    ss(y1, 1, 122)
+    # ---- trypsin's cut gives pi-chymotrypsin: two pieces held by the disulfide; the new N-terminus pairs with Asp194
+    step(y1 + 44, y1 + 68, [[("trypsin cuts the Arg", 0), ("15", SUP), ("–Ile", 0), ("16", SUP), (" scissile bond", 0)]])
+    y2 = y1 + 124
+    d.text(XM, y2 - 38, "π-Chymotrypsin (active)", size=10, align="Center")
+    bar(y2, 1, 15, gap=2.0); bar(y2, 16, 245, gap=2.0); ends(y2)
+    ss(y2, 1, 122)
+    yt = y2 - 14
+    d.line(xr(16), y2 - 3, xr(16), yt, dashed=True); d.line(xr(16), yt, xr(194), yt, dashed=True); d.line(xr(194), yt, xr(194), y2 - 3, dashed=True)
+    d.text((xr(16) + xr(194)) / 2, yt - 4, "ion pair", size=8, align="Center")
+    charged(xr(16) - 4, yt - 4, [("NH", 0), ("3", SUB)], 9, +1)
+    charged(xr(194) - 12, yt - 4, [("COO", 0)], 9, -1)
+    d.text(xr(16) - 2, y2 + 14, [("Ile", 0), ("16", SUP), (" (new N-terminus)", 0)], size=8)
+    d.text(xr(194), y2 + 14, [("Asp", 0), ("194", SUP)], size=8, align="Center")
+    # ---- chymotrypsin trims two dipeptides: alpha-chymotrypsin, chains A, B, C
+    step(y2 + 44, y2 + 68, [[("chymotrypsin cuts out", 0)],
+                            [("Ser", 0), ("14", SUP), ("–Arg", 0), ("15", SUP), (" and Thr", 0), ("147", SUP), ("–Asn", 0), ("148", SUP)]])
+    y3 = y2 + 116
+    d.text(XM, y3 - 30, "α-Chymotrypsin (active)", size=10, align="Center")
+    bar(y3, 1, 13); bar(y3, 16, 146); bar(y3, 149, 245); ends(y3)
+    for a_, b_, name in ((1, 13, "A"), (16, 146, "B"), (149, 245, "C")):
+        d.text((xr(a_) + xr(b_)) / 2, y3 - 15, [(name, 1)], size=8, align="Center")
+    for n, al in ((13, "Right"), (16, None), (146, "Right"), (149, None)):     # chain ends beside the two gaps
+        d.text(xr(n) + (-1.0 if al else 1.0), y3 - 4, str(n), size=7, align=al)
+    ss(y3, 1, 122); ss(y3, 136, 201)
+    d.text(X0 - 18, y3 + 62, "The new ion pair changes the shape of the protein: the hydrophobic pocket forms", size=9)
+    d.text(X0 - 18, y3 + 74, "and the oxyanion hole is stabilized.", size=9)
+
+
 if __name__ == "__main__":
     out = sys.argv[1] if len(sys.argv) > 1 else "."
-    for st in (sys.argv[2:] or list(STATES)):
+    for st in (sys.argv[2:] or list(STATES) + ["pocket", "activation"]):
         d = Doc()
-        frame(d, st)
-        path = os.path.join(out, STATES[st][0] + ".cdxml")
-        d.write(path, 330, 300)
+        if st == "pocket":
+            pocket_panel(d)
+            path = os.path.join(out, "ch_p02_hydrophobic_pocket.cdxml")
+            d.write(path, 440, 230)
+        elif st == "activation":
+            activation_panel(d)
+            path = os.path.join(out, "ch_p09_activation.cdxml")
+            d.write(path, 440, 400)
+        else:
+            frame(d, st)
+            path = os.path.join(out, STATES[st][0] + ".cdxml")
+            d.write(path, 330, 300)
         preview(path, path.replace(".cdxml", "_preview.png"))
         print("wrote", path)

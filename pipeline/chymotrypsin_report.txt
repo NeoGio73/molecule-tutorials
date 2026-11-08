@@ -1,0 +1,47 @@
+1YPH: enzyme chains A, C, D, E, F; 238 residues, numbered 1-245
+1CHO: enzyme chains E, F, G, I; 243 residues, numbered 1-245
+7GCH: enzyme chains E, F, G; 237 residues, numbered 1-245
+2CGA: enzyme chains A, B; 245 residues, numbered 1-245
+
+Superposition on 1YPH (C-alpha, core after trimming >2 A outliers):
+  1CHO: 236 C-alpha, rmsd 0.36 A
+  7GCH: 235 C-alpha, rmsd 0.43 A
+  2CGA: 220 C-alpha, rmsd 0.52 A
+
+1. Catalytic triad (Lehninger: substrate binding compresses the Asp102-His57 hydrogen bond into a low-barrier one)
+  1YPH: Asp102 OD1...His57 ND1 2.60 A; His57 NE2...Ser195 OG 2.72 A
+  1CHO: Asp102 OD1...His57 ND1 2.76 A; His57 NE2...Ser195 OG 2.51 A
+  7GCH: Asp102 OD1...His57 ND1 2.49 A; His57 NE2...Ser195 OG 3.22 A
+  2CGA: Asp102 OD1...His57 ND1 2.65 A; His57 NE2...Ser195 OG 2.75 A
+
+2. Michaelis-like complex, 1CHO (OMTKY3, P1 = Leu18 of chain I)
+  P1 = Leu18 of chain I
+  Ser195 OG...P1 carbonyl C 2.95 A; OG...C=O angle 102 deg (Burgi-Dunitz ~105)
+  1CHO: backbone N within 3.6 A of the P1 carbonyl O:
+     Gly193 N...O 2.44 A, N-H...O angle 155 deg
+     Asp194 N...O 3.37 A, N-H...O angle 110 deg
+     Ser195 N...O 3.32 A, N-H...O angle 155 deg
+
+3. Tetrahedral-intermediate mimic, 7GCH (Ac-Leu-Phe-CF3 hemiketal on Ser195)
+  ligand atom bonded to Ser195 OG: LPF 246 C2 at 1.52 A (covalent if ~1.4-1.5)
+  hemiketal O (the oxyanion mimic): LPF O2, C-O 1.51 A
+  7GCH: backbone N within 3.6 A of the hemiketal O:
+     Gly193 N...O 2.75 A, N-H...O angle 126 deg
+     Asp194 N...O 3.01 A, N-H...O angle 104 deg
+     Ser195 N...O 2.74 A, N-H...O angle 156 deg
+  Phe ring of the ligand: enzyme residues within 4.5 A (closest atom): Ser190 3.5, Cys191 3.8, Met192 3.8, Val213 4.0, Trp215 3.5, Gly216 3.5, Ser217 3.6, Cys220 4.0
+  charged side chains among them: none
+
+4. Oxyanion hole in the free enzyme and in the zymogen (probe = the 7GCH hemiketal O, moved into each frame)
+  1YPH: Gly193 N...probe 3.11 A, N-H...probe angle 142 deg
+  1YPH: Ser195 N...probe 2.47 A, N-H...probe angle 143 deg
+  2CGA: Gly193 N...probe 6.82 A, N-H...probe angle 68 deg
+  2CGA: Ser195 N...probe 2.66 A, N-H...probe angle 107 deg
+
+5. Activation (Lehninger: trypsin cuts Arg15-Ile16; the shape change forms the pocket and the oxyanion hole)
+  1YPH: Ile16 N...Asp194 carboxylate 2.74 A; residue 15 present: False
+  2CGA: Ile16 N...Asp194 carboxylate 18.32 A; residue 15 present: True
+  2CGA vs 1YPH, oxyanion-hole loop 191-194: C-alpha shift mean 4.3 A, max 7.4 A
+  2CGA vs 1YPH, pocket segment 189-192: C-alpha shift mean 3.7 A, max 7.4 A
+  2CGA vs 1YPH, pocket segment 214-220: C-alpha shift mean 1.4 A, max 2.8 A
+  2CGA vs 1YPH, N-terminal segment 16-19: C-alpha shift mean 4.8 A, max 10.8 A

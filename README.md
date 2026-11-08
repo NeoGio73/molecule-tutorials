@@ -59,10 +59,28 @@ Residue numbers are written as superscripts throughout (His¹⁴⁶, Asp⁹⁴),
   or NH bonded on both sides gets its H stacked on top, and ChemDraw's SVG export then misplaces the C or N.
 - `common_frame.py` gives the exported frames one shared viewBox, so they line up when one replaces the next.
 - `burst_curve.py` draws the pre-steady-state burst on the axes of Lehninger Fig. 6-25.
+- `make_chymo.py` also writes ch_p02 (which side chains fit the hydrophobic pocket) and ch_p09 (zymogen activation after
+  Lehninger Fig. 6-42: chymotrypsinogen, trypsin's cut of the Arg¹⁵–Ile¹⁶ scissile bond giving π-chymotrypsin with its
+  Ile¹⁶–Asp¹⁹⁴ ion pair, then α-chymotrypsin after Ser¹⁴–Arg¹⁵ and Thr¹⁴⁷–Asn¹⁴⁸ are cut out).
+
+#### Chymotrypsin structures and scene data
+
+- `chymo_measure.py` superposes 1CHO, 7GCH and 2CGA on 1YPH and measures what the narration claims: the oxyanion hole
+  (Gly¹⁹³ and Ser¹⁹⁵ N–H), the attack geometry, the residues lining the hydrophobic pocket, the Asp¹⁰²–His⁵⁷ hydrogen
+  bond in each structure, and what moves on activation. Results in `chymotrypsin_report.txt`.
+- `chymo_prep.py` writes `chymotrypsin.json` for the Unity scene: the 1YPH chain trace, the zymogen trace for the
+  activation coda, the pocket residues and a translucent pocket surface, and every reacting atom with a position, bonds,
+  charges and curved arrows in each of the eight states of Lehninger Fig. 6-27. The tetrahedral intermediates come
+  from the 7GCH hemiketal (crystal); the ES complex is fitted to the 1CHO P1/P2 backbone; the acyl-enzyme, water and
+  product states are modeled. The script's header lists every modeling choice.
+- `unity_scripts/Ch*.cs` build and play the scene: `ChSceneBuilder` (tubes, pocket surface, labels), `ChMechanism`
+  (atoms move, bonds form and break, protons hop, arrows draw themselves on), `ChLabels` (residue labels with
+  superscript numbers), `ChShotSequence` (camera and timing per storyboard shot), and `ChRimSurface.shader` (the
+  pocket surface). They reuse `ChainTube`, `StickGroup`, `HbStyle` and `HbPanelOverlay` from the hemoglobin scripts.
 
 ## Credits
 
 Structures from the RCSB Protein Data Bank (2HHB Fermi & Perutz 1984; 1HHO Shaanan 1983; 2HBS Harrington et al.
-1997). Residue naming and reference values follow Lehninger Principles of Biochemistry.
+1997; 1YPH Razeto et al.; 1CHO Fujinaga et al. 1987; 7GCH Brady et al. 1990; 2CGA Wang, Bode & Huber 1985). Residue naming and reference values follow Lehninger Principles of Biochemistry.
 
 John Picione, Daytona State College.
