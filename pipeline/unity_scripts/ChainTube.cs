@@ -12,6 +12,10 @@ namespace HbTutorial
         public int subdiv = 5;            // samples per control segment
         public bool isStatic;             // ghost copies never morph
         public Color color = Color.gray;  // serialized so materials can be rebuilt after a domain reload
+        // Saved transparent URP Lit material used while the tube fades (its color comes from a property block). It has to be a
+        // saved asset the scene references: a material made at runtime needs the transparent shader variant, which a
+        // WebGL build strips when no saved material uses it (the tube then draws opaque).
+        public Material transparentMaterial;
 
         Mesh _mesh;
         Material _opaque, _transp;
@@ -27,6 +31,9 @@ namespace HbTutorial
             _mesh.MarkDynamic();
             GetComponent<MeshFilter>().sharedMesh = _mesh;
             GetComponent<MeshRenderer>().sharedMaterial = ghost ? HbStyle.Mat(color, true) : HbStyle.Mat(color);
+#if UNITY_EDITOR
+            if (transparentMaterial == null) transparentMaterial = EditorTransparentMaterial();
+#endif
             if (ghost) { var r = GetComponent<MeshRenderer>(); r.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off; }
             SetT(0f);
         }
@@ -38,7 +45,7 @@ namespace HbTutorial
             var mr = GetComponent<MeshRenderer>();
             if (isStatic) return;
             if (_opaque == null) _opaque = (mr.sharedMaterial != null && mr.sharedMaterial != _transp) ? mr.sharedMaterial : HbStyle.Mat(color);
-            if (_transp == null) _transp = HbStyle.Mat(new Color(color.r, color.g, color.b, 0.5f), true);
+            if (_transp == null) _transp = transparentMaterial != null ? transparentMaterial : HbStyle.Mat(new Color(color.r, color.g, color.b, 0.5f), true);
             if (_mpb == null) _mpb = new MaterialPropertyBlock();
             _alpha = a;
             if (a >= 0.995f) { mr.sharedMaterial = _opaque; mr.SetPropertyBlock(null); mr.enabled = true; }
@@ -51,6 +58,21 @@ namespace HbTutorial
                 mr.enabled = true;
             }
         }
+
+#if UNITY_EDITOR
+        public const string TransparentAssetPath = "Assets/HbTutorial/Materials/ChainTransparent.mat";
+
+        /// <summary>The shared transparent chain material asset (created on first use).</summary>
+        public static Material EditorTransparentMaterial()
+        {
+            var m = UnityEditor.AssetDatabase.LoadAssetAtPath<Material>(TransparentAssetPath);
+            if (m != null) return m;
+            if (!UnityEditor.AssetDatabase.IsValidFolder("Assets/HbTutorial/Materials")) UnityEditor.AssetDatabase.CreateFolder("Assets/HbTutorial", "Materials");
+            m = new Material(HbStyle.Mat(new Color(1f, 1f, 1f, 0.5f), true)) { name = "ChainTransparent" };
+            UnityEditor.AssetDatabase.CreateAsset(m, TransparentAssetPath);
+            return m;
+        }
+#endif
 
         public override void SetT(float t)
         {

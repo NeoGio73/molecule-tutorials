@@ -1,9 +1,10 @@
-// HbTutorialController.cs — the interactive twin: track switch (A/B), checkpoints that pause the
+// HbTutorialController.cs — the interactive twin: checkpoints (Track A, BCH 3023) that pause the
 // Timeline, a T<->R slider, visibility toggles and replay buttons. All UI is built at runtime
 // with uGUI, so the scene needs no prefab wiring beyond assigning the references below.
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
 #endif
@@ -49,10 +50,10 @@ namespace HbTutorial
         public int fontSize = 18;
 
         // runtime UI
-        Canvas _canvas; GameObject _panel; Text _question, _feedback; Button[] _optionButtons; Button _continue;
-        Slider _tSlider; Text _tLabel; Transform _shotBar; Text _trackLabel;
-        Checkpoint _active; bool _awaitingClick;
-        Font _font;
+        Canvas _canvas; GameObject _panel; TextMeshProUGUI _question, _feedback; Button[] _optionButtons; Button _continue;
+        Slider _tSlider; TextMeshProUGUI _tLabel; Transform _shotBar; TextMeshProUGUI _trackLabel;
+        [System.NonSerialized] Checkpoint _active; bool _awaitingClick;   // NonSerialized: a domain reload would restore it as an empty checkpoint
+        TMP_FontAsset _font;
 
         void Reset() { PopulateDefaults(); }
 
@@ -65,13 +66,13 @@ namespace HbTutorial
                     question = "Click the residue bonded directly to the iron.", options = new string[0], correct = -1,
                     clickKey = "beta1:92", wrongFeedback = "That one is on the oxygen side. The iron's protein anchor is below the heme." },
                 new Checkpoint { track = Track.A_BCH3023, afterShot = "4", time = 110f,
-                    question = "After one subunit binds O2, the empty hemes on the other subunits have:",
+                    question = "After one subunit binds O<sub>2</sub>, the empty hemes on the other subunits have:",
                     options = new[] { "Higher affinity", "Lower affinity", "Unchanged affinity" }, correct = 0,
                     wrongFeedback = "The ion pairs broke and the tetramer is in R. R is the high-affinity state." },
                 new Checkpoint { track = Track.A_BCH3023, afterShot = "6", time = 160f,
                     question = "In working muscle, extra protons will:",
-                    options = new[] { "Favor T and release O2", "Favor R and bind O2" }, correct = 0,
-                    wrongFeedback = "Protonated His\u00b9\u2074\u2076 re-forms its ion pair with Asp\u2079\u2074, which stabilizes T." },
+                    options = new[] { "Favor T and release O<sub>2</sub>", "Favor R and bind O<sub>2</sub>" }, correct = 0,
+                    wrongFeedback = "Protonated His<sup>146</sup> re-forms its ion pair with Asp<sup>94</sup>, which stabilizes T." },
                 new Checkpoint { track = Track.B_CHEM301, afterShot = "1", time = 20f,
                     question = "How many oxygen molecules can one hemoglobin carry at once?",
                     options = new[] { "1", "2", "4", "8" }, correct = 2,
@@ -103,6 +104,7 @@ namespace HbTutorial
         void Start()
         {
             if (checkpoints.Count == 0) PopulateDefaults();
+            track = Track.A_BCH3023;                 // the only track now
             if (!cam) cam = Camera.main;
             if (buildUI) BuildUI();
             SetTrack((int)track);
@@ -148,7 +150,8 @@ namespace HbTutorial
         {
             if (sequence == null) return;
             _active = null; HidePanel();
-            foreach (var c in checkpoints) if (c.track == track && c.time >= time) c.done = false;   // re-arm checkpoints ahead
+            // re-arm checkpoints from here on; skip earlier ones (the student jumped past them)
+            foreach (var c in checkpoints) if (c.track == track) { c.done = c.time < time; c.wrongCount = 0; }
             sequence.Seek(time); sequence.Play();
             if (orbitCamera) orbitCamera.enabled = false;
         }
@@ -165,7 +168,7 @@ namespace HbTutorial
             if (sequence != null) sequence.Pause();
             if (_panel == null) return;
             _panel.SetActive(true);
-            _question.text = c.question;
+            _question.text = Fmt(c.question);
             _feedback.text = "";
             _continue.gameObject.SetActive(false);
             bool click = c.options == null || c.options.Length == 0;
@@ -174,7 +177,7 @@ namespace HbTutorial
             {
                 bool on = !click && i < c.options.Length;
                 _optionButtons[i].gameObject.SetActive(on);
-                if (on) _optionButtons[i].GetComponentInChildren<Text>().text = c.options[i];
+                if (on) _optionButtons[i].GetComponentInChildren<TextMeshProUGUI>().text = Fmt(c.options[i]);
             }
             if (click) { if (sequence) sequence.active = false; if (orbitCamera) { orbitCamera.enabled = true; orbitCamera.SyncFromCamera(); } }
         }
@@ -199,7 +202,7 @@ namespace HbTutorial
             _active.wrongCount++;
             if (_active.wrongCount >= 2)
             {
-                _feedback.text = _active.wrongFeedback;
+                _feedback.text = Fmt(_active.wrongFeedback);
                 _active.done = true; _awaitingClick = false;
                 foreach (var b in _optionButtons) b.gameObject.SetActive(false);
                 _continue.gameObject.SetActive(true);
@@ -242,8 +245,7 @@ namespace HbTutorial
         // ---------------------------------------------------------------- UI
         void BuildUI()
         {
-            _font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-            if (_font == null) _font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            _font = TMP_Settings.defaultFontAsset;   // TextMeshPro: superscript residue numbers render in WebGL (the legacy font lacks most superscript digits)
             if (Object.FindAnyObjectByType<UnityEngine.EventSystems.EventSystem>() == null)
             {
                 var es = new GameObject("EventSystem");
@@ -270,11 +272,9 @@ namespace HbTutorial
             ToggleRow(strip.transform, "Hemes", true, v => { if (morph) morph.showHemes = v; });
             ToggleRow(strip.transform, "Residues", true, v => { if (morph) morph.showResidues = v; });
             ToggleRow(strip.transform, "Ion pairs", true, v => { if (morph) morph.showIonPairs = v; });
-            ToggleRow(strip.transform, "O2", true, v => { if (morph) morph.showO2 = v; });
+            ToggleRow(strip.transform, "O<sub>2</sub>", true, v => { if (morph) morph.showO2 = v; });
             ToggleRow(strip.transform, "Sickle fiber", false, v => { if (morph) morph.showSickle = v; });
-            _trackLabel = Label(strip.transform, "", 14);
-            ButtonRow(strip.transform, "Track A (BCH 3023)", () => SetTrack(0));
-            ButtonRow(strip.transform, "Track B (CHEM301)", () => SetTrack(1));
+            // one track only (BCH 3023): the CHEM301 track was dropped Nov 6, so no track buttons
             ButtonRow(strip.transform, "Free look (pause)", FreeLook);
 
             // --- bottom-left shot bar
@@ -311,10 +311,19 @@ namespace HbTutorial
             var fit = go.AddComponent<ContentSizeFitter>(); fit.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
             return go;
         }
-        Text Label(Transform parent, string text, int size)
+        /// <summary>TMP's own &lt;sup&gt; follows the font's superscript size, which is too small at UI sizes; use a larger raised size.</summary>
+        static string Fmt(string s)
+        {
+            if (string.IsNullOrEmpty(s)) return s;
+            return s.Replace("<sup>", "<voffset=0.42em><size=72%>").Replace("</sup>", "</size></voffset>")
+                    .Replace("<sub>", "<voffset=-0.12em><size=72%>").Replace("</sub>", "</size></voffset>");
+        }
+
+        TextMeshProUGUI Label(Transform parent, string text, int size)
         {
             var go = new GameObject("Label"); go.transform.SetParent(parent, false);
-            var t = go.AddComponent<Text>(); t.font = _font; t.fontSize = size; t.text = text; t.color = Color.white; t.horizontalOverflow = HorizontalWrapMode.Wrap;
+            var t = go.AddComponent<TextMeshProUGUI>(); if (_font) t.font = _font; t.fontSize = size; t.text = Fmt(text); t.color = Color.white;
+            t.textWrappingMode = TextWrappingModes.Normal; t.richText = true;
             var le = go.AddComponent<LayoutElement>(); le.minHeight = size + 8;
             return t;
         }
@@ -324,7 +333,7 @@ namespace HbTutorial
             var img = go.AddComponent<Image>(); img.color = new Color(0.25f, 0.3f, 0.4f, 0.95f);
             var b = go.AddComponent<Button>(); b.onClick.AddListener(onClick);
             var le = go.AddComponent<LayoutElement>(); le.minHeight = fontSize + 14;
-            var t = Label(go.transform, text, fontSize); t.alignment = TextAnchor.MiddleCenter;
+            var t = Label(go.transform, text, fontSize); t.alignment = TextAlignmentOptions.Center;
             var rt = t.GetComponent<RectTransform>(); rt.anchorMin = Vector2.zero; rt.anchorMax = Vector2.one; rt.offsetMin = new Vector2(8, 0); rt.offsetMax = new Vector2(-8, 0);
             return b;
         }
@@ -341,7 +350,7 @@ namespace HbTutorial
             var crt = ck.GetComponent<RectTransform>(); crt.anchorMin = Vector2.zero; crt.anchorMax = Vector2.one; crt.offsetMin = new Vector2(3, 3); crt.offsetMax = new Vector2(-3, -3);
             tg.targetGraphic = bgi; tg.graphic = cki; tg.isOn = value; tg.onValueChanged.AddListener(onChange);
             var t = Label(go.transform, text, fontSize - 2); var trt = t.GetComponent<RectTransform>();
-            trt.anchorMin = Vector2.zero; trt.anchorMax = Vector2.one; trt.offsetMin = new Vector2(30, 0); trt.offsetMax = Vector2.zero; t.alignment = TextAnchor.MiddleLeft;
+            trt.anchorMin = Vector2.zero; trt.anchorMax = Vector2.one; trt.offsetMin = new Vector2(30, 0); trt.offsetMax = Vector2.zero; t.alignment = TextAlignmentOptions.MidlineLeft;
             return tg;
         }
         Slider SliderRow(Transform parent, UnityEngine.Events.UnityAction<float> onChange)

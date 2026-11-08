@@ -53,6 +53,10 @@ namespace ChTutorial
         // hydrogen-bond dashes, curved arrows and circled charges are not built as meshes here; their geometry is
         // published in these lists (local space of this transform) every Apply, and the drawer renders them.
         [System.NonSerialized] public bool externalDraw;
+        /// <summary>Atoms to hide whatever the state (the side-chain picker swaps the Phe ring for other side chains).</summary>
+        [System.NonSerialized] public readonly HashSet<string> hidden = new HashSet<string>();
+        /// <summary>Shifts the substrate and leaving group (local space), for the picker's "turned away" animation.</summary>
+        [System.NonSerialized] public Vector3 substrateOffset;
         public struct HBondDraw { public Vector3 a, b; public float weight, glow; }
         public struct ArrowDraw { public Vector3 p0, p1, p2, p3; public float f; }
         public struct ChargeDraw { public Vector3 pos; public float size; public bool plus; }
@@ -88,6 +92,7 @@ namespace ChTutorial
                 mr.sharedMaterial = HbStyle.Mat(AtomColor(rec), false, rec.cls == "proton" ? 0.5f : 0f);
                 rec.r = (a.elem == "H" ? 0.024f : HbStyle.ElementRadius(a.elem)) * atomScale;
                 rec.tf = go.transform;
+                if (a.cls == "enzyme") go.AddComponent<SphereCollider>().radius = 0.9f;   // click a residue in the twin
                 atoms.Add(rec);
             }
 
@@ -200,6 +205,14 @@ namespace ChTutorial
             return transform.position;
         }
 
+        /// <summary>The residue ("His57", ...) of the reacting atom this collider belongs to, or null.</summary>
+        public string ResidueOf(Collider c)
+        {
+            if (c == null) return null;
+            foreach (var a in atoms) if (a.tf == c.transform) return a.res;
+            return null;
+        }
+
         /// <summary>Transform of a reacting atom by name, or null.</summary>
         public Transform AtomTransform(string name)
         {
@@ -230,7 +243,8 @@ namespace ChTutorial
                 if (a.P == null || a.P.Length < stateCount) continue;
                 Vector3 p = Vector3.LerpUnclamped(a.P[s], a.P[s + 1], e);
                 float v = Mathf.Lerp(a.vis[s], a.vis[s + 1], e);
-                if (IsSubstrate(a)) v *= substrateAlpha;
+                if (IsSubstrate(a)) { v *= substrateAlpha; p += substrateOffset; }
+                if (hidden.Count > 0 && hidden.Contains(a.name)) v = 0f;
                 _pos[i] = p; _vis[i] = v;
                 if (a.tf == null) continue;
                 a.tf.localPosition = p;

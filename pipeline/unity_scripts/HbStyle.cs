@@ -42,6 +42,14 @@ namespace HbTutorial
 
         static Mesh PrimitiveMesh(PrimitiveType t)
         {
+            // In a player, reuse the built-in mesh the built scene already references: CreatePrimitive also adds a
+            // collider, and a WebGL build strips the collider classes it does not see used (an error in the console).
+            if (Application.isPlaying)
+            {
+                string n = t.ToString();
+                foreach (var mf in Object.FindObjectsByType<MeshFilter>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+                    if (mf.sharedMesh != null && mf.sharedMesh.name == n) return mf.sharedMesh;
+            }
             var go = GameObject.CreatePrimitive(t);
             var m = go.GetComponent<MeshFilter>().sharedMesh;
             Object.DestroyImmediate(go);

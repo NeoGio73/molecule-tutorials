@@ -13,6 +13,7 @@ namespace HbTutorial
         public float distance = 14f;
         public float minDistance = 1.5f, maxDistance = 40f;
         public float yaw = 30f, pitch = 20f;
+        public float roll = 0f;            // kept from a scripted shot whose camera is tilted, so free look starts on the same view
         public float orbitSpeed = 0.25f;   // degrees per pixel
         public float zoomSpeed = 1.2f;
         public float panSpeed = 0.01f;
@@ -25,8 +26,11 @@ namespace HbTutorial
         Vector2 _lastPointer; bool _dragging; int _dragButton;
         float _lastPinch = -1f;
 
+        bool _synced;
+
         void Start()
         {
+            if (_synced) return;               // first enabled by free look: keep the pose SyncFromCamera adopted
             _pivot = target ? target.position : Vector3.zero;
             _curYaw = yaw; _curPitch = pitch; _curDist = distance; _curPivot = _pivot;
             Snap();
@@ -46,13 +50,13 @@ namespace HbTutorial
             float d = target ? Vector3.Distance(transform.position, target.position) : distance;
             _pivot = transform.position + fwd * d; target = null;
             var e = transform.rotation.eulerAngles;
-            pitch = e.x > 180f ? e.x - 360f : e.x; yaw = e.y; distance = d;
-            _curYaw = yaw; _curPitch = pitch; _curDist = distance; _curPivot = _pivot;
+            pitch = e.x > 180f ? e.x - 360f : e.x; yaw = e.y; roll = e.z > 180f ? e.z - 360f : e.z; distance = d;
+            _curYaw = yaw; _curPitch = pitch; _curDist = distance; _curPivot = _pivot; _synced = true;
         }
 
         void Snap()
         {
-            var rot = Quaternion.Euler(_curPitch, _curYaw, 0f);
+            var rot = Quaternion.Euler(_curPitch, _curYaw, roll);
             transform.position = _curPivot + rot * new Vector3(0f, 0f, -_curDist);
             transform.rotation = rot;
         }
@@ -133,7 +137,7 @@ namespace HbTutorial
                 }
                 else
                 {
-                    var rot = Quaternion.Euler(pitch, yaw, 0f);
+                    var rot = Quaternion.Euler(pitch, yaw, roll);
                     _pivot -= rot * new Vector3(delta.x, delta.y, 0f) * panSpeed * distance * 0.1f;
                     target = null;
                 }

@@ -181,7 +181,7 @@ namespace ChTutorial
             labels.Add("Ser<sup>195</sup> N–H", "hole", A("Ser195:N"), Vector3.zero, font);
             labels.Add("oxyanion hole", "hole", A("S:O2"), new Vector3(0f, -0.06f, 0f), font);
             labels.Add("hydrophobic pocket", "pocket", Target("pocket"), new Vector3(0f, -0.12f, 0f), font);
-            labels.Add("Phe", "pocket", A("S:CP4"), Vector3.zero, font);
+            labels.Add("Phe", "pocket", A("S:CP4"), new Vector3(0f, 0.09f, 0f), font);   // raised, clear of "hydrophobic pocket"
             labels.Add("scissile bond", "scissile", A("S:C2"), Vector3.zero, font, A("L:N"));
             labels.Add("H<sub>2</sub>O", "water", A("W:O"), Vector3.zero, font);
             if (ionPairEnds.Length == 2 && ionPairEnds[0] && ionPairEnds[1])

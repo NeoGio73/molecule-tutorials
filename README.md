@@ -7,6 +7,7 @@ Protein Data Bank structures. Each tutorial exists in two forms: a narrated vide
 | Tutorial | Twin | Structures | Status |
 | --- | --- | --- | --- |
 | Hemoglobin: T to R, the Bohr effect, sickle cell | [open](https://neogio73.github.io/molecule-tutorials/hemoglobin/) | 2HHB, 1HHO, 2HBS | prototype, placeholder narration timings |
+| Chymotrypsin: the catalytic triad, acylation and deacylation, zymogen activation | [open](https://neogio73.github.io/molecule-tutorials/chymotrypsin/) | 1YPH, 1CHO, 7GCH, 2CGA | draft, placeholder narration timings |
 
 ![Deoxyhemoglobin (2HHB)](docs/images/hemoglobin_T_state.png)
 
@@ -14,9 +15,14 @@ Protein Data Bank structures. Each tutorial exists in two forms: a narrated vide
 
 ## How the twin works
 
-Orbit with the mouse or touch, scrub the **T ↔ R** slider, toggle chains, hemes, ion pairs, O₂ and the sickle
-fiber, or replay any shot. Track A follows the mechanism (for a majors biochemistry course); Track B is the
-structure-level version with the sickle-cell story. Nothing is recorded or sent anywhere.
+The shot sequence plays and stops at checkpoint questions (two tries, then the explanation). Orbit with the
+mouse or touch, or replay any shot. Nothing is recorded or sent anywhere.
+
+- **Hemoglobin:** scrub the **T ↔ R** slider; toggle chains, hemes, ion pairs, O₂ and the sickle fiber.
+- **Chymotrypsin:** step through the eight states of Lehninger Fig. 6-27 with the 2D panel for each; toggle the
+  curved arrows, labels, the hydrophobic pocket and the chains; click a triad residue for its role; at the
+  substrate-binding checkpoint, swap the substrate's Phe for Tyr, Trp, Lys, Glu or Gly and see which fit the pocket
+  (a schematic animation, not computed docking).
 
 ## Pipeline
 
@@ -78,11 +84,21 @@ Residue numbers are written as superscripts throughout (His¹⁴⁶, Asp⁹⁴),
   superscript numbers), `ChShotSequence` (camera and timing per storyboard shot), and `ChRimSurface.shader` (the
   pocket surface). They reuse `ChainTube`, `StickGroup`, `HbStyle` and `HbPanelOverlay` from the hemoglobin scripts.
   `ChShotSequence` also covers the optional activation coda (shot 10) and times the 2D panels to the shots.
+  `ChTutorialController` is the interactive twin (checkpoints, step slider, toggles, residue roles, shot replay) and
+  `ChSideChainPicker` the side-chain swap at the substrate-binding checkpoint.
 - Optional: `ChShapesDrawer.cs` draws the curved arrows, dashed hydrogen bonds and circled charges with
   [Shapes](https://acegikmo.com/shapes) (Freya Holmér, Unity Asset Store), a paid asset that is not included here. It
   compiles only with the scripting define `CH_SHAPES` and needs the Shapes render feature on the camera's URP renderer.
   For WebGL builds, turn off "immediate mode instancing" in the Shapes settings; with it on, the dashed lines did not
   render in our WebGL test. Without Shapes, `ChMechanism` draws its own tube arrows, cylinder dashes and charges.
+
+## Building the twins
+
+`pipeline/unity_scripts/TutorialBuilds.cs` (an Editor script) adds a **Tutorials → Build WebGL** menu that builds
+each tutorial into its own folder with its own page title (`Builds/<Tutorial>/WebGL`), Gzip-compressed with the
+decompression fallback that GitHub Pages needs. The page comes from `WebGLTemplates/Tutorial` (copy it to
+`Assets/WebGLTemplates/Tutorial`): the twin fills the browser window. The contents of each build folder go in the
+tutorial's folder here (`hemoglobin/`, `chymotrypsin/`).
 
 ## Credits
 
