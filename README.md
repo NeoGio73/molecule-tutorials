@@ -77,6 +77,12 @@ Residue numbers are written as superscripts throughout (His¹⁴⁶, Asp⁹⁴),
   (atoms move, bonds form and break, protons hop, arrows draw themselves on), `ChLabels` (residue labels with
   superscript numbers), `ChShotSequence` (camera and timing per storyboard shot), and `ChRimSurface.shader` (the
   pocket surface). They reuse `ChainTube`, `StickGroup`, `HbStyle` and `HbPanelOverlay` from the hemoglobin scripts.
+  `ChShotSequence` also covers the optional activation coda (shot 10) and times the 2D panels to the shots.
+- Optional: `ChShapesDrawer.cs` draws the curved arrows, dashed hydrogen bonds and circled charges with
+  [Shapes](https://acegikmo.com/shapes) (Freya Holmér, Unity Asset Store), a paid asset that is not included here. It
+  compiles only with the scripting define `CH_SHAPES` and needs the Shapes render feature on the camera's URP renderer.
+  For WebGL builds, turn off "immediate mode instancing" in the Shapes settings; with it on, the dashed lines did not
+  render in our WebGL test. Without Shapes, `ChMechanism` draws its own tube arrows, cylinder dashes and charges.
 
 ## Credits
 

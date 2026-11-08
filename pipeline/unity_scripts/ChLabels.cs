@@ -24,7 +24,7 @@ namespace ChTutorial
         public Camera viewCamera;
         public Transform centre;                     // labels are pushed away from this point on screen
         public float offset = 0.13f;                 // scene units from the anchor
-        public float fontSize = 0.75f;
+        public float fontSize = 0.8f;
         public Color color = new Color(1f, 1f, 1f, 1f);
         public List<Label> labels = new List<Label>();
         public List<string> groupNames = new List<string>();
@@ -42,8 +42,10 @@ namespace ChTutorial
             var overlay = Shader.Find("TextMeshPro/Distance Field Overlay");     // drawn on top, never hidden behind atoms
             var m = new Material(t.fontSharedMaterial) { name = "ch_label_overlay" };
             if (overlay != null) m.shader = overlay;
-            m.SetColor("_FaceColor", new Color(1.9f, 1.9f, 1.9f, 1f));     // above 1 so tone mapping leaves the text white
-            m.SetFloat("_OutlineWidth", 0.28f); m.SetColor("_OutlineColor", Color.black); m.EnableKeyword("OUTLINE_ON");
+            m.SetColor("_FaceColor", new Color(2.2f, 2.2f, 2.2f, 1f));           // well above 1 so tone mapping leaves the text white
+            m.SetFloat("_FaceDilate", 0.12f);
+            m.SetFloat("_OutlineWidth", 0.3f); m.SetColor("_OutlineColor", Color.black); m.EnableKeyword("OUTLINE_ON");
+            ShaderUtilities.UpdateShaderRatios(m);                         // TMP scales dilate/outline by these ratios
             t.fontSharedMaterial = m;
             labels.Add(new Label { text = text, group = group, anchor = anchor, anchor2 = anchor2, nudge = nudge, tmp = t });
             if (!groupNames.Contains(group)) { groupNames.Add(group); groupAlpha.Add(0f); }

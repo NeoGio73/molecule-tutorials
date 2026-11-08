@@ -25,10 +25,12 @@ namespace ChTutorial
         public Transform root;
         public ChMechanism mechanism;
         public List<ChainTube> chains = new List<ChainTube>();
-        public ChainTube zymogen;
+        public List<ChainTube> zymogenTubes = new List<ChainTube>();
+        public Color zymogenColor = new Color(0.78f, 0.72f, 0.86f), newTerminusColor = new Color(1.0f, 0.62f, 0.22f);
         public Transform pocketRoot, activationRoot, targets;
         public MeshRenderer pocketSurface;
         public ChLabels labels;
+        public Transform[] ionPairEnds = new Transform[0];
 
         [System.NonSerialized] public ChDataset data;
 
@@ -57,14 +59,30 @@ namespace ChTutorial
                 chains.Add(tube);
             }
 
-            // --- chymotrypsinogen for the coda: one tube that morphs from the zymogen (t = 0) to the active enzyme (t = 1)
+            // --- chymotrypsinogen for the coda: two tubes, residues 1-15 and 16-245, split at the Arg15-Ile16 scissile
+            // bond, each morphing from the zymogen (t = 0) to the active enzyme (t = 1); hidden until the coda
+            zymogenTubes.Clear();
             if (data.zymogen != null && data.zymogen.ca != null && data.zymogen.ca.Length > 0)
             {
                 var zr = Child(root, "Zymogen");
-                zymogen = zr.gameObject.AddComponent<ChainTube>();
-                zymogen.radius = tubeRadius; zymogen.sides = tubeSides; zymogen.subdiv = tubeSubdiv;
-                zymogen.Init(data.ToUnityArray(data.zymogen.ca), data.ToUnityArray(data.zymogen.caActive), new Color(0.75f, 0.72f, 0.80f));
-                zr.gameObject.SetActive(false);
+                var Z = data.ToUnityArray(data.zymogen.ca); var A2 = data.ToUnityArray(data.zymogen.caActive);
+                // three pieces: 1-15 | 16-22 (the new N-terminus, highlighted: it swings in to pair with Asp194) | 22-245;
+                // the last two share residue 22 so the chain reads as continuous
+                int cut = System.Array.IndexOf(data.zymogen.resnum, 16), cut2 = System.Array.IndexOf(data.zymogen.resnum, 22);
+                if (cut <= 0 || cut2 <= cut) { cut = Z.Length; cut2 = Z.Length; }
+                var pieces = new[] { (0, cut, "residues 1-15", zymogenColor), (cut, Mathf.Min(cut2 + 1, Z.Length), "residues 16-22 (new N-terminus)", newTerminusColor),
+                                     (cut2, Z.Length, "residues 22-245", zymogenColor) };
+                foreach (var (s0, s1, label, col) in pieces)
+                {
+                    if (s1 - s0 < 2) continue;
+                    var z = new Vector3[s1 - s0]; var a = new Vector3[s1 - s0];
+                    System.Array.Copy(Z, s0, z, 0, z.Length); System.Array.Copy(A2, s0, a, 0, a.Length);
+                    var tube = Child(zr, label).gameObject.AddComponent<ChainTube>();
+                    tube.radius = tubeRadius; tube.sides = tubeSides; tube.subdiv = tubeSubdiv;
+                    tube.Init(z, a, col);
+                    tube.SetAlpha(0f);
+                    zymogenTubes.Add(tube);
+                }
             }
 
             // --- context sticks: the hydrophobic pocket and the Ile16-Asp194 ion pair (static, 1YPH)
@@ -78,6 +96,28 @@ namespace ChTutorial
                 var sg = Child(parent, r.resname + r.resnum).gameObject.AddComponent<StickGroup>();
                 sg.stickRadius = stickRadius * 0.85f; sg.atomScale = contextAtomScale; sg.clickable = true; sg.tag = r.tag;
                 sg.Init(hbData, atomsHb, r.bonds, r.key, false, r.tag == "activation" ? activationCarbon : pocketCarbon);
+            }
+            // the Ile16-Asp194 ion pair as a dashed line (Ile16 N to the nearer Asp194 carboxylate O)
+            StickGroup ile = null, asp = null;
+            foreach (var sg in activationRoot.GetComponentsInChildren<StickGroup>(true)) { if (sg.key.EndsWith(":16")) ile = sg; if (sg.key.EndsWith(":194")) asp = sg; }
+            if (ile != null && asp != null && ile.AtomTransform("N") && asp.AtomTransform("OD1") && asp.AtomTransform("OD2"))
+            {
+                Vector3 n = ile.AtomTransform("N").localPosition;
+                Vector3 o1 = asp.AtomTransform("OD1").localPosition, o2 = asp.AtomTransform("OD2").localPosition;
+                Vector3 o = (o1 - n).sqrMagnitude < (o2 - n).sqrMagnitude ? o1 : o2;
+                var ip = Child(activationRoot, "ion pair (dashed)");
+                Vector3 dir = (o - n).normalized; float L = (o - n).magnitude - 0.06f, seg = L / 9f;
+                Vector3 a0 = n + dir * 0.03f;
+                var mat = HbStyle.Mat(new Color(1f, 0.88f, 0.3f), false, 0.8f);
+                for (int k = 0; k < 5; k++)
+                {
+                    var d = new GameObject("dash " + k); d.transform.SetParent(ip, false);
+                    d.AddComponent<MeshFilter>().sharedMesh = HbStyle.Cylinder; d.AddComponent<MeshRenderer>().sharedMaterial = mat;
+                    Vector3 c0 = a0 + dir * (seg * 2 * k), c1 = c0 + dir * seg;
+                    d.transform.localPosition = (c0 + c1) * 0.5f; d.transform.localRotation = Quaternion.FromToRotation(Vector3.up, dir);
+                    d.transform.localScale = new Vector3(0.012f, seg * 0.5f, 0.012f);
+                }
+                ionPairEnds = new[] { ile.AtomTransform("N"), (o == o1 ? asp.AtomTransform("OD1") : asp.AtomTransform("OD2")) };
             }
             activationRoot.gameObject.SetActive(false);
             pocketRoot.gameObject.SetActive(false);          // the surface stands for the pocket; the sticks are there to inspect
@@ -115,6 +155,11 @@ namespace ChTutorial
             mechanism.stickRadius = stickRadius;
             mechanism.viewCamera = Camera.main;
             mechanism.Build(data);
+#if CH_SHAPES
+            // arrows, dashed hydrogen bonds and circled charges drawn with Shapes (see ChShapesDrawer)
+            var sd = mr.gameObject.AddComponent<ChShapesDrawer>();
+            sd.mechanism = mechanism; mechanism.externalDraw = true; mechanism.Apply();
+#endif
 
             // --- camera targets
             targets = Child(root, "Targets");
@@ -139,6 +184,12 @@ namespace ChTutorial
             labels.Add("Phe", "pocket", A("S:CP4"), Vector3.zero, font);
             labels.Add("scissile bond", "scissile", A("S:C2"), Vector3.zero, font, A("L:N"));
             labels.Add("H<sub>2</sub>O", "water", A("W:O"), Vector3.zero, font);
+            if (ionPairEnds.Length == 2 && ionPairEnds[0] && ionPairEnds[1])
+            {
+                labels.Add("Ile<sup>16</sup>", "activation", ionPairEnds[0], new Vector3(-0.14f, -0.05f, 0f), font);
+                labels.Add("Asp<sup>194</sup>", "activation", ionPairEnds[1], new Vector3(0.12f, 0.06f, 0f), font);
+                Child(targets, "activation").position = (ionPairEnds[0].position + ionPairEnds[1].position) * 0.5f;
+            }
 
 #if UNITY_EDITOR
             PersistMaterials(root);
@@ -151,13 +202,19 @@ namespace ChTutorial
         public void Clear()
         {
             for (int i = transform.childCount - 1; i >= 0; i--) DestroyImmediate(transform.GetChild(i).gameObject);
-            chains.Clear(); root = null; mechanism = null; zymogen = null; pocketRoot = null; activationRoot = null; targets = null;
+            chains.Clear(); zymogenTubes.Clear(); root = null; mechanism = null; pocketRoot = null; activationRoot = null; targets = null;
         }
 
         /// <summary>Fade the chain tubes (1 = opaque, 0 = hidden).</summary>
         public void SetChainsAlpha(float a)
         {
             foreach (var t in chains) if (t != null) t.SetAlpha(a);
+        }
+
+        /// <summary>The coda's chymotrypsinogen tubes: alpha (0 hides them) and morph (0 zymogen, 1 active enzyme).</summary>
+        public void SetZymogen(float alpha, float t)
+        {
+            foreach (var z in zymogenTubes) { if (z == null) continue; z.SetAlpha(alpha); if (alpha > 0.004f) z.SetT(t); }
         }
 
         float _pocketAlpha = -1f;

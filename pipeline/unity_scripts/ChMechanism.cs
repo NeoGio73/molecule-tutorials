@@ -49,6 +49,17 @@ namespace ChTutorial
         public int aspHisBond = -1;
         public List<int> holeBonds = new List<int>();
 
+        // For an external drawer (ChShapesDrawer, when the Shapes package is installed): with externalDraw on, the
+        // hydrogen-bond dashes, curved arrows and circled charges are not built as meshes here; their geometry is
+        // published in these lists (local space of this transform) every Apply, and the drawer renders them.
+        [System.NonSerialized] public bool externalDraw;
+        public struct HBondDraw { public Vector3 a, b; public float weight, glow; }
+        public struct ArrowDraw { public Vector3 p0, p1, p2, p3; public float f; }
+        public struct ChargeDraw { public Vector3 pos; public float size; public bool plus; }
+        [System.NonSerialized] public readonly List<HBondDraw> hbondDraws = new List<HBondDraw>();
+        [System.NonSerialized] public readonly List<ArrowDraw> arrowDraws = new List<ArrowDraw>();
+        [System.NonSerialized] public readonly List<ChargeDraw> chargeDraws = new List<ChargeDraw>();
+
         Vector3[] _pos; float[] _vis;
         MaterialPropertyBlock _mpb;
         const int Dashes = 5;
@@ -209,6 +220,7 @@ namespace ChTutorial
             if (_mpb == null) _mpb = new MaterialPropertyBlock();
             int n = atoms.Count;
             if (_pos == null || _pos.Length != n) { _pos = new Vector3[n]; _vis = new float[n]; }
+            hbondDraws.Clear(); arrowDraws.Clear(); chargeDraws.Clear();
 
             // atoms
             Vector3 centroid = Vector3.zero; float wsum = 0f;
@@ -245,7 +257,8 @@ namespace ChTutorial
                     float glow = (i == aspHisBond) ? lbhb : (holeBonds.Contains(i) ? hole : 0f);
                     float ra = atoms[b.a].r * 0.8f, rb = atoms[b.b].r * 0.8f;
                     Vector3 a0 = p + dir * ra, a1 = q - dir * rb; float L = Mathf.Max(0f, len - ra - rb), seg = L / (2 * Dashes - 1);
-                    float rad = hbondRadius * w.x * (1f + 1.0f * glow);
+                    if (w.x > 0.002f) hbondDraws.Add(new HBondDraw { a = a0, b = a1, weight = w.x, glow = glow });
+                    float rad = externalDraw ? 0f : hbondRadius * w.x * (1f + 1.0f * glow);
                     Color c = Color.Lerp(hbondColor, glowColor, glow);
                     for (int k = 0; k < Dashes; k++)
                     {
@@ -270,11 +283,14 @@ namespace ChTutorial
                 float q = Mathf.Lerp(c.charge[s], c.charge[s + 1], e) * _vis[c.atom];
                 float mag = Mathf.Abs(q);
                 bool on = mag > 0.02f;
-                if (c.tf.gameObject.activeSelf != on) c.tf.gameObject.SetActive(on);
-                if (!on) continue;
                 var a = atoms[c.atom];
                 Vector3 offDir = (rightL + upL).normalized;
-                c.tf.localPosition = _pos[c.atom] + offDir * (a.r + chargeSize * 1.6f) - viewL * (a.r * 1.2f);
+                Vector3 cpos = _pos[c.atom] + offDir * (a.r + chargeSize * 1.6f) - viewL * (a.r * 1.2f);
+                if (on) chargeDraws.Add(new ChargeDraw { pos = cpos, size = chargeSize * mag, plus = q > 0f || (c.charge[s] + c.charge[s + 1]) > 0 });
+                if (externalDraw) on = false;
+                if (c.tf.gameObject.activeSelf != on) c.tf.gameObject.SetActive(on);
+                if (!on) continue;
+                c.tf.localPosition = cpos;
                 c.tf.localRotation = Quaternion.LookRotation(viewL, upL);
                 c.tf.localScale = Vector3.one * chargeSize * mag;
                 bool plus = q > 0f || (c.charge[s] + c.charge[s + 1]) > 0;
@@ -287,8 +303,11 @@ namespace ChTutorial
                 if (r.tube == null) continue;
                 float f = (r.state == s) ? Mathf.Clamp01(arrows) * (1f - Smooth(u / 0.3f)) : 0f;
                 bool on = f > 0.004f;
+                Vector3 p0 = Vector3.zero, p1 = Vector3.zero, p2 = Vector3.zero, p3 = Vector3.zero;
+                if (on) { ArrowCurve(r, viewL, centroid, out p0, out p1, out p2, out p3); arrowDraws.Add(new ArrowDraw { p0 = p0, p1 = p1, p2 = p2, p3 = p3, f = f }); }
+                if (externalDraw) on = false;
                 if (r.tube.gameObject.activeSelf != on) r.tube.gameObject.SetActive(on);
-                if (on) DrawArrow(r, f, viewL, centroid);
+                if (on) DrawArrow(r, f, viewL, p0, p1, p2, p3);
             }
         }
 
@@ -304,7 +323,8 @@ namespace ChTutorial
         }
 
         readonly List<Vector3> _pts = new List<Vector3>();
-        void DrawArrow(ArrowRec r, float f, Vector3 viewL, Vector3 centroid)
+        /// <summary>The Bezier curve of an arrow (local space), its end pulled back to leave room for the head.</summary>
+        void ArrowCurve(ArrowRec r, Vector3 viewL, Vector3 centroid, out Vector3 p0, out Vector3 p1, out Vector3 p2, out Vector3 p3)
         {
             Vector3 a0 = _pos[r.fromA];
             Vector3 start = r.fromB >= 0 ? (a0 + _pos[r.fromB]) * 0.5f : a0;
@@ -320,12 +340,15 @@ namespace ChTutorial
             Vector3 end = r.toB < 0 ? target + (perp - cd * 0.6f).normalized * atoms[r.toA].r * 1.5f : target + perp * 0.022f;
             chord = end - start; L = chord.magnitude; cd = L > 1e-6f ? chord / L : cd;
             float h = Mathf.Max(0.5f * L, 0.08f);
-            Vector3 p0 = start, p3 = end;
-            Vector3 p1 = p0 + cd * (0.2f * L) + perp * h, p2 = p3 - cd * (0.2f * L) + perp * h;
-            // leave room for the head: pull the curve's end back along its final tangent
+            p0 = start; p3 = end;
+            p1 = p0 + cd * (0.2f * L) + perp * h; p2 = p3 - cd * (0.2f * L) + perp * h;
             Vector3 tEnd = ChMeshes.BezierTangent(p0, p1, p2, p3, 1f).normalized;
             p3 -= tEnd * arrowHeadLength; p2 -= tEnd * arrowHeadLength * 0.5f;
+        }
 
+        /// <summary>Fallback arrow without Shapes: a tube along the curve up to fraction f, and a cone head.</summary>
+        void DrawArrow(ArrowRec r, float f, Vector3 viewL, Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3)
+        {
             _pts.Clear();
             int N = 20;
             for (int i = 0; i <= N; i++) _pts.Add(ChMeshes.Bezier(p0, p1, p2, p3, f * i / N));
