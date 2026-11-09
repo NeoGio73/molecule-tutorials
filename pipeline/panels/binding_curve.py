@@ -10,27 +10,27 @@ def theta(p, p50, n): return p**n / (p**n + p50**n)
 
 def draw(out_base, show_mb=True):
     P = PARAMS
-    plt.rcParams.update({"font.family": "Liberation Sans", "svg.fonttype": "none", "font.size": 10,
+    plt.rcParams.update({"font.family": "Liberation Sans", "svg.fonttype": "none", "font.size": 12, "axes.linewidth": 1.2, "xtick.major.width": 1.2, "ytick.major.width": 1.2,
                          "mathtext.fontset": "custom", "mathtext.rm": "Liberation Sans", "mathtext.it": "Liberation Sans:italic"})
     fig, ax = plt.subplots(figsize=(4.6, 3.3))
     p = np.linspace(0, 16, 800)
     if show_mb:
-        ax.plot(p, theta(p, P["mb_p50"], 1.0), color="k", lw=1.0, ls=(0, (4, 2)), label="myoglobin")
-    ax.plot(p, theta(p, P["hb_p50"], P["hb_n"]), color="k", lw=1.8, label="hemoglobin")
+        ax.plot(p, theta(p, P["mb_p50"], 1.0), color="k", lw=1.5, ls=(0, (4, 2)), label="myoglobin")
+    ax.plot(p, theta(p, P["hb_p50"], P["hb_n"]), color="k", lw=2.6, label="hemoglobin")
     tt, tl = theta(P["tissue"], P["hb_p50"], P["hb_n"]), theta(P["lungs"], P["hb_p50"], P["hb_n"])
     for x, lab in ((P["tissue"], "tissues"), (P["lungs"], "lungs")):
-        ax.axvline(x, color="0.55", lw=0.8, ls=":")
-        ax.text(x, 1.035, lab, ha="center", va="bottom", fontsize=9)
+        ax.axvline(x, color="0.55", lw=1.2, ls=":")
+        ax.text(x, 1.035, lab, ha="center", va="bottom", fontsize=10.5)
     # O2 delivered: drop in Hb saturation between lungs and tissues
     ax.annotate("", xy=(P["tissue"] + 0.25, tt), xytext=(P["tissue"] + 0.25, tl),
-                arrowprops=dict(arrowstyle="->", lw=0.9, color="k"))
-    ax.plot([P["tissue"], P["lungs"]], [tl, tl], color="0.55", lw=0.6)
-    ax.text(P["tissue"] + 0.6, tt - 0.07, f"O$_2$ released\n(Δθ ≈ {tl - tt:.2f})", va="top", fontsize=8.5)
+                arrowprops=dict(arrowstyle="->", lw=1.3, color="k"))
+    ax.plot([P["tissue"], P["lungs"]], [tl, tl], color="0.55", lw=0.9)
+    ax.text(P["tissue"] + 0.6, tt - 0.07, f"O$_2$ released\n(Δθ ≈ {tl - tt:.2f})", va="top", fontsize=10.5)
     ax.set_xlim(0, 16); ax.set_ylim(0, 1.0)
     ax.set_xticks(range(0, 17, 4)); ax.set_yticks([0, 0.2, 0.4, 0.6, 0.8, 1.0])
     ax.set_xlabel("pO$_2$ (kPa)"); ax.set_ylabel("θ")
     for s in ("top", "right"): ax.spines[s].set_visible(False)
-    ax.legend(frameon=False, loc="lower right", fontsize=8.5)
+    ax.legend(frameon=False, loc="lower right", fontsize=10.5)
     fig.tight_layout()
     fig.savefig(out_base + ".svg"); fig.savefig(out_base + "_preview.png", dpi=200)
     print(f"theta(lungs)={tl:.3f} theta(tissues)={tt:.3f} delta={tl - tt:.3f}")

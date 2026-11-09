@@ -10,17 +10,17 @@ PARAMS = dict(A=0.78, k_burst=12.0, v_ss=0.80)   # mol/mol, 1/min, mol/mol/min
 
 def draw(out_base):
     P = PARAMS
-    plt.rcParams.update({"font.family": "Liberation Sans", "svg.fonttype": "none", "font.size": 10,
+    plt.rcParams.update({"font.family": "Liberation Sans", "svg.fonttype": "none", "font.size": 12, "axes.linewidth": 1.2, "xtick.major.width": 1.2, "ytick.major.width": 1.2,
                          "mathtext.fontset": "custom", "mathtext.rm": "Liberation Sans", "mathtext.it": "Liberation Sans:italic"})
     fig, ax = plt.subplots(figsize=(4.6, 3.3))
     t = np.linspace(0, 3, 600)
     y = P["A"] * (1 - np.exp(-P["k_burst"] * t)) + P["v_ss"] * t
-    ax.plot(t, y, color="k", lw=1.8)
-    ax.plot([0, 0.6], [P["A"], P["A"] + P["v_ss"] * 0.6], color="k", lw=0.9, ls=(0, (4, 2)))   # extrapolated steady state
+    ax.plot(t, y, color="k", lw=2.6)
+    ax.plot([0, 0.6], [P["A"], P["A"] + P["v_ss"] * 0.6], color="k", lw=1.3, ls=(0, (4, 2)))   # extrapolated steady state
     # burst height = amount of enzyme (nearly stoichiometric)
-    ax.annotate("", xy=(0.07, P["A"]), xytext=(0.07, 0.0), arrowprops=dict(arrowstyle="<->", lw=0.9, color="0.35"))
-    ax.text(0.14, 0.30, "burst ≈ 1 mol per\nmol of enzyme\n(fast acylation)", fontsize=8.5, va="center")
-    ax.text(1.95, 2.05, "steady state\n(slow deacylation)", fontsize=8.5, va="top", ha="left")
+    ax.annotate("", xy=(0.07, P["A"]), xytext=(0.07, 0.0), arrowprops=dict(arrowstyle="<->", lw=1.3, color="0.35"))
+    ax.text(0.14, 0.30, "burst ≈ 1 mol per\nmol of enzyme\n(fast acylation)", fontsize=10.5, va="center")
+    ax.text(1.95, 2.05, "steady state\n(slow deacylation)", fontsize=10.5, va="top", ha="left")
     ax.set_xlim(0, 3); ax.set_ylim(0, 3.0)
     ax.set_xticks([0, 1, 2, 3]); ax.set_yticks([0, 1.0, 2.0, 3.0])
     ax.set_xlabel("Time (min)"); ax.set_ylabel("$\\it{p}$-Nitrophenol (mol/mol of enzyme)")

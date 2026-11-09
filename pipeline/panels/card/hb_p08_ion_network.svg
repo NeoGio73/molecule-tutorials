@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" font-family="Arial, Helvetica, 'Liberation Sans', sans-serif">
+<rect x="0" y="0" width="1000" height="520" fill="#ffffff"/>
+<text x="235.0" y="70" font-size="17" text-anchor="middle" fill="#444">α1β1 dimer</text>
+<text x="612.0" y="70" font-size="17" text-anchor="middle" fill="#444">α2β2 dimer</text>
+<text x="748" y="70" font-size="17" fill="#444">distance, T → R</text>
+<line x1="478" y1="82" x2="478" y2="442" stroke="#888" stroke-width="1.8" stroke-dasharray="6,5"/>
+<text x="478" y="458" font-size="14" text-anchor="middle" fill="#666">interface</text>
+<rect x="24" y="91.0" width="204" height="54" rx="6" fill="#fff" stroke="#333" stroke-width="1.8"/>
+<rect x="24" y="91.0" width="9" height="54" rx="3" fill="#408CE6" opacity="1"/>
+<text x="42" y="114" font-size="18" fill="#111">β1 His<tspan baseline-shift="super" font-size="68%">146</tspan> (HC3)</text>
+<text x="42" y="135" font-size="14" fill="#555">imidazolium side chain</text>
+<rect x="262" y="91.0" width="184" height="54" rx="6" fill="#fff" stroke="#333" stroke-width="1.8"/>
+<rect x="262" y="91.0" width="9" height="54" rx="3" fill="#408CE6" opacity="1"/>
+<text x="280" y="114" font-size="18" fill="#111">β1 Asp<tspan baseline-shift="super" font-size="68%">94</tspan> (FG1)</text>
+<text x="280" y="135" font-size="14" fill="#555">carboxylate</text>
+<line x1="228" y1="118" x2="262" y2="118" stroke="#111" stroke-width="3.4"/>
+<text x="748" y="119" font-size="20" fill="#111">2.8 Å → 12.5 Å</text>
+<text x="748" y="139" font-size="14" fill="#555">breaks</text>
+<rect x="24" y="177.0" width="204" height="54" rx="6" fill="#fff" stroke="#333" stroke-width="1.8"/>
+<rect x="24" y="177.0" width="9" height="54" rx="3" fill="#408CE6" opacity="1"/>
+<text x="42" y="200" font-size="18" fill="#111">β1 His<tspan baseline-shift="super" font-size="68%">146</tspan> (HC3)</text>
+<text x="42" y="221" font-size="14" fill="#555">C-terminal carboxylate</text>
+<rect x="510" y="177.0" width="204" height="54" rx="6" fill="#fff" stroke="#333" stroke-width="1.8"/>
+<rect x="510" y="177.0" width="9" height="54" rx="3" fill="#F2C759" opacity="1"/>
+<text x="528" y="200" font-size="18" fill="#111">α2 Lys<tspan baseline-shift="super" font-size="68%">40</tspan> (C5)</text>
+<text x="528" y="221" font-size="14" fill="#555">ε-amino group</text>
+<line x1="228" y1="204" x2="510" y2="204" stroke="#111" stroke-width="3.4"/>
+<text x="748" y="205" font-size="20" fill="#111">2.5 Å → 13.2 Å</text>
+<text x="748" y="225" font-size="14" fill="#555">breaks</text>
+<rect x="24" y="263.0" width="204" height="54" rx="6" fill="#fff" stroke="#333" stroke-width="1.8"/>
+<rect x="24" y="263.0" width="9" height="54" rx="3" fill="#ED8C33" opacity="1"/>
+<text x="42" y="286" font-size="18" fill="#111">α1 Arg<tspan baseline-shift="super" font-size="68%">141</tspan> (HC3)</text>
+<text x="42" y="307" font-size="14" fill="#555">guanidinium side chain</text>
+<rect x="510" y="263.0" width="204" height="54" rx="6" fill="#fff" stroke="#333" stroke-width="1.8"/>
+<rect x="510" y="263.0" width="9" height="54" rx="3" fill="#F2C759" opacity="1"/>
+<text x="528" y="286" font-size="18" fill="#111">α2 Asp<tspan baseline-shift="super" font-size="68%">126</tspan> (H9)</text>
+<text x="528" y="307" font-size="14" fill="#555">carboxylate</text>
+<line x1="228" y1="290" x2="510" y2="290" stroke="#111" stroke-width="3.4"/>
+<text x="748" y="291" font-size="20" fill="#111">2.7 Å → 9.1 Å</text>
+<text x="748" y="311" font-size="14" fill="#555">breaks</text>
+<rect x="24" y="349.0" width="204" height="54" rx="6" fill="#fff" stroke="#333" stroke-width="1.8"/>
+<rect x="24" y="349.0" width="9" height="54" rx="3" fill="#ED8C33" opacity="1"/>
+<text x="42" y="372" font-size="18" fill="#111">α1 Arg<tspan baseline-shift="super" font-size="68%">141</tspan> (HC3)</text>
+<text x="42" y="393" font-size="14" fill="#555">C-terminal carboxylate</text>
+<rect x="510" y="349.0" width="204" height="54" rx="6" fill="#fff" stroke="#9a9a9a" stroke-width="1.8"/>
+<rect x="510" y="349.0" width="9" height="54" rx="3" fill="#F2C759" opacity="0.55"/>
+<text x="528" y="372" font-size="18" fill="#777">α2 Val<tspan baseline-shift="super" font-size="68%">1</tspan> (NA1)</text>
+<text x="528" y="393" font-size="14" fill="#888">N-terminal amino group</text>
+<line x1="228" y1="376" x2="510" y2="376" stroke="#9a9a9a" stroke-width="2.6" stroke-dasharray="8,6"/>
+<text x="748" y="377" font-size="20" fill="#777">4.8 Å → 4.2 Å</text>
+<text x="748" y="397" font-size="14" fill="#888">does not break (not drawn in 3D)</text>
+<text x="24" y="490" font-size="13.5" fill="#555">Distances measured in 2HHB (T) and 1HHO (R). The symmetric interface (α2β2 to α1β1) shows the same pattern.</text>
+<text x="24" y="508" font-size="13.5" fill="#555">Solid: drawn in the 3D scene and broken in R. Dashed: contact does not break in the crystal structures.</text>
+</svg>

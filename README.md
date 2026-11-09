@@ -46,6 +46,10 @@ The flat figures that slide in beside the 3D scene live in `pipeline/panels/`:
   n_H = 3; Mb P₅₀ 0.26 kPa).
 - `ion_network.py` draws the Fig. 5-9 ion pairs with their T and R distances read from `hemoglobin.json`.
 - `web_svg.py` makes web-safe copies (Greek letters as Unicode, Arial with fallbacks); those are in `svg/`.
+- `restyle_panels.py` makes the versions shown in the tutorials' panel card (in `card/`): heavier lines, so the
+  drawings stay black when the card shrinks them; O and N in atom labels in the 3D model's element colors (O red,
+  N blue), except in the leaving half, which keeps Lehninger's blue letters; and the drawing's title moved to the
+  card's title strip. Only colors and line weights change; atoms, bonds and positions are as exported.
 
 One finding is kept visible rather than smoothed over: in 2HHB/1HHO the Arg141α carboxylate–Val1α′ contact named in
 Lehninger Fig. 5-9 does not break (4.8 Å in T, 4.2 Å in R), while Arg141α carboxylate–Lys127α′ does (2.8 → 4.5 Å).
