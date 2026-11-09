@@ -1,6 +1,9 @@
-"""Lehninger Fig. 5-9 ion pairs as a schematic, with T and R distances read from hemoglobin.json.
-Solid line = drawn in the 3D scene (breaks T -> R). Dashed grey = named in Lehninger, not drawn (does not break).
-Usage: python3 ion_network.py hemoglobin.json out.svg"""
+"""Lehninger Fig. 5-9 ion pairs as a schematic, with T and R distances.
+Solid line = drawn in the 3D scene (breaks T -> R). Dashed grey = named in Lehninger, not an ion pair in 2HHB (not drawn).
+Since Nov 8, 2026 the distances are the closest N-O distance between the two charged groups in each state, from
+ion_pair_distances.py (the convention of the paper's Table 2); without that file they fall back to hemoglobin.json,
+which follows the atoms that touch in T into R.
+Usage: python3 ion_network.py hemoglobin.json out.svg [ion_pairs_closest.json]"""
 import json, sys, re
 from html import escape
 
@@ -23,9 +26,12 @@ def sup(text):
     """Escape text and set residue numbers (His146) as superscripts, Lehninger style."""
     return re.sub(r"(?<=(?:%s))(\d+)" % AA3, r'<tspan baseline-shift="super" font-size="68%">\1</tspan>', escape(text))
 
-def main(jpath, out):
+def main(jpath, out, closest_path=None):
     d = json.load(open(jpath))
     dist = {p["name"]: (p["distT"], p["distR"], p.get("hidden", False)) for p in d["ionPairs"] if p["side"] == "primary"}
+    if closest_path:
+        cl = json.load(open(closest_path, encoding="utf-8"))
+        dist = {n: ((cl[n]["distT"], cl[n]["distR"], h) if n in cl else v) for n, v in dist.items() for h in [v[2]]}
     W, H = 1000, 520
     x_if = 478                                  # the α1β1 / α2β2 interface
     L0, L1 = 24, 228                            # left node box
@@ -64,16 +70,19 @@ def main(jpath, out):
             node(B0, B1, y, *right); xe = B0
         style = 'stroke="#9a9a9a" stroke-width="2.6" stroke-dasharray="8,6"' if grey else 'stroke="#111" stroke-width="3.4"'
         a(f'<line x1="{L1}" y1="{y}" x2="{xe}" y2="{y}" {style}/>')
-        a(f'<text x="{D0}" y="{y + 1}" font-size="20" fill="{"#777" if grey else "#111"}">{dT:.1f} Å → {dR:.1f} Å</text>')
-        note = "breaks" if breaks else "does not break (not drawn in 3D)"
+        # the hidden pair is not an ion pair in T; its R distance is not shown (the α C-termini are poorly
+        # ordered in 1HHO, B > 80 Å², and their modeled contacts are closer than any real N–O contact)
+        shown = f"{dT:.1f} Å in T" if hidden else f"{dT:.1f} Å → {dR:.1f} Å"
+        a(f'<text x="{D0}" y="{y + 1}" font-size="20" fill="{"#777" if grey else "#111"}">{shown}</text>')
+        note = "breaks" if breaks else "not an ion pair in 2HHB"
         a(f'<text x="{D0}" y="{y + 21}" font-size="14" fill="{"#888" if grey else "#555"}">{escape(note)}</text>')
         y += 86
-    a(f'<text x="{L0}" y="{H - 30}" font-size="13.5" fill="#555">Distances measured in 2HHB (T) and 1HHO (R). The symmetric interface (α2β2 to α1β1) shows the same pattern.</text>')
-    a(f'<text x="{L0}" y="{H - 12}" font-size="13.5" fill="#555">Solid: drawn in the 3D scene and broken in R. Dashed: contact does not break in the crystal structures.</text>')
+    a(f'<text x="{L0}" y="{H - 30}" font-size="13.5" fill="#555">Closest N–O distance between the charged groups, in 2HHB (T) and 1HHO (R). The symmetric interface shows the same pattern.</text>')
+    a(f'<text x="{L0}" y="{H - 12}" font-size="13.5" fill="#555">Solid: drawn in the 3D scene and broken in R. Dashed: in Lehninger’s figure, but not an ion pair in the crystal structure.</text>')
     a('</svg>')
     open(out, "w", encoding="utf-8").write("\n".join(out_))
     for name, *_ in ROWS:
         print(name, dist[name])
 
 if __name__ == "__main__":
-    main(sys.argv[1], sys.argv[2])
+    main(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else None)

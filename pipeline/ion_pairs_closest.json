@@ -1,0 +1,50 @@
+{
+ "His146β–Asp94β (intrachain)": {
+  "distT": 2.84,
+  "atomsT": [
+   "NE2",
+   "OD1"
+  ],
+  "distR": 8.84,
+  "atomsR": [
+   "ND1",
+   "OD2"
+  ]
+ },
+ "His146β carboxylate–Lys40α": {
+  "distT": 2.54,
+  "atomsT": [
+   "OXT",
+   "NZ"
+  ],
+  "distR": 13.2,
+  "atomsR": [
+   "OXT",
+   "NZ"
+  ]
+ },
+ "Arg141α guanidinium–Asp126α′": {
+  "distT": 2.73,
+  "atomsT": [
+   "NH1",
+   "OD2"
+  ],
+  "distR": 7.82,
+  "atomsR": [
+   "NH1",
+   "OD1"
+  ]
+ },
+ "Arg141α carboxylate–Val1α′ amine": {
+  "distT": 4.78,
+  "atomsT": [
+   "O",
+   "N"
+  ],
+  "distR": 2.24,
+  "atomsR": [
+   "OXT",
+   "N"
+  ]
+ }
+}

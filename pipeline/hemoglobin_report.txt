@@ -25,3 +25,13 @@ sickle contact: Val6 of H (tet 1) -> LEU88 of B (tet 0), 4.18 Å
 Notes
 -----
 R structure assembled from REMARK 350 (2 transforms)
+
+Ion pairs, closest N–O distance between the charged groups in each state (added Nov 8, 2026; the convention of the
+paper's Table 2 and of the tutorial's ion-pair panel; made by panels/ion_pair_distances.py, data in ion_pairs_closest.json).
+The pairs above follow the atoms that touch in T into R, which gives larger R values for the same ion pairs.
+  His146β–Asp94β (β1)                T 2.84 Å (NE2…OD1)   R 8.84 Å (ND1…OD2)    breaks
+  His146β carboxylate–Lys40α (β1–α2) T 2.54 Å (OXT…NZ)    R 13.20 Å (OXT…NZ)    breaks
+  Arg141α guanidinium–Asp126α′       T 2.73 Å (NH1…OD2)   R 7.82 Å (NH1…OD1)    breaks
+  Arg141α carboxylate–Val1α′ amine   T 4.78 Å (O…N)       not an ion pair in T (the carboxylate pairs with Lys127α′, 2.6–2.8 Å)
+  In 1HHO the α C-termini are poorly ordered (B 80–93 Å²): the modeled Arg141α carboxylate sits 2.24 Å from the
+  Val1α′ N and 2.40 Å from the Lys127α′ NZ, closer than any real N–O contact, so no R value is given for those pairs.

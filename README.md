@@ -46,6 +46,8 @@ The flat figures that slide in beside the 3D scene live in `pipeline/panels/`:
   n_H = 3; Mb P₅₀ 0.26 kPa).
 - `ion_network.py` draws the Fig. 5-9 ion pairs with their T and R distances read from `hemoglobin.json`.
 - `web_svg.py` makes web-safe copies (Greek letters as Unicode, Arial with fallbacks); those are in `svg/`.
+- `ion_pair_distances.py` measures the Fig. 5-9 ion pairs the usual way (closest N–O between the charged groups, in
+  each state) for the hemoglobin ion-pair panel; the same values are in the paper's Table 2 and the structure report.
 - `restyle_panels.py` makes the versions shown in the tutorials' panel card (in `card/`): heavier lines, so the
   drawings stay black when the card shrinks them; O and N in atom labels in the 3D model's element colors (O red,
   N blue), except in the leaving half, which keeps Lehninger's blue letters; and the drawing's title moved to the

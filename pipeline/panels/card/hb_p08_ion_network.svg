@@ -14,7 +14,7 @@
 <text x="280" y="114" font-size="18" fill="#111">β1 Asp<tspan baseline-shift="super" font-size="68%">94</tspan> (FG1)</text>
 <text x="280" y="135" font-size="14" fill="#555">carboxylate</text>
 <line x1="228" y1="118" x2="262" y2="118" stroke="#111" stroke-width="3.4"/>
-<text x="748" y="119" font-size="20" fill="#111">2.8 Å → 12.5 Å</text>
+<text x="748" y="119" font-size="20" fill="#111">2.8 Å → 8.8 Å</text>
 <text x="748" y="139" font-size="14" fill="#555">breaks</text>
 <rect x="24" y="177.0" width="204" height="54" rx="6" fill="#fff" stroke="#333" stroke-width="1.8"/>
 <rect x="24" y="177.0" width="9" height="54" rx="3" fill="#408CE6" opacity="1"/>
@@ -36,7 +36,7 @@
 <text x="528" y="286" font-size="18" fill="#111">α2 Asp<tspan baseline-shift="super" font-size="68%">126</tspan> (H9)</text>
 <text x="528" y="307" font-size="14" fill="#555">carboxylate</text>
 <line x1="228" y1="290" x2="510" y2="290" stroke="#111" stroke-width="3.4"/>
-<text x="748" y="291" font-size="20" fill="#111">2.7 Å → 9.1 Å</text>
+<text x="748" y="291" font-size="20" fill="#111">2.7 Å → 7.8 Å</text>
 <text x="748" y="311" font-size="14" fill="#555">breaks</text>
 <rect x="24" y="349.0" width="204" height="54" rx="6" fill="#fff" stroke="#333" stroke-width="1.8"/>
 <rect x="24" y="349.0" width="9" height="54" rx="3" fill="#ED8C33" opacity="1"/>
@@ -47,8 +47,8 @@
 <text x="528" y="372" font-size="18" fill="#777">α2 Val<tspan baseline-shift="super" font-size="68%">1</tspan> (NA1)</text>
 <text x="528" y="393" font-size="14" fill="#888">N-terminal amino group</text>
 <line x1="228" y1="376" x2="510" y2="376" stroke="#9a9a9a" stroke-width="2.6" stroke-dasharray="8,6"/>
-<text x="748" y="377" font-size="20" fill="#777">4.8 Å → 4.2 Å</text>
-<text x="748" y="397" font-size="14" fill="#888">does not break (not drawn in 3D)</text>
-<text x="24" y="490" font-size="13.5" fill="#555">Distances measured in 2HHB (T) and 1HHO (R). The symmetric interface (α2β2 to α1β1) shows the same pattern.</text>
-<text x="24" y="508" font-size="13.5" fill="#555">Solid: drawn in the 3D scene and broken in R. Dashed: contact does not break in the crystal structures.</text>
+<text x="748" y="377" font-size="20" fill="#777">4.8 Å in T</text>
+<text x="748" y="397" font-size="14" fill="#888">not an ion pair in 2HHB</text>
+<text x="24" y="490" font-size="13.5" fill="#555">Closest N–O distance between the charged groups, in 2HHB (T) and 1HHO (R). The symmetric interface shows the same pattern.</text>
+<text x="24" y="508" font-size="13.5" fill="#555">Solid: drawn in the 3D scene and broken in R. Dashed: in Lehninger’s figure, but not an ion pair in the crystal structure.</text>
 </svg>
