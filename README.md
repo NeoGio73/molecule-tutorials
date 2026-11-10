@@ -6,7 +6,7 @@ Protein Data Bank structures. Each tutorial exists in two forms: a narrated vide
 
 | Tutorial | Twin | Structures | Status |
 | --- | --- | --- | --- |
-| Hemoglobin: T to R, the Bohr effect, sickle cell | [open](https://neogio73.github.io/molecule-tutorials/hemoglobin/) | 2HHB, 1HHO, 2HBS | prototype, placeholder narration timings |
+| Hemoglobin: T to R, the Bohr effect, sickle cell | [open](https://neogio73.github.io/molecule-tutorials/hemoglobin/) | 2HHB, 1HHO, 2HBS | prototype, narrated (draft recording, Nov 9, 2026) |
 | Chymotrypsin: the catalytic triad, acylation and deacylation, zymogen activation | [open](https://neogio73.github.io/molecule-tutorials/chymotrypsin/) | 1YPH, 1CHO, 7GCH, 2CGA | draft, placeholder narration timings |
 
 ![Deoxyhemoglobin (2HHB)](docs/images/hemoglobin_T_state.png)

@@ -13,12 +13,20 @@
       #bar-full { height: 100%; width: 0; background: #4f8fe8; transition: width 0.2s; }
       #banner { position: absolute; left: 0; right: 0; top: 0; font: 14px system-ui, sans-serif; text-align: center; }
       #banner div { padding: 8px; }
+      /* start screen: browsers play sound only after a click, so the narration starts from this button */
+      #start { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; flex-direction: column;
+               background: rgba(10, 13, 18, 0.72); font: 15px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; color: #cfd6e0; }
+      #start button { font: 600 20px system-ui, -apple-system, "Segoe UI", sans-serif; color: #fff; background: #2f6fcf; border: 0;
+                      border-radius: 10px; padding: 14px 28px; cursor: pointer; }
+      #start button:hover { background: #3b7ee0; }
+      #start p { margin: 14px 0 0; }
     </style>
   </head>
   <body>
     <canvas id="unity-canvas" tabindex="-1"></canvas>
     <div id="loading">Loading Hemoglobin Tutorial…<div id="bar"><div id="bar-full"></div></div></div>
     <div id="banner"></div>
+    <div id="start"><button type="button">&#9654;&nbsp; Start the tutorial</button><p>Turn your sound on.</p></div>
     <script>
       // Full-window page for the interactive twin (the default template's 960 x 600 box makes the UI too small).
       function showBanner(msg, type) {
@@ -48,6 +56,13 @@
         }).then(function (unityInstance) {
           window.unityInstance = unityInstance;     // lets a page script (or a test) talk to the tutorial
           document.querySelector("#loading").style.display = "none";
+          var start = document.querySelector("#start");
+          start.style.display = "flex";
+          start.querySelector("button").addEventListener("click", function () {
+            start.style.display = "none";
+            unityInstance.SendMessage("Tutorial", "ReplayShot", 0);   // from the top, now that sound is allowed
+            document.querySelector("#unity-canvas").focus();
+          });
         }).catch(function (message) { showBanner(message, "error"); });
       };
       document.body.appendChild(script);
