@@ -1,0 +1,74 @@
+
+== 2HHB (T, deoxy; 1.74 Å)
+  interface A/C:
+    Arg141α carboxylate – Val1α′ amine    4.78 Å  ARG141A O (B 25) … VAL1C N (B 51)  > 4 Å
+    Arg141α carboxylate – Lys127α′ NZ     2.76 Å  ARG141A OXT (B 36) … LYS127C NZ (B 30)
+    Arg141α guanidinium – Asp126α′        2.73 Å  ARG141A NH1 (B 22) … ASP126C OD2 (B 20)
+    His146β imidazole – Asp94β            2.84 Å  HIS146B NE2 (B 37) … ASP94B OD1 (B 30)
+    His146β carboxylate – Lys40α′         2.54 Å  HIS146B OXT (B 32) … LYS40C NZ (B 24)
+    waters/ions ≤ 3.6 Å from Arg141α C-terminus: HOH188A O 3.55
+    waters/ions ≤ 3.6 Å from Val1α′ N-terminus: none
+  interface C/A:
+    Arg141α carboxylate – Val1α′ amine    5.10 Å  ARG141C O (B 26) … VAL1A N (B 41)  > 4 Å
+    Arg141α carboxylate – Lys127α′ NZ     2.56 Å  ARG141C OXT (B 25) … LYS127A NZ (B 35)
+    Arg141α guanidinium – Asp126α′        2.64 Å  ARG141C NH1 (B 15) … ASP126A OD2 (B 20)
+    His146β imidazole – Asp94β            2.71 Å  HIS146D NE2 (B 36) … ASP94D OD1 (B 34)
+    His146β carboxylate – Lys40α′         2.52 Å  HIS146D OXT (B 23) … LYS40A NZ (B 23)
+    waters/ions ≤ 3.6 Å from Arg141α C-terminus: none
+    waters/ions ≤ 3.6 Å from Val1α′ N-terminus: none
+
+== 2DN2 (T, deoxy; 1.25 Å)
+  interface A/C:
+    Arg141α carboxylate – Val1α′ amine    7.09 Å  ARG141A O (B 25) … VAL1C N (B 53)  > 4 Å
+    Arg141α carboxylate – Lys127α′ NZ     2.81 Å  ARG141A OXT (B 21) … LYS127C NZ (B 21)
+    Arg141α guanidinium – Asp126α′        2.78 Å  ARG141A NH1 (B 17) … ASP126C OD2 (B 22)
+    His146β imidazole – Asp94β            2.60 Å  HIS146B NE2 (B 31) … ASP94B OD1 (B 30)
+    His146β carboxylate – Lys40α′         2.59 Å  HIS146B OXT (B 23) … LYS40C NZ (B 21)
+    waters/ions ≤ 3.6 Å from Arg141α C-terminus: HOH201A O 3.45
+    waters/ions ≤ 3.6 Å from Val1α′ N-terminus: none
+  interface C/A:
+    Arg141α carboxylate – Val1α′ amine    4.84 Å  ARG141C O (B 22) … VAL1A N (B 56)  > 4 Å
+    Arg141α carboxylate – Lys127α′ NZ     2.77 Å  ARG141C OXT (B 21) … LYS127A NZ (B 23)
+    Arg141α guanidinium – Asp126α′        2.66 Å  ARG141C NH1 (B 17) … ASP126A OD2 (B 20)
+    His146β imidazole – Asp94β            2.84 Å  HIS146D NE2 (B 29) … ASP94D OD1 (B 33)
+    His146β carboxylate – Lys40α′         2.83 Å  HIS146D OXT (B 22) … LYS40A NZ (B 22)
+    waters/ions ≤ 3.6 Å from Arg141α C-terminus: HOH176C O 3.42
+    waters/ions ≤ 3.6 Å from Val1α′ N-terminus: none
+
+== 1A3N (T, deoxy; 1.8 Å)
+  interface A/C:
+    Arg141α carboxylate – Val1α′ amine    4.78 Å  ARG141A O (B 12) … VAL1C N (B 25)  > 4 Å
+    Arg141α carboxylate – Lys127α′ NZ     2.78 Å  ARG141A OXT (B 11) … LYS127C NZ (B 12)
+    Arg141α guanidinium – Asp126α′        2.69 Å  ARG141A NH1 (B 11) … ASP126C OD2 (B 17)
+    His146β imidazole – Asp94β            2.69 Å  HIS146B NE2 (B 19) … ASP94B OD1 (B 17)
+    His146β carboxylate – Lys40α′         2.70 Å  HIS146B OXT (B 16) … LYS40C NZ (B 17)
+    waters/ions ≤ 3.6 Å from Arg141α C-terminus: HOH193A O 2.77
+    waters/ions ≤ 3.6 Å from Val1α′ N-terminus: none
+  interface C/A:
+    Arg141α carboxylate – Val1α′ amine    4.63 Å  ARG141C O (B 13) … VAL1A N (B 21)  > 4 Å
+    Arg141α carboxylate – Lys127α′ NZ     2.84 Å  ARG141C OXT (B 15) … LYS127A NZ (B 9)
+    Arg141α guanidinium – Asp126α′        2.77 Å  ARG141C NH1 (B 12) … ASP126A OD2 (B 17)
+    His146β imidazole – Asp94β            2.80 Å  HIS146D NE2 (B 19) … ASP94D OD1 (B 17)
+    His146β carboxylate – Lys40α′         2.73 Å  HIS146D OXT (B 13) … LYS40A NZ (B 16)
+    waters/ions ≤ 3.6 Å from Arg141α C-terminus: HOH233C O 2.86
+    waters/ions ≤ 3.6 Å from Val1α′ N-terminus: none
+
+== 1HHO (R, oxy; 2.1 Å)
+  interface A/A':
+    Arg141α carboxylate – Val1α′ amine    2.24 Å  ARG141A OXT (B 82) … VAL1A' N (B 77)
+    Arg141α carboxylate – Lys127α′ NZ     2.40 Å  ARG141A O (B 90) … LYS127A' NZ (B 68)
+    Arg141α guanidinium – Asp126α′        7.82 Å  ARG141A NH1 (B 53) … ASP126A' OD1 (B 43)  > 4 Å
+    His146β imidazole – Asp94β            8.84 Å  HIS146B ND1 (B 68) … ASP94B OD2 (B 47)  > 4 Å
+    His146β carboxylate – Lys40α′        13.20 Å  HIS146B OXT (B 91) … LYS40A' NZ (B 56)  > 4 Å
+    waters/ions ≤ 3.6 Å from Arg141α C-terminus: HOH186A' O 3.38
+    waters/ions ≤ 3.6 Å from Val1α′ N-terminus: none
+
+== 2DN1 (R, oxy; 1.25 Å)
+  interface A/A':
+    Arg141α carboxylate – Val1α′ amine     atoms missing
+    Arg141α carboxylate – Lys127α′ NZ     4.38 Å  ARG141A OXT (B 33) … LYS127A' NZ (B 28)  > 4 Å
+    Arg141α guanidinium – Asp126α′       14.64 Å  ARG141A NE (B 38) … ASP126A' OD1 (B 26)  > 4 Å
+    His146β imidazole – Asp94β           10.92 Å  HIS146B ND1 (B 29) … ASP94B OD2 (B 34)  > 4 Å
+    His146β carboxylate – Lys40α′        15.80 Å  HIS146B O (B 31) … LYS40A' NZ (B 27)  > 4 Å
+    waters/ions ≤ 3.6 Å from Arg141α C-terminus: HOH1067A O 3.51, HOH1089A' O 3.32, HOH1126A O 2.58, HOH1130A O 2.70, HOH207B' O 2.50, HOH207B' O 3.33
+    waters/ions ≤ 3.6 Å from Val1α′ N-terminus: none

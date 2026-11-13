@@ -6,8 +6,13 @@ Protein Data Bank structures. Each tutorial exists in two forms: a narrated vide
 
 | Tutorial | Twin | Structures | Status |
 | --- | --- | --- | --- |
-| Hemoglobin: T to R, the Bohr effect, sickle cell | [open](https://neogio73.github.io/molecule-tutorials/hemoglobin/) | 2HHB, 1HHO, 2HBS | prototype, narrated (draft recording, Nov 9, 2026) |
-| Chymotrypsin: the catalytic triad, acylation and deacylation, zymogen activation | [open](https://neogio73.github.io/molecule-tutorials/chymotrypsin/) | 1YPH, 1CHO, 7GCH, 2CGA | draft, placeholder narration timings |
+| Hemoglobin: T to R and the Bohr effect (sickle fiber as an optional view) | [open](https://neogio73.github.io/molecule-tutorials/hemoglobin/) | 2HHB, 1HHO, 2HBS | narrated, 3 min 42 s (recorded Nov 11–12, 2026) |
+| Chymotrypsin: the catalytic triad, acylation and deacylation, burst kinetics, zymogen activation | [open](https://neogio73.github.io/molecule-tutorials/chymotrypsin/) | 1YPH, 1CHO, 7GCH, 2CGA | narrated, 5 min 12 s (recorded Nov 11–12, 2026) |
+
+The narration is the author's own voice, one take per shot; each shot lasts its narration plus 1.5 s, and the 2D
+panels and mechanism steps are placed on the words that name them. Both twins open on a **Start the tutorial** button,
+because browsers play sound only after a click. The narrated videos (1920 × 1080, 30 frames per second) will be posted
+as supplementary files with the preprint.
 
 ![Deoxyhemoglobin (2HHB)](docs/images/hemoglobin_T_state.png)
 
@@ -53,9 +58,18 @@ The flat figures that slide in beside the 3D scene live in `pipeline/panels/`:
   N blue), except in the leaving half, which keeps Lehninger's blue letters; and the drawing's title moved to the
   card's title strip. Only colors and line weights change; atoms, bonds and positions are as exported.
 
-One finding is kept visible rather than smoothed over: in 2HHB/1HHO the Arg141α carboxylate–Val1α′ contact named in
-Lehninger Fig. 5-9 does not break (4.8 Å in T, 4.2 Å in R), while Arg141α carboxylate–Lys127α′ does (2.8 → 4.5 Å).
-The narration follows Lehninger; the 3D scene draws only the pairs that break, and the report lists all of them.
+One finding is kept visible rather than smoothed over. Lehninger Fig. 5-9 pairs the Arg¹⁴¹α carboxylate with the
+Val¹α′ amino group, as in Perutz's 1970 model. In three deoxyhemoglobin crystal structures (2HHB, 2DN2, 1A3N) the
+two groups are 4.6–7.1 Å apart, too far for a salt bridge, and the carboxylate pairs with Lys¹²⁷α′ instead
+(2.6–2.8 Å), as Fermi first noted when he refined the deoxy structure in 1975. In R the α termini are mobile: poorly
+ordered in 1HHO, and Val¹α is not located in 2DN1, so no R-state value is given for that contact. The narration
+follows Lehninger (the C-terminal arginine of α still makes two ion pairs in T); the 3D scene draws only the pairs that
+break, the ion-pair panel shows the Val¹α′ row dashed, and the reports list all of them.
+
+`pipeline/ion_pairs_multi.py` measures the Fig. 5-9 ion pairs in any set of hemoglobin entries, at both α1–α2
+interfaces, with B factors, alternate conformations and any water or ion within 3.6 Å of the termini:
+`python3 -I ion_pairs_multi.py <folder with the .pdb files> T:2HHB T:2DN2 T:1A3N R:1HHO R:2DN1`. The output for those
+five entries is in `hemoglobin_ion_pairs_5structures.txt`; the PDB files themselves are downloaded from the RCSB.
 
 Residue numbers are written as superscripts throughout (His¹⁴⁶, Asp⁹⁴), as Lehninger does.
 
@@ -109,6 +123,7 @@ tutorial's folder here (`hemoglobin/`, `chymotrypsin/`).
 ## Credits
 
 Structures from the RCSB Protein Data Bank (2HHB Fermi & Perutz 1984; 1HHO Shaanan 1983; 2HBS Harrington et al.
-1997; 1YPH Razeto et al.; 1CHO Fujinaga et al. 1987; 7GCH Brady et al. 1990; 2CGA Wang, Bode & Huber 1985). Residue naming and reference values follow Lehninger Principles of Biochemistry.
+1997; 1YPH Razeto et al.; 1CHO Fujinaga et al. 1987; 7GCH Brady et al. 1990; 2CGA Wang, Bode & Huber 1985; used only
+for the ion-pair check: 2DN2 and 2DN1 Park et al. 2006, 1A3N Tame & Vallone 2000). Residue naming and reference values follow Lehninger Principles of Biochemistry.
 
 John Picione, Daytona State College.
