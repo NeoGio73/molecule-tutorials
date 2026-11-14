@@ -168,7 +168,7 @@ namespace HbTutorial
             if (sequence != null) sequence.Pause();
             if (_panel == null) return;
             _panel.SetActive(true);
-            _question.text = Fmt(c.question);
+            _question.text = Fmt(CompactLayout.Words(c.question));
             _feedback.text = "";
             _continue.gameObject.SetActive(false);
             bool click = c.options == null || c.options.Length == 0;
@@ -202,7 +202,7 @@ namespace HbTutorial
             _active.wrongCount++;
             if (_active.wrongCount >= 2)
             {
-                _feedback.text = Fmt(_active.wrongFeedback);
+                _feedback.text = Fmt(CompactLayout.Words(_active.wrongFeedback));
                 _active.done = true; _awaitingClick = false;
                 foreach (var b in _optionButtons) b.gameObject.SetActive(false);
                 _continue.gameObject.SetActive(true);
@@ -237,7 +237,7 @@ namespace HbTutorial
                 if (sg != null)
                 {
                     if (sg.key == _active.clickKey) Correct();
-                    else { var nm = sg.name; int cut = nm.IndexOf(" ["); if (cut > 0) nm = nm.Substring(0, cut); _feedback.text = "You clicked " + nm + "."; Wrong(); }
+                    else { var nm = sg.name; int cut = nm.IndexOf(" ["); if (cut > 0) nm = nm.Substring(0, cut); _feedback.text = CompactLayout.Words("You clicked ") + nm + "."; Wrong(); }
                 }
             }
         }
@@ -293,7 +293,13 @@ namespace HbTutorial
             _feedback = Label(_panel.transform, "", fontSize); _feedback.color = new Color(1f, 0.85f, 0.4f);
             _continue = ButtonRow(_panel.transform, "Continue", Continue);
             _panel.SetActive(false);
+
+            // phones and small windows: CSS-pixel sizing, folded controls, full-width checkpoint box (CompactLayout.cs)
+            cgo.AddComponent<CompactLayout>().Init(scaler, strip.GetComponent<RectTransform>(), bar.GetComponent<RectTransform>(), _panel.GetComponent<RectTransform>(), cam);
         }
+
+        /// <summary>From the page (index.html): device pixel ratio and whether the main pointer is a finger.</summary>
+        public void SetDisplay(string s) { CompactLayout.SetDisplay(s); }
 
         void RebuildShotBar()
         {

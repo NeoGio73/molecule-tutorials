@@ -1,0 +1,282 @@
+1
+00:00:00,060 --> 00:00:04,020
+This is hemoglobin, the oxygen
+carrier in your red blood cells.
+
+2
+00:00:04,060 --> 00:00:07,220
+Four subunits: two alpha, two beta.
+
+3
+00:00:07,260 --> 00:00:11,220
+Each one holds a heme,
+and each heme holds one iron.
+
+4
+00:00:11,260 --> 00:00:13,620
+Four irons, four oxygens.
+
+5
+00:00:13,660 --> 00:00:17,380
+The interesting part is not
+that it binds oxygen.
+
+6
+00:00:17,420 --> 00:00:20,780
+It is that the four
+sites talk to each other.
+
+7
+00:00:23,367 --> 00:00:25,887
+Let's go into one beta subunit.
+
+8
+00:00:25,927 --> 00:00:28,207
+Here is the heme, seen edge-on.
+
+9
+00:00:28,247 --> 00:00:32,177
+The iron sits in the middle,
+but notice: it is not in the plane.
+
+10
+00:00:32,217 --> 00:00:33,697
+It is pulled slightly toward this
+
+11
+00:00:33,737 --> 00:00:37,567
+histidine below it,
+the proximal histidine.
+
+12
+00:00:37,607 --> 00:00:40,127
+The iron has six coordination sites:
+
+13
+00:00:40,167 --> 00:00:42,927
+four go to the pyrrole
+nitrogens of the ring,
+
+14
+00:00:42,967 --> 00:00:47,727
+and the fifth is a coordination bond
+from the histidine's imidazole nitrogen.
+
+15
+00:00:47,767 --> 00:00:51,407
+That bond is what anchors
+the heme to the protein.
+
+16
+00:00:51,447 --> 00:00:56,177
+Above the iron is the distal
+histidine in an empty pocket.
+
+17
+00:00:56,217 --> 00:00:58,657
+This is the T state, the tense state.
+
+18
+00:00:58,697 --> 00:01:00,317
+Low affinity.
+
+19
+00:01:01,607 --> 00:01:03,087
+Now oxygen arrives.
+
+20
+00:01:03,127 --> 00:01:08,127
+It binds on the distal side, and the iron
+moves into the plane of the heme.
+
+21
+00:01:08,167 --> 00:01:11,727
+We have exaggerated the motion
+three times so you can see it;
+
+22
+00:01:11,767 --> 00:01:15,427
+the real shift is less
+than half an angstrom.
+
+23
+00:01:15,467 --> 00:01:19,187
+Small, but the proximal histidine
+is attached to the iron,
+
+24
+00:01:19,227 --> 00:01:24,127
+so it moves too, and it drags
+its helix, helix F, with it.
+
+25
+00:01:24,167 --> 00:01:28,987
+A chemical event at one atom has become
+a mechanical event in the protein.
+
+26
+00:01:29,747 --> 00:01:30,747
+Pull back.
+
+27
+00:01:30,787 --> 00:01:35,097
+The helix shift is transmitted
+to the interface between the subunits.
+
+28
+00:01:35,667 --> 00:01:38,567
+Watch the ghost:
+that is where the T state was.
+
+29
+00:01:38,607 --> 00:01:41,527
+The alpha-two beta-two
+pair rotates about fifteen
+
+30
+00:01:41,567 --> 00:01:44,967
+degrees relative to alpha-one beta-one.
+
+31
+00:01:45,007 --> 00:01:47,577
+This is a T-to-R transition.
+
+32
+00:01:47,617 --> 00:01:49,657
+Along the interface there are ion pairs,
+
+33
+00:01:49,697 --> 00:01:53,417
+salt bridges, that hold
+the T state together.
+
+34
+00:01:53,457 --> 00:01:56,687
+The last residue of each
+chain does most of the work:
+
+35
+00:01:56,727 --> 00:01:59,567
+the C-terminal histidine
+of beta and the C-terminal
+
+36
+00:01:59,607 --> 00:02:03,637
+arginine of alpha each make two of them.
+
+37
+00:02:03,677 --> 00:02:06,357
+As the subunits rotate, they break.
+
+38
+00:02:06,397 --> 00:02:10,757
+Once they are broken, the remaining
+empty hemes are in the R state,
+
+39
+00:02:10,797 --> 00:02:13,737
+the relaxed state, with high affinity.
+
+40
+00:02:13,777 --> 00:02:19,427
+That is cooperativity: the first
+oxygen makes the next three easier.
+
+41
+00:02:20,627 --> 00:02:23,147
+Look down the axis
+between the beta chains.
+
+42
+00:02:23,187 --> 00:02:28,117
+In the T state there is a cavity
+here lined with positive charges.
+
+43
+00:02:28,157 --> 00:02:33,317
+This is where 2,3-bisphosphoglycerate
+binds and holds the T state.
+
+44
+00:02:33,357 --> 00:02:36,867
+In R the cavity narrows
+and BPG is squeezed out.
+
+45
+00:02:36,907 --> 00:02:40,377
+We'll come back to BPG in another video.
+
+46
+00:02:41,627 --> 00:02:44,547
+One more thing lives at this interface.
+
+47
+00:02:44,587 --> 00:02:51,427
+Histidine 146, the last residue of the
+beta chain, sits next to aspartate 94.
+
+48
+00:02:51,467 --> 00:02:57,107
+In the T state that aspartate raises
+the histidine's pKa, so it holds a proton.
+
+49
+00:02:57,147 --> 00:03:00,307
+When the protein goes to R,
+the pair separates,
+
+50
+00:03:00,347 --> 00:03:03,377
+the pKa drops, and the proton leaves.
+
+51
+00:03:03,417 --> 00:03:05,057
+Now run it backwards.
+
+52
+00:03:05,097 --> 00:03:07,777
+In the working muscle,
+where protons are abundant,
+
+53
+00:03:07,817 --> 00:03:11,057
+the proton goes on, the ion pair re-forms,
+
+54
+00:03:11,097 --> 00:03:13,657
+T is favored, and oxygen is released.
+
+55
+00:03:13,697 --> 00:03:17,627
+That is the Bohr effect,
+and this is where it lives.
+
+56
+00:03:18,827 --> 00:03:23,507
+Here is the same story as a curve:
+oxygen saturation against oxygen pressure.
+
+57
+00:03:23,547 --> 00:03:27,447
+T is the low-affinity end,
+R is the high-affinity end,
+
+58
+00:03:27,487 --> 00:03:31,117
+and the sigmoid shape between them
+is the switch we just watched.
+
+59
+00:03:31,157 --> 00:03:34,397
+Protons and BPG push
+the curve to the right.
+
+60
+00:03:34,437 --> 00:03:37,997
+In the next video, we'll look
+at an enzyme that does chemistry,
+
+61
+00:03:38,037 --> 00:03:40,507
+not just binding: chymotrypsin.
+

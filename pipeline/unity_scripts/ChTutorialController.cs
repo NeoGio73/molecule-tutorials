@@ -221,13 +221,16 @@ namespace ChTutorial
             m.Apply();
         }
 
+        /// <summary>From the page (index.html): device pixel ratio and whether the main pointer is a finger.</summary>
+        public void SetDisplay(string s) { CompactLayout.SetDisplay(s); }
+
         void Show(Checkpoint c)
         {
             _active = c;
             if (sequence != null) sequence.Pause();
             if (_panel == null) return;
             _panel.SetActive(true);
-            _question.text = Fmt(c.question);
+            _question.text = Fmt(CompactLayout.Words(c.question));
             _feedback.text = ""; _tryIt.text = "";
             _continue.gameObject.SetActive(false);
             for (int i = 0; i < _optionButtons.Length; i++)
@@ -252,13 +255,13 @@ namespace ChTutorial
 
         void Finish(string text)
         {
-            _feedback.text = Fmt(text);
-            _tryIt.text = Fmt(_active.tryIt);
+            _feedback.text = Fmt(CompactLayout.Words(text));
+            _tryIt.text = Fmt(CompactLayout.Words(_active.tryIt));
             _active.done = true;
             foreach (var b in _optionButtons) b.gameObject.SetActive(false);
             _continue.gameObject.SetActive(true);
             // let the student try it in the scene while the panel waits
-            if (_active.picker && _pickerRow != null) { StartExploring(); SetStep(1f); _pickerRow.SetActive(true); }
+            if (_active.picker && _pickerRow != null) { StartExploring(); SetStep(1f); _pickerRow.SetActive(true); CompactLayout.OpenControls(); }
             else FreeLook();
         }
 
@@ -299,7 +302,7 @@ namespace ChTutorial
             if (Physics.Raycast(cam.ScreenPointToRay(pos), out var hit, 500f))
             {
                 string res = builder.mechanism.ResidueOf(hit.collider);
-                if (res != null && Roles.TryGetValue(res, out var role) && _info != null) _info.text = Fmt(role);
+                if (res != null && Roles.TryGetValue(res, out var role) && _info != null) { _info.text = Fmt(role); CompactLayout.Note(Fmt(role)); }
             }
         }
 
@@ -349,7 +352,7 @@ namespace ChTutorial
             _pickerRow.SetActive(false);
             _schematic = Label(strip.transform, "", fontSize - 3);
             ButtonRow(strip.transform, "Free look (pause)", () => { StartExploring(); });
-            _info = Label(strip.transform, "<i>Click a triad residue to see its role.</i>", fontSize - 3);
+            _info = Label(strip.transform, "<i>Select a triad residue to see its role.</i>", fontSize - 3);
 
             // --- bottom-left: replay a shot
             var bar = Panel(cgo.transform, "Shots", new Vector2(0, 0), new Vector2(0, 0), new Vector2(10, 10), new Vector2(330, 10), new Color(0, 0, 0, 0.6f));
@@ -373,6 +376,9 @@ namespace ChTutorial
             _tryIt = Label(_panel.transform, "", fontSize - 2); _tryIt.color = new Color(0.7f, 0.85f, 1f);
             _continue = ButtonRow(_panel.transform, "Continue", Continue);
             _panel.SetActive(false);
+
+            // phones and small windows: CSS-pixel sizing, folded controls, full-width checkpoint box (CompactLayout.cs)
+            cgo.AddComponent<CompactLayout>().Init(scaler, strip.GetComponent<RectTransform>(), bar.GetComponent<RectTransform>(), _panel.GetComponent<RectTransform>(), cam);
         }
 
         VerticalLayoutGroup Layout(GameObject go)

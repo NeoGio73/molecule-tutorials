@@ -6,13 +6,13 @@ Protein Data Bank structures. Each tutorial exists in two forms: a narrated vide
 
 | Tutorial | Twin | Structures | Status |
 | --- | --- | --- | --- |
-| Hemoglobin: T to R and the Bohr effect (sickle fiber as an optional view) | [open](https://neogio73.github.io/molecule-tutorials/hemoglobin/) | 2HHB, 1HHO, 2HBS | narrated, 3 min 42 s (recorded Nov 11–12, 2026) |
-| Chymotrypsin: the catalytic triad, acylation and deacylation, burst kinetics, zymogen activation | [open](https://neogio73.github.io/molecule-tutorials/chymotrypsin/) | 1YPH, 1CHO, 7GCH, 2CGA | narrated, 5 min 12 s (recorded Nov 11–12, 2026) |
+| Hemoglobin: T to R and the Bohr effect (sickle fiber as an optional view) | [open](https://neogio73.github.io/molecule-tutorials/hemoglobin/) | 2HHB, 1HHO, 2HBS | narrated, 3 min 42 s (narration recorded Nov 11–12, video rendered Nov 14, 2026) |
+| Chymotrypsin: the catalytic triad, acylation and deacylation, burst kinetics, zymogen activation | [open](https://neogio73.github.io/molecule-tutorials/chymotrypsin/) | 1YPH, 1CHO, 7GCH, 2CGA | narrated, 5 min 12 s (narration recorded Nov 11–12, video rendered Nov 14, 2026) |
 
 The narration is the author's own voice, one take per shot; each shot lasts its narration plus 1.5 s, and the 2D
 panels and mechanism steps are placed on the words that name them. Both twins open on a **Start the tutorial** button,
 because browsers play sound only after a click. The narrated videos (1920 × 1080, 30 frames per second) will be posted
-as supplementary files with the preprint.
+as supplementary files with the preprint; their captions (WebVTT and SRT) are in `pipeline/captions/`.
 
 ![Deoxyhemoglobin (2HHB)](docs/images/hemoglobin_T_state.png)
 
@@ -22,6 +22,11 @@ as supplementary files with the preprint.
 
 The shot sequence plays and stops at checkpoint questions (two tries, then the explanation). Orbit with the
 mouse or touch, or replay any shot. Nothing is recorded or sent anywhere.
+
+On a phone, or in a window smaller than 900 × 500 CSS pixels, the twin switches to a compact layout
+(`CompactLayout.cs`): text and buttons are sized in CSS pixels, the controls and the shot list fold behind two
+buttons (**Controls** and **Shots**), the checkpoint box spans the bottom of the screen, questions say "tap" instead
+of "click", and in portrait the camera keeps the shot's horizontal field of view.
 
 - **Hemoglobin:** scrub the **T ↔ R** slider; toggle chains, hemes, ion pairs, O₂ and the sickle fiber.
 - **Chymotrypsin:** step through the eight states of Lehninger Fig. 6-27 with the 2D panel for each; toggle the

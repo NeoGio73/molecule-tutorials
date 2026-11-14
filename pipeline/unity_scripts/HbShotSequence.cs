@@ -40,9 +40,12 @@ namespace HbTutorial
 
         public float Duration { get { return keys.Count > 0 ? keys[keys.Count - 1].time : 0f; } }
 
+        [Range(0f, 1f)] public float narrationVolume = 0.84f;   // -1.5 dB: headroom for the browser's decoder, which can overshoot full scale
+
         void Start()
         {
             if (audioSource == null) audioSource = GetComponent<AudioSource>();
+            if (audioSource != null) audioSource.volume = narrationVolume;
             if (Application.isPlaying && playOnStart) { Seek(0f); Play(); }
         }
 

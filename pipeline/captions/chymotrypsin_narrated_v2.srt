@@ -1,0 +1,406 @@
+1
+00:00:00,060 --> 00:00:03,780
+This is chymotrypsin, a digestive
+enzyme made in the pancreas.
+
+2
+00:00:03,820 --> 00:00:05,940
+Its job is to cut peptide bonds,
+
+3
+00:00:05,980 --> 00:00:07,860
+and it is selective: it cuts on the
+
+4
+00:00:07,900 --> 00:00:10,900
+carboxyl side of large
+hydrophobic residues,
+
+5
+00:00:10,940 --> 00:00:13,700
+phenylalanine, tyrosine and tryptophan.
+
+6
+00:00:13,740 --> 00:00:17,300
+The bond an enzyme cuts
+is called a scissile bond,
+
+7
+00:00:17,340 --> 00:00:20,160
+which simply means the bond that gets cut.
+
+8
+00:00:20,200 --> 00:00:22,880
+Hydrolyzing a peptide bond is favorable,
+
+9
+00:00:22,920 --> 00:00:25,600
+but on its own the reaction
+is extremely slow.
+
+10
+00:00:25,640 --> 00:00:28,480
+Here is how the enzyme speeds it up.
+
+11
+00:00:29,707 --> 00:00:31,107
+Into the active site.
+
+12
+00:00:31,147 --> 00:00:34,547
+Three residues that are far
+apart in the sequence meet here:
+
+13
+00:00:34,587 --> 00:00:39,767
+aspartate 102,
+histidine 57 and serine 195,
+
+14
+00:00:39,807 --> 00:00:42,347
+linked in a network of hydrogen bonds.
+
+15
+00:00:42,387 --> 00:00:44,107
+This is the catalytic triad.
+
+16
+00:00:44,147 --> 00:00:45,947
+Serine is the nucleophile.
+
+17
+00:00:45,987 --> 00:00:49,707
+Histidine is the base that would
+take the proton from serine.
+
+18
+00:00:49,747 --> 00:00:54,587
+Aspartate is hydrogen-bonded to histidine,
+and that bond matters in a moment.
+
+19
+00:00:54,627 --> 00:00:59,707
+Watch the two hydrogen bonds: aspartate
+to histidine, histidine to serine.
+
+20
+00:01:00,927 --> 00:01:03,127
+Now something for the enzyme to cut.
+
+21
+00:01:03,167 --> 00:01:06,247
+The substrate's phenylalanine
+side chain slips into
+
+22
+00:01:06,287 --> 00:01:09,927
+a deep hydrophobic pocket
+beside the active site.
+
+23
+00:01:09,967 --> 00:01:12,487
+The pocket is lined with nonpolar groups,
+
+24
+00:01:12,527 --> 00:01:15,927
+so it holds the large aromatic
+side chains of phenylalanine,
+
+25
+00:01:15,967 --> 00:01:20,497
+tyrosine and tryptophan, and that is what
+chymotrypsin is selective for.
+
+26
+00:01:20,537 --> 00:01:22,657
+Fitting the side chain
+into the pocket puts
+
+27
+00:01:22,697 --> 00:01:26,607
+the scissile bond right over serine 195.
+
+28
+00:01:27,827 --> 00:01:29,387
+Acylation begins.
+
+29
+00:01:29,427 --> 00:01:32,347
+With the substrate bound,
+a subtle change in shape compresses
+
+30
+00:01:32,387 --> 00:01:35,947
+the hydrogen bond between
+aspartate and histidine.
+
+31
+00:01:35,987 --> 00:01:38,527
+It becomes a low-barrier hydrogen bond,
+
+32
+00:01:38,567 --> 00:01:43,577
+and the pKa of histidine rises
+from about 7 to above 12.
+
+33
+00:01:43,617 --> 00:01:48,937
+Now histidine is a strong enough base to
+take the proton from the serine hydroxyl,
+
+34
+00:01:48,977 --> 00:01:52,217
+and in the same motion
+the serine oxygen attacks
+
+35
+00:01:52,257 --> 00:01:55,077
+the carbonyl carbon of the scissile bond.
+
+36
+00:01:55,117 --> 00:01:58,517
+Losing that proton keeps
+a positive charge off serine
+
+37
+00:01:58,557 --> 00:02:02,307
+and turns it into a strongly
+nucleophilic alkoxide.
+
+38
+00:02:02,557 --> 00:02:06,137
+The pi electrons of the carbonyl
+move onto the oxygen,
+
+39
+00:02:06,177 --> 00:02:09,367
+and the carbon goes
+from flat to tetrahedral.
+
+40
+00:02:09,617 --> 00:02:13,017
+Watch the arrows:
+in the drawing and in the structure,
+
+41
+00:02:13,057 --> 00:02:15,257
+they are the same three arrows.
+
+42
+00:02:16,427 --> 00:02:20,787
+This is the tetrahedral intermediate, and
+its oxygen now carries a negative charge.
+
+43
+00:02:20,827 --> 00:02:22,707
+The enzyme is ready for it.
+
+44
+00:02:22,747 --> 00:02:27,677
+Two backbone N–H groups point straight
+at the oxygen: the oxyanion hole.
+
+45
+00:02:27,717 --> 00:02:31,917
+It binds the intermediate, and the
+transition state that resembles it,
+
+46
+00:02:31,957 --> 00:02:34,317
+more tightly than it binds the substrate.
+
+47
+00:02:34,357 --> 00:02:37,547
+That difference is a large
+part of the catalysis.
+
+48
+00:02:38,767 --> 00:02:40,547
+The intermediate collapses.
+
+49
+00:02:40,587 --> 00:02:44,647
+The electrons on oxygen come back
+down to re-form the carbonyl.
+
+50
+00:02:44,687 --> 00:02:47,847
+Then the scissile bond,
+the carbon–nitrogen bond,
+
+51
+00:02:47,887 --> 00:02:51,047
+breaks, and histidine, now a proton donor,
+
+52
+00:02:51,087 --> 00:02:54,547
+protonates the amino
+group of the leaving half.
+
+53
+00:02:54,587 --> 00:02:57,427
+The first product, the amine half, leaves.
+
+54
+00:02:57,467 --> 00:02:59,987
+What stays behind is the acyl-enzyme:
+
+55
+00:03:00,027 --> 00:03:04,507
+the substrate's carbonyl,
+now bonded to serine as an ester.
+
+56
+00:03:05,727 --> 00:03:08,647
+The second half is the same
+chemistry with water.
+
+57
+00:03:08,687 --> 00:03:11,927
+A water molecule moves
+in where the amine was.
+
+58
+00:03:11,967 --> 00:03:14,487
+Histidine takes a proton from the water,
+
+59
+00:03:14,527 --> 00:03:17,617
+and the hydroxide attacks
+the ester carbonyl.
+
+60
+00:03:17,657 --> 00:03:23,457
+A second tetrahedral intermediate forms,
+held in the same oxyanion hole.
+
+61
+00:03:23,497 --> 00:03:28,837
+It collapses, serine is displaced
+and takes its proton back from histidine,
+
+62
+00:03:28,877 --> 00:03:32,037
+and the second product,
+a carboxylate, is released.
+
+63
+00:03:32,077 --> 00:03:35,067
+The enzyme is exactly as it started.
+
+64
+00:03:36,227 --> 00:03:39,227
+This two-step mechanism
+shows up in the kinetics.
+
+65
+00:03:39,267 --> 00:03:42,427
+With an ester substrate
+that releases a colored product,
+
+66
+00:03:42,467 --> 00:03:44,907
+the first molecules come out in a burst,
+
+67
+00:03:44,947 --> 00:03:47,977
+as fast as the enzyme can be acylated.
+
+68
+00:03:48,067 --> 00:03:52,697
+Then the rate drops to a steady state,
+set by the slower deacylation.
+
+69
+00:03:52,867 --> 00:03:56,027
+The burst is the acyl-enzyme forming,
+
+70
+00:03:56,067 --> 00:03:58,547
+and its size matches the amount of enzyme:
+
+71
+00:03:58,587 --> 00:04:03,557
+each enzyme molecule is acylated
+once before the slow step takes over.
+
+72
+00:04:04,807 --> 00:04:08,447
+Three residues, one pocket,
+two backbone N–H groups.
+
+73
+00:04:08,487 --> 00:04:11,407
+Every arrow you draw for this
+mechanism is a motion
+
+74
+00:04:11,447 --> 00:04:14,297
+of atoms you can find in the structure.
+
+75
+00:04:15,527 --> 00:04:18,127
+One last question:
+how does the pancreas make
+
+76
+00:04:18,167 --> 00:04:20,987
+an enzyme like this
+without digesting itself?
+
+77
+00:04:21,027 --> 00:04:24,217
+It makes an inactive precursor,
+chymotrypsinogen.
+
+78
+00:04:24,707 --> 00:04:28,317
+In the small intestine,
+trypsin cuts just one bond:
+
+79
+00:04:28,357 --> 00:04:33,997
+here the scissile bond is the one
+between arginine 15 and isoleucine 16.
+
+80
+00:04:34,037 --> 00:04:36,997
+That one cut changes
+the shape of the protein:
+
+81
+00:04:37,037 --> 00:04:42,117
+the hydrophobic pocket forms
+and the oxyanion hole is stabilized.
+
+82
+00:04:42,157 --> 00:04:48,787
+The enzyme is now active, and this first
+active form is called pi-chymotrypsin.
+
+83
+00:04:49,237 --> 00:04:51,837
+Then chymotrypsin trims itself,
+
+84
+00:04:51,877 --> 00:04:56,837
+cutting out two short pieces:
+serine 14 with arginine 15,
+
+85
+00:04:56,877 --> 00:05:01,397
+and threonine 147 with asparagine 148.
+
+86
+00:05:01,437 --> 00:05:03,987
+What is left is alpha-chymotrypsin,
+
+87
+00:05:04,107 --> 00:05:07,427
+the mature enzyme
+and the form in our model,
+
+88
+00:05:07,467 --> 00:05:10,547
+which is why its chain has two small gaps.
+

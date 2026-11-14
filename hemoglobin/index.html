@@ -6,7 +6,9 @@
     <title>Hemoglobin Tutorial</title>
     <style>
       html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #111418; }
-      #unity-canvas { display: block; width: 100%; height: 100%; background: #111418; outline: none; }
+      @supports (height: 100dvh) { html, body { height: 100dvh; } }   /* phones: the visible height, between the browser's toolbars */
+      #unity-canvas { display: block; width: 100%; height: 100%; background: #111418; outline: none;
+                      touch-action: none; -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
       #loading { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: min(360px, 70vw);
                  font: 15px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; color: #cfd6e0; text-align: center; }
       #bar { height: 6px; margin-top: 10px; background: #2a313b; border-radius: 3px; overflow: hidden; }
@@ -48,6 +50,17 @@
         productVersion: "0.1.0",
         showBanner: showBanner,
       };
+      // Phones: at most 2 device pixels per CSS pixel (a 3x screen would render 2.25 times the pixels for little gain).
+      var coarse = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+      if (coarse && window.devicePixelRatio > 2) config.devicePixelRatio = 2;
+      // Tells the tutorial the pixel ratio and whether the main pointer is a finger; it then sizes its interface
+      // in CSS pixels and uses the compact layout (CompactLayout.cs). Sent at start and whenever the window changes.
+      function sendDisplay() {
+        if (!window.unityInstance) return;
+        var dpr = config.devicePixelRatio || window.devicePixelRatio || 1;
+        window.unityInstance.SendMessage("Tutorial", "SetDisplay", dpr + ";" + (coarse ? 1 : 0));
+      }
+      window.addEventListener("resize", function () { setTimeout(sendDisplay, 50); });
       var script = document.createElement("script");
       script.src = buildUrl + "/WebGL.loader.js";
       script.onload = function () {
@@ -55,6 +68,7 @@
           document.querySelector("#bar-full").style.width = (100 * progress) + "%";
         }).then(function (unityInstance) {
           window.unityInstance = unityInstance;     // lets a page script (or a test) talk to the tutorial
+          sendDisplay();
           document.querySelector("#loading").style.display = "none";
           var start = document.querySelector("#start");
           start.style.display = "flex";

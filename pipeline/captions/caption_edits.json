@@ -1,0 +1,13 @@
+[
+ ["hemo", 2, "Above the iron is the distal histidine, and an empty pocket.", "Above the iron is the distal histidine in an empty pocket."],
+ ["hemo", 4, "This is the T to R transition.", "This is a T-to-R transition."],
+ ["hemo", 4, "Along this interface", "Along the interface"],
+ ["hemo", 5, "We will come back", "We'll come back"],
+ ["hemo", 6, "In a working muscle", "In the working muscle"],
+ ["hemo", 7, "R the high-affinity end", "R is the high-affinity end"],
+ ["hemo", 7, "In the next video we look at", "In the next video, we'll look at"],
+ ["chymo", 1, "is called the scissile bond", "is called a scissile bond"],
+ ["chymo", 2, "the base that will take", "the base that would take"],
+ ["chymo", 5, "point straight at that oxygen", "point straight at the oxygen"],
+ ["chymo", 5, "It binds this intermediate", "It binds the intermediate"]
+]

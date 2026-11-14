@@ -223,11 +223,15 @@ namespace HbTutorial
             float w = (videoLayout ? p.width : twinWidth) * RefW, aspect = (float)p.image.width / p.image.height;
             float h = (w - 2 * Pad) / aspect + top + Pad;
             float hMax = (videoLayout ? 0.8f : twinMaxHeight) * RefH;
-            if (h > hMax) { h = hMax; w = (h - top - Pad) * aspect + 2 * Pad; }
-            _card.sizeDelta = new Vector2(w, h);
-            // the canvas scales by height; convert the width margin to reference units at the current aspect
+            // the canvas scales by height; convert widths to reference units at the current aspect
             float refWide = RefH * (cam != null ? cam.aspect : 16f / 9f);
+            if (!videoLayout && refWide < RefH) hMax = Mathf.Min(hMax, 0.40f * RefH);      // portrait: leave the scene the lower part
+            if (h > hMax) { h = hMax; w = (h - top - Pad) * aspect + 2 * Pad; }
+            float wMax = refWide * (1f - 2f * margin);                                      // never wider than the screen
+            if (w > wMax) { w = wMax; h = (w - 2 * Pad) / aspect + top + Pad; }
+            _card.sizeDelta = new Vector2(w, h);
             float m = margin * refWide, x = m + (1f - s) * slide;
+            float tabs = !videoLayout && CompactLayout.Compact && Screen.height > 0 ? CompactLayout.TabsBottomPx * RefH / Screen.height : 0f;
             if (videoLayout)
             {
                 float side = p.left ? 0f : 1f;
@@ -239,7 +243,7 @@ namespace HbTutorial
             {
                 _card.anchorMin = _card.anchorMax = new Vector2(0f, 1f);
                 _card.pivot = new Vector2(0f, 1f);
-                _card.anchoredPosition = new Vector2(x - slide * (1f - s) * 2f, -m);   // slides in from the left
+                _card.anchoredPosition = new Vector2(x - slide * (1f - s) * 2f, -m - tabs);   // slides in from the left; below the compact tabs
             }
         }
     }

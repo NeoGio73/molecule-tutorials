@@ -21,6 +21,11 @@ SCREEN, SCREEN_EDGE = "rgb(214, 232, 250)", "rgb(120, 175, 230)"
 SCREEN_PANELS = set()
 SMALL_TEXT_SCALE = {"hb_p02_heme_side": 1.3}   # captions of 6-9 pt are unreadable at card size in this wide panel
 STROKES = {"0.6": "1.3", "0.48": "1.05", "2": "3.0"}
+# ChemDraw exports some bonds as filled outlines instead of stroked lines: bonds that meet at a ring vertex or a chain
+# vertex, mitered so the joins are clean. They are 0.6 wide, like the stroked bonds; an outline of 0.7 in their own color
+# brings them to 1.3 like the rest (Nov 13: before this, ring and chain bonds stayed at 0.6 and looked thin beside the
+# stroked bonds at 1.3). Only thin, long, straight-sided shapes count as bonds; arrowheads and dots are left alone.
+BOND_OUTLINE = 0.7
 TEXT_WEIGHT = 0.32   # an outline in the text's own color, so 10-pt Arial stays dark when the card is small
 # (Unity averages texture pixels in linear light when it shrinks them, which turns thin black lines gray)
 LABEL = re.compile(r"^(?:Fe|[CHNOS]|[0-9]|[+−-])+$")   # a formula-style atom label (NH, OH, COO, NH3), not prose
@@ -40,6 +45,27 @@ TITLES = {
     "hb_p02_heme_side": ("Oxygen binding", "The iron moves into the heme plane", None),
     "hb_p04_bohr_pair": ("The Bohr effect", "His<sup>146</sup>β–Asp<sup>94</sup>β ion pair", None),
 }
+
+
+def bond_width(d):
+    """Width of a filled bond outline (straight segments only), or None if the shape is not a thin bar."""
+    if re.search(r"[^MLZml0-9.\s,-]", d): return None                 # curves: dots, arcs, arrow shafts
+    pts = [tuple(map(float, p)) for p in re.findall(r"(-?[0-9.]+)[ ,]+(-?[0-9.]+)", d)]
+    if len(pts) < 4: return None
+    area = abs(sum(pts[i][0] * pts[i - 1][1] - pts[i - 1][0] * pts[i][1] for i in range(len(pts)))) / 2
+    length = max(((a[0] - b[0]) ** 2 + (a[1] - b[1]) ** 2) ** 0.5 for a in pts for b in pts)
+    if length < 4: return None
+    w = area / length
+    return w if w < 1.0 and length / max(w, 1e-6) > 6 else None
+
+
+def thicken_bond_outline(m):
+    el = m.group(0)
+    if attr(el, "stroke-width") != "0" or attr(el, "fill") in (None, "none"): return el
+    w = bond_width(attr(el, "d", ""))
+    if w is None or not 0.45 < w < 0.75: return el
+    el = re.sub(r'(?<=\s)stroke="[^"]*"', f'stroke="{attr(el, "fill")}"', el)
+    return el.replace('stroke-width="0"', f'stroke-width="{BOND_OUTLINE}"')
 
 
 def tspans(block):
@@ -121,6 +147,7 @@ def restyle(svg, drawn_title, screen=True, small_scale=1.0):
         return el
     svg = re.sub(r"<line[^>]*/>", line, svg)
     svg = re.sub(r'stroke-width="([0-9.]+)"', lambda m: f'stroke-width="{STROKES.get(m.group(1), m.group(1))}"', svg)
+    svg = re.sub(r"<path[^>]*/>", thicken_bond_outline, svg)
 
     if boxes:                                             # one smooth stepped shape: a rectangle per text row
         pad, padx, edge = 2.4, 3.4, 0.55
